@@ -40,9 +40,9 @@ const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV === 'develop
 
 const paths = {
   pug: {
-    src: "./src/pages/*.pug",
-    dist: "./dist/pages/",
-    watch: "./src/pages/*.pug"
+    src: "./src/{pugTemplates,pages}/**/*.pug",
+    dist: "./dist/",
+    watch: "./src/{pugTemplates,pages}/**/*.pug"
   },
   fonts: {
     src: "./src/fonts/**/*.{ttf,otf,woff,woff2}",
@@ -98,7 +98,10 @@ gulp.task('images', () => {
         ]
       }),
       imagemin.optipng({optimizationLevel: 3}),
-      pngquant({quality: '70-75', speed: 5})
+      pngquant({
+        quality: [0.7, 0.8],
+        speed: 5
+      })
     ]))
     .pipe(gulp.dest(paths.images.dist))
     .pipe(browserSync.stream());
@@ -108,7 +111,7 @@ gulp.task('webpack', function(callback) {
   let options = {
     mode: isDevelopment ? 'development' : 'production',
     entry: {
-      main: path.resolve(__dirname, 'src/js/main.js')
+      main: path.resolve(__dirname, 'src/common/common.js')
     },
     output:  {
       path: path.resolve(__dirname, 'dist/js'),
