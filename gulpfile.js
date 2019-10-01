@@ -6,7 +6,8 @@ const webpack = require('webpack');
 const notifier = require('node-notifier');
 const path = require('path');
 
-
+// модуль для склеевания фалов
+const concat = require('gulp-concat');
 // модуль для переименования фалов
 const replace = require('gulp-replace');
 // модуль для переименования фалов
@@ -70,6 +71,9 @@ gulp.task('clean', () => {
 gulp.task('pug', () => {
   return gulp.src(paths.pug.src)
     .pipe(pug({ pretty: true }))
+    .pipe(rename({
+      dirname: 'pages'
+    }))
     .pipe(gulp.dest(paths.pug.dist))
     .pipe(browserSync.reload({ stream: true }));
 });
@@ -103,6 +107,9 @@ gulp.task('images', () => {
         speed: 5
       })
     ]))
+    .pipe(rename((path) => {
+      path.dirname = path.dirname.replace(/pages\\|img/g, '');
+    }))
     .pipe(gulp.dest(paths.images.dist))
     .pipe(browserSync.stream());
 });
@@ -164,6 +171,7 @@ gulp.task('styles', () => {
     .pipe(sass())
     .pipe(autoprefixer())
     .pipe(gulpIf(!isDevelopment, cssmin()))
+    .pipe(concat('main.css'))
     .pipe(gulp.dest(paths.styles.dist))
     .pipe(browserSync.stream());
 });
