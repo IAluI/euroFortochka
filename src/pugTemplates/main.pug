@@ -3,34 +3,38 @@ html(lang='ru')
   head
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width', initial-scale='1', shrink-to-fit='no')
-    link(rel='stylesheet', type='text/css', href='/uploaded/files/css/site.css')
+    link(rel='stylesheet', type='text/css', href='/css/main.css')
     title
       block title
   body
-    header.MainHeader
+    header.d-flex.justify-content-between.p-3.shadow.MainHeader
       div.MainHeader-Logo
-        img(src = '', alt = 'Еврофорточка')
-        p.
-          от духоты
-          от влажности
-          от плесени
-      h2.MainHeader-Title
+        a(href="http://еврофорточка.рф")
+          img(src = '/img/common/main-logo.png', alt = 'Еврофорточка').h-100
+        div.h-100.mx-2.bg-primary
+        p.m-0.text-primary
+          small
+            strong
+              | от духоты <br>
+              | от влажности <br>
+              | от плесени <br>
+      h2.d-none.d-lg-block.MainHeader-Title
         | Децентрализованные системы вентиляции
       div.MainHeader-Tel
         p
-          | Барнаул
+          | Барнаул&nbsp
           a(href="tel:+73852570858")
             | 8 (3852) 57-08-58
         p
-          | Красноярск
+          | Красноярск&nbsp
           a(href="tel:+73912154602")
             | 8 (391) 215-46-02
         p
-          | Новосибирск
+          | Новосибирск&nbsp
           a(href="tel:+73832772367")
             | 8 (383) 277–23–67
       a.Callback1
         | Оставить заявку
     block content
     footer
-
+      script(type='text/javascript', src='../js/main.js')

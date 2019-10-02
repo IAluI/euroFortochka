@@ -70,7 +70,7 @@ gulp.task('clean', () => {
 
 gulp.task('pug', () => {
   return gulp.src(paths.pug.src)
-    .pipe(pug({ pretty: true }))
+    .pipe(pug(/*{ pretty: true }*/))
     .pipe(rename({
       dirname: 'pages'
     }))

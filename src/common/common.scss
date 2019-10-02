@@ -1,0 +1,43 @@
+$primary: #7eb500;
+$secondary: #07507B;
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+.MainHeader {
+
+}
+
+.MainHeader-Logo {
+
+}
+
+.MainHeader-Logo > * {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.MainHeader-Logo > div {
+  width: 2px;
+}
+
+.MainHeader-Logo > a {
+  height: 4rem;
+}
+
+.MainHeader-Logo > p {
+  /*font: {
+    size: 80%;
+    weight: 700;
+  }
+  //line-height: 1em;
+  margin: 0;*/
+}
+
+.MainHeader-Title {
+
+}
+
+.MainHeader-Tel > p {
+  margin: 0;
+}
+
