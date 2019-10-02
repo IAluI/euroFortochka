@@ -7,34 +7,77 @@ html(lang='ru')
     title
       block title
   body
-    header.d-flex.justify-content-between.p-3.shadow.MainHeader
-      div.MainHeader-Logo
-        a(href="http://еврофорточка.рф")
-          img(src = '/img/common/main-logo.png', alt = 'Еврофорточка').h-100
-        div.h-100.mx-2.bg-primary
-        p.m-0.text-primary
-          small
-            strong
-              | от духоты <br>
-              | от влажности <br>
-              | от плесени <br>
-      h2.d-none.d-lg-block.MainHeader-Title
-        | Децентрализованные системы вентиляции
-      div.MainHeader-Tel
-        p
+    header.MainHeader
+      div.d-flex.justify-content-between.py-3.shadow.MainHeader-Bar
+        div.d-flex.align-items-center.flex-shrink-0.MainHeader-Logo
+          a(href="http://еврофорточка.рф").MainHeader-LogoImg
+            img(src = '/img/common/main-logo.png', alt = 'Еврофорточка').h-100
+          div.h-100.mx-2.bg-primary.MainHeader-LogoDivider
+          p.m-0.text-primary.MainHeader-LogoText
+            | от духоты <br>
+            | от влажности <br>
+            | от плесени <br>
+        div.d-none.d-xl-flex.align-items-center
+          h4.m-0
+            | Децентрализованные системы вентиляции
+        div.d-none.d-md-block.flex-shrink-0
+          p.m-0
+            | Барнаул&nbsp
+            a(href="tel:+73852570858")
+              strong 8 (3852) 57-08-58
+          p.m-0
+            | Красноярск&nbsp
+            a(href="tel:+73912154602")
+              strong 8 (391) 215-46-02
+          p.m-0
+            | Новосибирск&nbsp
+            a(href="tel:+73832772367")
+              strong 8 (383) 277–23–67
+        div.d-flex.align-items-center.flex-shrink-0
+          button(type="button").btn.btn-primary
+            | Оставить заявку
+      nav
+        ul.list-unstyled.d-flex.justify-content-around.MainHeader-Nav
+          li
+            a(href='')
+              | Акции
+          li
+            a(href='')
+              | Оборудование
+          li
+            a(href='')
+              | Фильтры
+          li
+            a(href='')
+              | Монтаж
+          li
+            a(href='')
+              | Наши клиенты
+          li
+            a(href='')
+              | Вопросы и ответы
+          li
+            a(href='')
+              | Контакты
+    div.Content
+      block content
+
+    footer.d-flex.justify-content-between.align-items-center.w-100.p-3.bg-primary.text-white
+      p.m-0.mr-2
+        | Все права защищены <br>
+        | © 2016 - 2019
+      div.flex-shrink-0
+        p.m-0
           | Барнаул&nbsp
-          a(href="tel:+73852570858")
-            | 8 (3852) 57-08-58
-        p
+          a(href="tel:+73852570858").text-reset
+            strong 8 (3852) 57-08-58
+        p.m-0
           | Красноярск&nbsp
-          a(href="tel:+73912154602")
-            | 8 (391) 215-46-02
-        p
+          a(href="tel:+73912154602").text-reset
+            strong 8 (391) 215-46-02
+        p.m-0
           | Новосибирск&nbsp
-          a(href="tel:+73832772367")
-            | 8 (383) 277–23–67
-      a.Callback1
-        | Оставить заявку
-    block content
-    footer
+          a(href="tel:+73832772367").text-reset
+            strong 8 (383) 277–23–67
+
       script(type='text/javascript', src='../js/main.js')
