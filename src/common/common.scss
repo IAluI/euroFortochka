@@ -32,6 +32,12 @@ html {
   top: 0;
   left: 0;
   right: 0;
+  z-index: $zindex-modal;
+}
+
+.MainHeader-Bar {
+  position: relative;
+  z-index: 1;
 }
 
 .MainHeader-Bar > * {
@@ -53,40 +59,102 @@ html {
   }
 }
 
-.MainHeader-Nav > li > a {
+.MainHeader-Nav {
+  display: none;
+  @media (min-width: map-get($grid-breakpoints, md)) {
+    display: block;
+  }
+}
+
+#mainNavMenu:checked ~ .MainHeader-Nav {
+  display: flex;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: $zindex-modal-backdrop;
+  background-color: rgba(0, 0, 0, 0.3);
+  transform: translateX(0);
+}
+
+.MainHeader-NavList {
+  background-color: #fff;
+  flex: 0 1 460px;
+  @media (min-width: map-get($grid-breakpoints, md)) {
+
+  }
+}
+
+#mainNavMenu:checked ~ .MainHeader-Nav .MainHeader-NavList {
+
+}
+
+#mainNavMenu:not(:checked) ~ .MainHeader-Nav .MainHeader-NavList > li > a {
   position: relative;
   display: block;
   width: 7rem;
-  padding-top: 1rem;
+  padding: {
+    top: 1rem;
+    bottom: 0.5rem;
+  }
   margin-bottom: 1rem;
   color: #000;
   font-size: 0.8rem;
   text-align: center;
   background-color: transparent;
-}
-
-.MainHeader-Nav > li > a:hover {
-  color: #fff;
-  text-decoration: none;
-  background-color: var(--primary);
+  //transition: background-color 0.3s;
   &:before {
-    border-top-color: var(--primary);
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1rem;
+    width: 0;
+    height: 0;
+    border: {
+      left: 3.5rem solid transparent;
+      right: 3.5rem solid transparent;
+      top: 1rem solid transparent;
+    }
+    //transition: border-color 0.3s;
+  }
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: $primary;
+    &:before {
+      border-top-color: $primary;
+    }
   }
 }
 
-.MainHeader-Nav > li > a:before {
-  content: '';
+.MainHeader-Burger svg {
+  width: 1.5rem;
+}
+
+.MainHeader-BurgerCheckbox {
   position: absolute;
-  left: 0;
   right: 0;
-  bottom: -1rem;
-  width: 0;
-  height: 0;
-  border-left: 3.5rem solid transparent;
-  border-right: 3.5rem solid transparent;
-  border-top: 1rem solid transparent;
+  z-index: -1;
+  //opacity: 0;
 }
 
 .Content {
   margin-top: 200px;
 }
+
+/*
+.TEST {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateX(-20px);
+  transition: translateX 1s;
+  width: 20px;
+  height: 20px;
+}
+
+#mainNavMenu:checked ~ .TEST {
+  transform: translateX(500px);
+}*/

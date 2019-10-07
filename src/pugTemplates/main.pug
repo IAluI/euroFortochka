@@ -4,12 +4,20 @@ html(lang='ru')
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width', initial-scale='1', shrink-to-fit='no')
     link(rel='stylesheet', type='text/css', href='/css/main.css')
+
+    link(rel="stylesheet", href="https://unpkg.com/aos@next/dist/aos.css")
+
     title
       block title
   body
     header.MainHeader
+      input(type="checkbox", name="mainNavMenu", id="mainNavMenu").MainHeader-BurgerCheckbox
       div.d-flex.justify-content-between.py-3.shadow.MainHeader-Bar
-        div.d-flex.align-items-center.flex-shrink-0.MainHeader-Logo
+        div.d-md-none.d-flex.align-items-center.MainHeader-Burger
+          label(for="mainNavMenu").m-0.d-flex.align-items-center.btn.btn-primary.p-2
+            svg(xmlns="http://www.w3.org/2000/svg", viewBox="0 0 16 12", fill="#fff")
+              path(d="M0 0h16v2H0V0zm0 5h16v2H0V5zm0 5h16v2H0v-2z")
+        div.d-none.d-sm-flex.align-items-center.flex-shrink-0.MainHeader-Logo
           a(href="http://еврофорточка.рф").MainHeader-LogoImg
             img(src = '/img/common/main-logo.png', alt = 'Еврофорточка').h-100
           div.h-100.mx-2.bg-primary.MainHeader-LogoDivider
@@ -36,29 +44,34 @@ html(lang='ru')
         div.d-flex.align-items-center.flex-shrink-0
           button(type="button").btn.btn-primary
             | Оставить заявку
-      nav
-        ul.list-unstyled.d-flex.justify-content-around.MainHeader-Nav
-          li
-            a(href='')
-              | Акции
-          li
-            a(href='')
-              | Оборудование
-          li
-            a(href='')
-              | Фильтры
-          li
-            a(href='')
-              | Монтаж
-          li
-            a(href='')
-              | Наши клиенты
-          li
-            a(href='')
-              | Вопросы и ответы
-          li
+      nav.MainHeader-Nav
+        //.d-none.d-md-block
+        div.MainHeader-NavList
+          ul(data-aos="fade-right", data-aos-once="true").m-0.mb-md-3.list-unstyled.d-flex.flex-column.flex-md-row.justify-content-md-around
+            li
+              a(href='')
+                | Акции
+            li
+              a(href='')
+                | Оборудование
+            li
+              a(href='')
+                | Фильтры
+            li
+              a(href='')
+                | Монтаж
+            li
+              a(href='')
+                | Наши клиенты
+            li
+              a(href='')
+                | Вопросы и ответы
+            li
             a(href='')
               | Контакты
+        label(for="mainNavMenu").flex-grow-1
+        //.position-absolute.d-md-none.m-0.w-100.h-100
+      //div.TEST
     div.Content
       block content
 
@@ -81,3 +94,7 @@ html(lang='ru')
             strong 8 (383) 277–23–67
 
       script(type='text/javascript', src='../js/main.js')
+
+      script(src="https://unpkg.com/aos@next/dist/aos.js")
+      script
+        | AOS.init();
