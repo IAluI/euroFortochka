@@ -140,7 +140,13 @@ gulp.task('webpack', function(callback) {
           }
         }
       ]
-    }
+    },
+    plugins: [
+      new webpack.ProvidePlugin({
+        $: 'jquery',
+        jQuery: 'jquery'
+      })
+    ]
   };
 
   webpack(options, function(err, stats) {

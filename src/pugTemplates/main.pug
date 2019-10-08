@@ -11,10 +11,11 @@ html(lang='ru')
       block title
   body
     header.MainHeader
-      input(type="checkbox", name="mainNavMenu", id="mainNavMenu").MainHeader-BurgerCheckbox
+      input(type="checkbox", id="mainNavMenu").MainHeader-BurgerCheckbox
       div.d-flex.justify-content-between.py-3.shadow.MainHeader-Bar
         div.d-md-none.d-flex.align-items-center.MainHeader-Burger
-          label(for="mainNavMenu").m-0.d-flex.align-items-center.btn.btn-primary.p-2
+          //button(type="button", id="MainHeaderMenu").d-flex.align-items-center.btn.btn-primary.p-2
+          label(for="mainNavMenu").d-flex.align-items-center.btn.btn-primary.p-2
             svg(xmlns="http://www.w3.org/2000/svg", viewBox="0 0 16 12", fill="#fff")
               path(d="M0 0h16v2H0V0zm0 5h16v2H0V5zm0 5h16v2H0v-2z")
         div.d-none.d-sm-flex.align-items-center.flex-shrink-0.MainHeader-Logo
@@ -45,9 +46,8 @@ html(lang='ru')
           button(type="button").btn.btn-primary
             | Оставить заявку
       nav.MainHeader-Nav
-        //.d-none.d-md-block
-        div.MainHeader-NavList
-          ul(data-aos="fade-right", data-aos-once="true").m-0.mb-md-3.list-unstyled.d-flex.flex-column.flex-md-row.justify-content-md-around
+        div.MainHeader-NavListWrapper
+          ul.m-0.mb-md-3.list-unstyled.d-flex.flex-column.flex-md-row.justify-content-md-around.MainHeader-NavList
             li
               a(href='')
                 | Акции
@@ -67,11 +67,9 @@ html(lang='ru')
               a(href='')
                 | Вопросы и ответы
             li
-            a(href='')
-              | Контакты
-        label(for="mainNavMenu").flex-grow-1
-        //.position-absolute.d-md-none.m-0.w-100.h-100
-      //div.TEST
+              a(href='')
+                | Контакты
+        label(for="mainNavMenu").w-100.h-100
     div.Content
       block content
 

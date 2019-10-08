@@ -32,7 +32,7 @@ html {
   top: 0;
   left: 0;
   right: 0;
-  z-index: $zindex-modal;
+  //z-index: $zindex-modal;
 }
 
 .MainHeader-Bar {
@@ -60,37 +60,38 @@ html {
 }
 
 .MainHeader-Nav {
-  display: none;
-  @media (min-width: map-get($grid-breakpoints, md)) {
-    display: block;
-  }
-}
-
-#mainNavMenu:checked ~ .MainHeader-Nav {
-  display: flex;
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: $zindex-modal-backdrop;
+  display: flex;
+  transition: background-color 0.3s;
+  pointer-events: none;
+
+  @media (min-width: map-get($grid-breakpoints, md)) {
+    z-index: auto;
+    position: static;
+    display: block;
+    pointer-events: auto;
+    transition: none;
+  }
+}
+
+#mainNavMenu:checked ~ .MainHeader-Nav {
   background-color: rgba(0, 0, 0, 0.3);
-  transform: translateX(0);
+  pointer-events: auto;
 }
 
 .MainHeader-NavList {
-  background-color: #fff;
-  flex: 0 1 460px;
+
   @media (min-width: map-get($grid-breakpoints, md)) {
 
   }
 }
 
-#mainNavMenu:checked ~ .MainHeader-Nav .MainHeader-NavList {
-
-}
-
-#mainNavMenu:not(:checked) ~ .MainHeader-Nav .MainHeader-NavList > li > a {
+#mainNavMenu:not(:checked) ~ .MainHeader-Nav .MainHeader-NavList li > a {
   position: relative;
   display: block;
   width: 7rem;
@@ -129,6 +130,49 @@ html {
   }
 }
 
+.MainHeader-NavListWrapper {
+  position: absolute;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  max-width: 460px;
+  background-color: #fff;
+  transition: transform 0.3s, margin-left 0.3s;
+  transform: translateX(-100%);
+  //flex: 0 1 460px;
+  //opacity: 0;
+  @media (min-width: map-get($grid-breakpoints, md)) {
+    position: static;
+    transition: none;
+    transform: none;
+    max-width: none;
+  }
+}
+
+#mainNavMenu:not(:checked) ~ .MainHeader-Nav .MainHeader-NavListWrapper {
+  //transform: translateX(-100%);
+  @media (min-width: map-get($grid-breakpoints, md)) {
+    //opacity: 1;
+    position: static;
+    transition: none;
+    transform: none;
+    max-width: none;
+  }
+}
+
+#mainNavMenu:checked ~ .MainHeader-Nav .MainHeader-NavListWrapper {
+  /*position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-width: 460px;*/
+  //flex: 0 1 460px;
+  //opacity: 1;
+  margin-left: 100%;
+  transform: none;
+}
+
 .MainHeader-Burger svg {
   width: 1.5rem;
 }
@@ -144,17 +188,3 @@ html {
   margin-top: 200px;
 }
 
-/*
-.TEST {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateX(-20px);
-  transition: translateX 1s;
-  width: 20px;
-  height: 20px;
-}
-
-#mainNavMenu:checked ~ .TEST {
-  transform: translateX(500px);
-}*/
