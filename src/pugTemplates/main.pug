@@ -12,12 +12,15 @@ html(lang='ru')
   body
     header.MainHeader
       input(type="checkbox", id="mainNavMenu").MainHeader-BurgerCheckbox
-      div.d-flex.justify-content-between.py-3.shadow.MainHeader-Bar
-        div.d-md-none.d-flex.align-items-center.MainHeader-Burger
+      div.d-flex.justify-content-between.py-2.shadow.MainHeader-Bar
+        div.d-md-none.d-flex.align-items-center
+          //.MainHeader-Burger
           //button(type="button", id="MainHeaderMenu").d-flex.align-items-center.btn.btn-primary.p-2
-          label(for="mainNavMenu").d-flex.align-items-center.btn.btn-primary.p-2
-            svg(xmlns="http://www.w3.org/2000/svg", viewBox="0 0 16 12", fill="#fff")
+          label(for="mainNavMenu").m-0.d-flex.align-items-center.btn.btn-primary.p-2.MainHeader-MenuBtn
+            //svg(xmlns="http://www.w3.org/2000/svg", viewBox="0 0 16 12", fill="#fff")
               path(d="M0 0h16v2H0V0zm0 5h16v2H0V5zm0 5h16v2H0v-2z")
+            div.MainHeader-Burger
+              div
         div.d-none.d-sm-flex.align-items-center.flex-shrink-0.MainHeader-Logo
           a(href="http://еврофорточка.рф").MainHeader-LogoImg
             img(src = '/img/common/main-logo.png', alt = 'Еврофорточка').h-100
@@ -43,10 +46,10 @@ html(lang='ru')
             a(href="tel:+73832772367")
               strong 8 (383) 277–23–67
         div.d-flex.align-items-center.flex-shrink-0
-          button(type="button").btn.btn-primary
+          button(type="button").btn.btn-primary.MainHeader-Callback
             | Оставить заявку
       nav.MainHeader-Nav
-        div.MainHeader-NavListWrapper
+        div.p-3.p-md-0.MainHeader-NavListWrapper
           ul.m-0.mb-md-3.list-unstyled.d-flex.flex-column.flex-md-row.justify-content-md-around.MainHeader-NavList
             li
               a(href='')
@@ -69,11 +72,14 @@ html(lang='ru')
             li
               a(href='')
                 | Контакты
-        label(for="mainNavMenu").w-100.h-100
+          label(for="mainNavMenu").MainHeader-CloseMenu
+            div
+            div
+        label(for="mainNavMenu").d-md-none.w-100.h-100
     div.Content
       block content
 
-    footer.d-flex.justify-content-between.align-items-center.w-100.p-3.bg-primary.text-white
+    footer.d-flex.flex-column-reverse.flex-sm-row.justify-content-between.align-items-sm-center.w-100.p-3.bg-primary.text-white.Footer
       p.m-0.mr-2
         | Все права защищены <br>
         | © 2016 - 2019
