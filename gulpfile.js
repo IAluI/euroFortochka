@@ -6,6 +6,8 @@ const webpack = require('webpack');
 const notifier = require('node-notifier');
 const path = require('path');
 
+// модуль для создания svg-спрайтов
+const svgSprite = require('gulp-svg-sprite');
 // модуль для склеевания фалов
 const concat = require('gulp-concat');
 // модуль для переименования фалов
@@ -51,14 +53,19 @@ const paths = {
     watch: "./src/fonts/**/*.{ttf,otf,woff,woff2}"
   },
   images: {
-    src: "./src/{common,pages}/**/*.{jpg,jpeg,png,gif,svg}",
+    src: "./src/{common/img,pages/img}/*.{jpg,jpeg,png,gif,svg}",
     dist: "./dist/img/",
-    watch: "./src/{common,pages}/**/*.{jpg,jpeg,png,gif,svg}"
+    watch: "./src/{common/img,pages/img}/*.{jpg,jpeg,png,gif,svg}"
   },
   styles: {
     src: "./src/{common,pages}/**/*.scss",
     dist: "./dist/css/",
     watch: "./src/{common,pages}/**/*.scss"
+  },
+  svgSprite: {
+    src: "./src/common/icons/*.svg",
+    dist: "./dist/img/common/",
+    watch: "./src/common/icons/*.svg"
   }
 };
 
@@ -95,12 +102,12 @@ gulp.task('images', () => {
         max: 75,
         quality: 'medium'
       }),
-      imagemin.svgo({
+      /*imagemin.svgo({
         plugins: [
           {removeViewBox: false},
           {cleanupIDs: false}
         ]
-      }),
+      }),*/
       imagemin.optipng({optimizationLevel: 3}),
       pngquant({
         quality: [0.7, 0.8],
@@ -111,6 +118,24 @@ gulp.task('images', () => {
       path.dirname = path.dirname.replace(/pages\\|img/g, '');
     }))
     .pipe(gulp.dest(paths.images.dist))
+    .pipe(browserSync.stream());
+});
+
+gulp.task('svgSprite', () => {
+  return gulp.src(paths.svgSprite.src)
+    .pipe(svgSprite({
+      mode: {
+        symbol: {
+          dest: '.',
+          sprite: 'icons.svg',
+          /*render: {
+            scss: true
+          },*/
+          example: true
+        }
+      }
+    }))
+    .pipe(gulp.dest(paths.svgSprite.dist))
     .pipe(browserSync.stream());
 });
 
@@ -191,6 +216,7 @@ gulp.task('webserver', () => {
   gulp.watch(paths.pug.watch, gulp.series('pug'));
   gulp.watch(paths.styles.watch, gulp.series('styles'));
   gulp.watch(paths.images.watch, gulp.series('images'));
+  gulp.watch(paths.svgSprite.watch, gulp.series('svgSprite'));
   gulp.watch(paths.fonts.watch, gulp.series('fonts'));
 });
 
@@ -199,6 +225,7 @@ gulp.task('build',
     gulp.parallel(
       'fonts',
       'images',
+      'svgSprite',
       'styles',
       'webpack',
       'pug'
