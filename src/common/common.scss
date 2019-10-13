@@ -27,6 +27,8 @@ html {
   @include responsive-font-size(14, 18, 320, 1200);
 }
 
+@import "../../tmp/icons";
+
 .MainHeader {
   position: fixed;
   top: 0;

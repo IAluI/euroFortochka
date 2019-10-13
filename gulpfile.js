@@ -71,7 +71,8 @@ const paths = {
 
 gulp.task('clean', () => {
   return del([
-    './dist/**/*'
+    './dist/**/*',
+    './tmp/**/*'
   ]);
 });
 
@@ -124,18 +125,38 @@ gulp.task('images', () => {
 gulp.task('svgSprite', () => {
   return gulp.src(paths.svgSprite.src)
     .pipe(svgSprite({
+      //dest: '.',
       mode: {
+        /*shape: {
+          transform: [
+            {svgo: {
+                plugins: [
+                    {transformsWithOnePath: true},
+                    {moveGroupAttrsToElems: false}
+                ]
+            }}
+          ]
+        },*/
         symbol: {
           dest: '.',
           sprite: 'icons.svg',
-          /*render: {
-            scss: true
-          },*/
-          example: true
+          /*prefix: '%s',*/
+          //dimensions: '',
+          render: {
+            scss: {
+              dest: '_icons.scss',
+              template: 'src/common/scssSpriteTemplate.mustache'
+            }
+          },
+          example: true,
         }
       }
     }))
-    .pipe(gulp.dest(paths.svgSprite.dist))
+    .pipe(gulp.dest((file) => {
+      //console.log(path.resolve(__dirname, './srs/common/scssSpriteTemplate.mustache'))
+
+      return file.extname == '.scss' ? './tmp/' : paths.svgSprite.dist;
+    }))
     .pipe(browserSync.stream());
 });
 
