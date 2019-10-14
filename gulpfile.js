@@ -243,10 +243,10 @@ gulp.task('webserver', () => {
 
 gulp.task('build',
   gulp.series('clean',
+    'svgSprite',
     gulp.parallel(
       'fonts',
       'images',
-      'svgSprite',
       'styles',
       'webpack',
       'pug'

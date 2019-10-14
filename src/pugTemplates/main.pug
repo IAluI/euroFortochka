@@ -1,3 +1,7 @@
+mixin icon(name, color)
+  svg(class = `icon icon-${name}${color ? ' icon-' + color: ''}`)&attributes(attributes)
+    use(xlink:href = `/img/common/icons.svg#${name}`)
+
 doctype html
 html(lang='ru')
   head
@@ -85,19 +89,20 @@ html(lang='ru')
         | Все права защищены <br>
         | © 2016 - 2019
       div.flex-shrink-0
-        p.m-0
-          | Барнаул&nbsp
-          svg.icon.icon-phone
-            use(xlink:href = "/img/common/icons.svg#phone")
+        p.m-0.d-flex.align-items-center
+          span Барнаул
           a(href="tel:+73852570858").text-reset
+            +icon('phone').mx-1
             strong 8 (3852) 57-08-58
         p.m-0
-          | Красноярск&nbsp
+          span Красноярск
           a(href="tel:+73912154602").text-reset
+            +icon('phone').mx-1
             strong 8 (391) 215-46-02
         p.m-0
-          | Новосибирск&nbsp
+          span Новосибирск
           a(href="tel:+73832772367").text-reset
+            +icon('phone').mx-1
             strong 8 (383) 277–23–67
 
       script(type='text/javascript', src='../js/main.js')
