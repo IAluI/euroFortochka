@@ -33,22 +33,25 @@ html(lang='ru')
             | от духоты <br>
             | от влажности <br>
             | от плесени <br>
-        div.d-none.d-xl-flex.align-items-center
-          h4.m-0
+        div.d-none.d-xl-flex.align-items-center.flex-shrink-1
+          h4.m-0.w-100
             | Децентрализованные системы вентиляции
         div.d-none.d-md-block.flex-shrink-0
-          p.m-0
-            | Барнаул&nbsp
-            a(href="tel:+73852570858")
-              strong 8 (3852) 57-08-58
-          p.m-0
-            | Красноярск&nbsp
-            a(href="tel:+73912154602")
-              strong 8 (391) 215-46-02
-          p.m-0
-            | Новосибирск&nbsp
-            a(href="tel:+73832772367")
-              strong 8 (383) 277–23–67
+          p.m-0.d-flex.align-items-center
+            span Барнаул&nbsp;&nbsp;
+            a(href="tel:+73852570858").d-flex.align-items-center
+              +icon('phone').mx-1
+              strong 8 (3852) 57&ndash;08&ndash;58
+          p.m-0.d-flex.align-items-center
+            span Красноярск
+            a(href="tel:+73912154602").d-flex.align-items-center
+              +icon('phone').mx-1
+              strong 8 (391) 215&ndash;46&ndash;02
+          p.m-0.d-flex.align-items-center
+            span Новосибирск
+            a(href="tel:+73832772367").d-flex.align-items-center
+              +icon('phone').mx-1
+              strong 8 (383) 277&ndash;23&ndash;67
         div.d-flex.align-items-center.flex-shrink-0
           button(type="button").btn.btn-primary.MainHeader-Callback
             | Оставить заявку
@@ -90,20 +93,21 @@ html(lang='ru')
         | © 2016 - 2019
       div.flex-shrink-0
         p.m-0.d-flex.align-items-center
-          span Барнаул
-          a(href="tel:+73852570858").text-reset
+          span Барнаул&nbsp;&nbsp;
+          a(href="tel:+73852570858").text-reset.d-flex.align-items-center
             +icon('phone').mx-1
-            strong 8 (3852) 57-08-58
-        p.m-0
+            strong 8 (3852) 57&ndash;08&ndash;58
+        p.m-0.d-flex.align-items-center
           span Красноярск
-          a(href="tel:+73912154602").text-reset
+          a(href="tel:+73912154602").text-reset.d-flex.align-items-center
             +icon('phone').mx-1
-            strong 8 (391) 215-46-02
-        p.m-0
-          span Новосибирск
-          a(href="tel:+73832772367").text-reset
+            strong 8 (391) 215&ndash;46&ndash;02
+        p.m-0.d-flex.align-items-center
+          span
+           | Новосибирск
+          a(href="tel:+73832772367").text-reset.d-flex.align-items-center
             +icon('phone').mx-1
-            strong 8 (383) 277–23–67
+            strong 8 (383) 277&ndash;23&ndash;67
 
       script(type='text/javascript', src='../js/main.js')
 

@@ -65,7 +65,7 @@ const paths = {
   svgSprite: {
     src: "./src/common/icons/*.svg",
     dist: "./dist/img/common/",
-    watch: "./src/common/icons/*.svg"
+    watch: ["./src/common/icons/*.svg", "./src/common/scssSpriteTemplate.mustache"]
   }
 };
 
