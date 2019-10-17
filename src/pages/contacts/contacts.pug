@@ -6,6 +6,9 @@ block title
 block pageHeader
   | Контакты
 
+block crumbs
+  +crumbs('Контакты', '/contacts')
+
 mixin contact(city, phone, phoneView, location, locationView, mail)
   div.col-12.col-lg-6.col-xl-4
     h2= city
@@ -17,7 +20,7 @@ mixin contact(city, phone, phoneView, location, locationView, mail)
     p.d-flex.align-items-center
       +icon('location').mr-1
       span Адрес
-      a(href = location, targer = "_blank").ml-1
+      a(href = location, target = "_blank").ml-1
         = locationView
     p.d-flex.align-items-center
       +icon('mail').mr-1
@@ -48,28 +51,30 @@ block content
         'Новосибирск',
         '+73832772367',
         '8 (383) 277&ndash;23&ndash;67',
-        '',
+        'https://2gis.ru/novosibirsk/firm/70000001027129681',
         'Ельцовка 1-я, 1 к Р, 3 эт, офис 3',
         'oooaba54@gmail.com'
       )
+
     div.border-bottom.my-3
+
     div
       h2 Реквизиты
       p
-        b Наименование:
+        b.mr-1 Наименование:
         span ООО «ЕВРОФОРТОЧКА»
       p
-        b Юр. адрес:
+        b.mr-1 Юр. адрес:
         span 660020, Россия, г. Красноярск, ул. Шахтеров, 49, оф.1.04
       p
-        b ИНН:
+        b.mr-1 ИНН:
         span 2466276880
       p
-        b КПП:
+        b.mr-1 КПП:
         span 246601001
       p
-        b ОГРН:
+        b.mr-1 ОГРН:
         span 1142468056940
       p
-        b ОКАТО:
+        b.mr-1 ОКАТО:
         span 04401377000

@@ -231,7 +231,15 @@ gulp.task('styles', () => {
 gulp.task('webserver', () => {
   browserSync.init({
     server: "./dist/",
-    port: 4000
+    port: 4000,
+    middleware: [
+      function(req, res, next) {
+        if (!/(^\/css\/)|(^\/img\/)|(^\/js\/)/.test(req.url)) {
+          req.url = '/pages' + req.url;
+        }
+        next();
+      }
+    ]
   });
 
   gulp.watch(paths.pug.watch, gulp.series('pug'));
