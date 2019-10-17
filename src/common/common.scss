@@ -29,12 +29,18 @@ html {
 
 @import "../../tmp/icons";
 
+.Divider {
+  width: 100%;
+  border-bottom: 1px solid lightgray;
+}
+
 .MainHeader {
-  position: fixed;
+  /*position: fixed;
   top: 0;
   left: 0;
-  right: 0;
+  right: 0;*/
   //z-index: $zindex-modal;
+  //width: 100%;
 }
 
 .MainHeader-Bar {
@@ -68,6 +74,7 @@ html {
   left: 0;
   right: 0;
   z-index: $zindex-modal-backdrop;
+  overflow: hidden;
   //display: flex;
   transition: background-color 0.3s;
   pointer-events: none;
@@ -334,7 +341,13 @@ html {
 }
 
 .Content {
-  margin-top: 200px;
+  //margin-top: 200px;
+}
+
+.Content-Header {
+  h1 {
+    opacity: 0.65;
+  }
 }
 
 .Footer {

@@ -1,0 +1,75 @@
+extends ../../pugTemplates/main.pug
+
+block title
+  | Контакты
+
+block pageHeader
+  | Контакты
+
+mixin contact(city, phone, phoneView, location, locationView, mail)
+  div.col-12.col-lg-6.col-xl-4
+    h2= city
+    p.d-flex.align-items-center
+      +icon('phone').mr-1
+      span Телефон
+      a(href = `tel:${phone}`).ml-1
+        != phoneView
+    p.d-flex.align-items-center
+      +icon('location').mr-1
+      span Адрес
+      a(href = location, targer = "_blank").ml-1
+        = locationView
+    p.d-flex.align-items-center
+      +icon('mail').mr-1
+      span email
+      a(href = `mailto:${mail}`).ml-1
+        = mail
+
+block content
+  div.container
+    div.row
+      +contact(
+        'Барнаул',
+        '+73852570858',
+        '8 (3852) 57&ndash;08&ndash;58',
+        'https://2gis.ru/barnaul/firm/563478235263497',
+        'ул. Короленко, 113, 2 эт, офис 8',
+        'barnaul@aba24.ru'
+      )
+      +contact(
+        'Красноярск',
+        '+73912154602',
+        '8 (391) 215&ndash;46&ndash;02',
+        'https://2gis.ru/krasnoyarsk/firm/985690700384094',
+        'ул. Шахтеров, 49, 1эт, офис 1.41',
+        '2154602@mail.ru'
+      )
+      +contact(
+        'Новосибирск',
+        '+73832772367',
+        '8 (383) 277&ndash;23&ndash;67',
+        '',
+        'Ельцовка 1-я, 1 к Р, 3 эт, офис 3',
+        'oooaba54@gmail.com'
+      )
+    div.border-bottom.my-3
+    div
+      h2 Реквизиты
+      p
+        b Наименование:
+        span ООО «ЕВРОФОРТОЧКА»
+      p
+        b Юр. адрес:
+        span 660020, Россия, г. Красноярск, ул. Шахтеров, 49, оф.1.04
+      p
+        b ИНН:
+        span 2466276880
+      p
+        b КПП:
+        span 246601001
+      p
+        b ОГРН:
+        span 1142468056940
+      p
+        b ОКАТО:
+        span 04401377000

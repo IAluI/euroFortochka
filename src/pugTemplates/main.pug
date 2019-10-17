@@ -41,17 +41,17 @@ html(lang='ru')
             span Барнаул&nbsp;&nbsp;
             a(href="tel:+73852570858").d-flex.align-items-center
               +icon('phone').mx-1
-              strong 8 (3852) 57&ndash;08&ndash;58
+              b 8 (3852) 57&ndash;08&ndash;58
           p.m-0.d-flex.align-items-center
             span Красноярск
             a(href="tel:+73912154602").d-flex.align-items-center
               +icon('phone').mx-1
-              strong 8 (391) 215&ndash;46&ndash;02
+              b 8 (391) 215&ndash;46&ndash;02
           p.m-0.d-flex.align-items-center
             span Новосибирск
             a(href="tel:+73832772367").d-flex.align-items-center
               +icon('phone').mx-1
-              strong 8 (383) 277&ndash;23&ndash;67
+              b 8 (383) 277&ndash;23&ndash;67
         div.d-flex.align-items-center.flex-shrink-0
           button(type="button").btn.btn-primary.MainHeader-Callback
             | Оставить заявку
@@ -79,12 +79,15 @@ html(lang='ru')
             li
               a(href='')
                 | Контакты
-          label(for="mainNavMenu").MainHeader-CloseMenu
+          label(for="mainNavMenu").d-md-none.MainHeader-CloseMenu
             div
               div
               div
         label(for="mainNavMenu").d-md-none.w-100.h-100
-    div.Content
+    main.Content
+      div.container.Content-Header
+        h1
+          block pageHeader
       block content
 
     footer.d-flex.flex-column-reverse.flex-sm-row.justify-content-between.align-items-sm-center.w-100.p-3.bg-primary.text-white.Footer
@@ -96,18 +99,18 @@ html(lang='ru')
           span Барнаул&nbsp;&nbsp;
           a(href="tel:+73852570858").text-reset.d-flex.align-items-center
             +icon('phone').mx-1
-            strong 8 (3852) 57&ndash;08&ndash;58
+            b 8 (3852) 57&ndash;08&ndash;58
         p.m-0.d-flex.align-items-center
           span Красноярск
           a(href="tel:+73912154602").text-reset.d-flex.align-items-center
             +icon('phone').mx-1
-            strong 8 (391) 215&ndash;46&ndash;02
+            b 8 (391) 215&ndash;46&ndash;02
         p.m-0.d-flex.align-items-center
           span
            | Новосибирск
           a(href="tel:+73832772367").text-reset.d-flex.align-items-center
             +icon('phone').mx-1
-            strong 8 (383) 277&ndash;23&ndash;67
+            b 8 (383) 277&ndash;23&ndash;67
 
       script(type='text/javascript', src='../js/main.js')
 
