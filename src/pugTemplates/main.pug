@@ -1,6 +1,7 @@
 mixin icon(name, color)
   svg(class = `icon icon-${name}${color ? ' icon-' + color: ''}`)&attributes(attributes)
     use(xlink:href = `/img/common/icons.svg#${name}`)
+
 mixin crumbs(name, link)
   span.mx-1
     | -
@@ -125,6 +126,6 @@ html(lang='ru')
 
       script(type='text/javascript', src='../js/main.js')
 
-      script(src="https://unpkg.com/aos@next/dist/aos.js")
-      script
-        | AOS.init();
+      //- script(src="https://unpkg.com/aos@next/dist/aos.js")
+      //- script
+      //-  | AOS.init();

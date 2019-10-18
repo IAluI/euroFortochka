@@ -363,3 +363,18 @@ html {
 .Contacts {
 
 }
+
+.Faq-QuestionItem {
+  /*> input:checked {
+    ~ .Faq-Answer {*/
+  &:hover {
+    .Faq-Answer {
+      max-height: 5rem;
+    }
+  }
+  .Faq-Answer {
+    transition: max-height 1s;
+    max-height: 0;
+    overflow: hidden;
+  }
+}

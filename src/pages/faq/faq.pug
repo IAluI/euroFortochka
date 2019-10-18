@@ -9,8 +9,49 @@ block pageHeader
 block crumbs
   +crumbs('Вопросы и ответы', '/faq')
 
-
-mixin question(question, answer)
-
+mixin questions(questionsList)
+  - var qBlockIndex = 0;
+  - var qBlockName;
+  each qBlock in questionsList
+    - questionsBlock++;
+    - qBlockName = 'qBlock' + qBlockIndex
+    section.container.Faq
+      h2.Faq-Header
+        = qBlock.header
+      input(type = 'radio', name = qBlockName, id = qBlockName + 'Default', checked)
+      ul.list-unstyled
+        - var qIndex = 0;
+        each item in qBlock.questions
+          - qIndex++;
+          li.Faq-QuestionItem
+            input(type = 'radio', name = qBlockName, id = qBlockName + 'Q' + qIndex)
+            h3.Faq-Question
+              label(for = qBlockName + 'Q' + qIndex).w-100
+                = item.question
+            div.Faq-Answer
+              != item.answer
 
 block content
+  -
+    var questionsList = [
+      {
+        header: 'Вопросы и ответы о КИВ-125',
+        questions: [
+          {
+            question: 'Зачем нужен КИВ-125',
+            answer: `<p>Клапан инфильтрации воздуха КИВ-125 спасает от духоты, от влажности, от плесени в помещении и
+              конденсата на окнах. КИВ-125 обеспечивает постоянный приток свежего воздуха в объеме от 30 до 60 м3/час.
+              Особенно это актуально для помещений с герметичными пластиковыми окнами.</p>`
+          },
+          {
+            question: 'Как работает КИВ-125',
+            answer: `<p>Клапан приточной вентиляции работает за счет естественной тяги, которая создается вытяжной
+              системой вентиляции.  Вытяжная шахта существует во всех жилых многоквартирных зданиях и находится, как
+              правило, в кухне и санузле.  Без притока воздуха вытяжка не работает, т.к. при закрытых окнах новому воздуху
+              просто неоткуда взяться.  А приточный клапан как раз и обеспечивает доступ свежего воздуха.  Установив
+              клапан в спальне или гостинице, мы  обеспечиваем циркуляцию воздуха во всей квартире.</p>`
+          }
+        ]
+      }
+    ]
+  +questions(questionsList)
