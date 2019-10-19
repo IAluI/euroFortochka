@@ -20,109 +20,110 @@ html(lang='ru')
     title
       block title
   body
-    header.MainHeader
-      input(type="checkbox", id="mainNavMenu").MainHeader-BurgerCheckbox
-      div.d-flex.justify-content-between.py-2.shadow.MainHeader-Bar
-        div.d-md-none.d-flex.align-items-center
-          //.MainHeader-Burger
-          //button(type="button", id="MainHeaderMenu").d-flex.align-items-center.btn.btn-primary.p-2
-          label(for="mainNavMenu").m-0.d-flex.align-items-center.btn.btn-primary.p-2.MainHeader-MenuBtn
-            //svg(xmlns="http://www.w3.org/2000/svg", viewBox="0 0 16 12", fill="#fff")
-              path(d="M0 0h16v2H0V0zm0 5h16v2H0V5zm0 5h16v2H0v-2z")
-            div.MainHeader-Burger
+    div.PageWrapper
+      header.MainHeader
+        input(type="checkbox", id="mainNavMenu").HiddenInput
+        div.d-flex.justify-content-between.py-2.shadow.MainHeader-Bar
+          div.d-md-none.d-flex.align-items-center
+            //.MainHeader-Burger
+            //button(type="button", id="MainHeaderMenu").d-flex.align-items-center.btn.btn-primary.p-2
+            label(for="mainNavMenu").m-0.d-flex.align-items-center.btn.btn-primary.p-2.MainHeader-MenuBtn
+              //svg(xmlns="http://www.w3.org/2000/svg", viewBox="0 0 16 12", fill="#fff")
+                path(d="M0 0h16v2H0V0zm0 5h16v2H0V5zm0 5h16v2H0v-2z")
+              div.MainHeader-Burger
+                div
+          div.d-none.d-sm-flex.align-items-center.flex-shrink-0.MainHeader-Logo
+            a(href="http://еврофорточка.рф").MainHeader-LogoImg
+              img(src = '/img/common/main-logo.png', alt = 'Еврофорточка').h-100
+            div.h-100.mx-2.bg-primary.MainHeader-LogoDivider
+            p.m-0.text-primary.MainHeader-LogoText
+              | от духоты <br>
+              | от влажности <br>
+              | от плесени <br>
+          div.d-none.d-xl-flex.align-items-center.flex-shrink-1
+            h4.m-0.w-100
+              | Децентрализованные системы вентиляции
+          div.d-none.d-md-block.flex-shrink-0
+            p.m-0.d-flex.align-items-center
+              span Барнаул&nbsp;&nbsp;
+              a(href="tel:+73852570858").d-flex.align-items-center
+                +icon('phone').mx-1
+                b 8 (3852) 57&ndash;08&ndash;58
+            p.m-0.d-flex.align-items-center
+              span Красноярск
+              a(href="tel:+73912154602").d-flex.align-items-center
+                +icon('phone').mx-1
+                b 8 (391) 215&ndash;46&ndash;02
+            p.m-0.d-flex.align-items-center
+              span Новосибирск
+              a(href="tel:+73832772367").d-flex.align-items-center
+                +icon('phone').mx-1
+                b 8 (383) 277&ndash;23&ndash;67
+          div.d-flex.align-items-center.flex-shrink-0
+            button(type="button").btn.btn-primary.MainHeader-Callback
+              | Оставить заявку
+        nav.MainHeader-Nav
+          div.p-3.p-md-0.MainHeader-NavListWrapper
+            ul.m-0.mb-md-3.list-unstyled.d-flex.flex-column.flex-md-row.justify-content-md-around.MainHeader-NavList
+              li
+                a(href='')
+                  | Акции
+              li
+                a(href='')
+                  | Оборудование
+              li
+                a(href='')
+                  | Фильтры
+              li
+                a(href='')
+                  | Монтаж
+              li
+                a(href='')
+                  | Наши клиенты
+              li
+                a(href='/faq.html')
+                  | Вопросы и ответы
+              li
+                a(href='/contacts.html')
+                  | Контакты
+            label(for="mainNavMenu").d-md-none.MainHeader-CloseMenu
               div
-        div.d-none.d-sm-flex.align-items-center.flex-shrink-0.MainHeader-Logo
-          a(href="http://еврофорточка.рф").MainHeader-LogoImg
-            img(src = '/img/common/main-logo.png', alt = 'Еврофорточка').h-100
-          div.h-100.mx-2.bg-primary.MainHeader-LogoDivider
-          p.m-0.text-primary.MainHeader-LogoText
-            | от духоты <br>
-            | от влажности <br>
-            | от плесени <br>
-        div.d-none.d-xl-flex.align-items-center.flex-shrink-1
-          h4.m-0.w-100
-            | Децентрализованные системы вентиляции
-        div.d-none.d-md-block.flex-shrink-0
+                div
+                div
+          label(for="mainNavMenu").d-md-none.w-100.h-100
+      main.Content
+        div.container.Content-Header
+          h1.text-black-50
+            block pageHeader
+          a(href = '/').text-black-50
+            | Главная
+          block crumbs
+
+          div.border-bottom.my-3
+
+        block content
+
+      footer.d-flex.flex-column-reverse.flex-sm-row.justify-content-between.align-items-sm-center.w-100.p-3.bg-primary.text-white.Footer
+        p.m-0.mr-2
+          | Все права защищены <br>
+          | © 2016 - 2019
+        div.flex-shrink-0
           p.m-0.d-flex.align-items-center
             span Барнаул&nbsp;&nbsp;
-            a(href="tel:+73852570858").d-flex.align-items-center
+            a(href="tel:+73852570858").text-reset.d-flex.align-items-center
               +icon('phone').mx-1
               b 8 (3852) 57&ndash;08&ndash;58
           p.m-0.d-flex.align-items-center
             span Красноярск
-            a(href="tel:+73912154602").d-flex.align-items-center
+            a(href="tel:+73912154602").text-reset.d-flex.align-items-center
               +icon('phone').mx-1
               b 8 (391) 215&ndash;46&ndash;02
           p.m-0.d-flex.align-items-center
-            span Новосибирск
-            a(href="tel:+73832772367").d-flex.align-items-center
+            span
+             | Новосибирск
+            a(href="tel:+73832772367").text-reset.d-flex.align-items-center
               +icon('phone').mx-1
               b 8 (383) 277&ndash;23&ndash;67
-        div.d-flex.align-items-center.flex-shrink-0
-          button(type="button").btn.btn-primary.MainHeader-Callback
-            | Оставить заявку
-      nav.MainHeader-Nav
-        div.p-3.p-md-0.MainHeader-NavListWrapper
-          ul.m-0.mb-md-3.list-unstyled.d-flex.flex-column.flex-md-row.justify-content-md-around.MainHeader-NavList
-            li
-              a(href='')
-                | Акции
-            li
-              a(href='')
-                | Оборудование
-            li
-              a(href='')
-                | Фильтры
-            li
-              a(href='')
-                | Монтаж
-            li
-              a(href='')
-                | Наши клиенты
-            li
-              a(href='/faq.html')
-                | Вопросы и ответы
-            li
-              a(href='/contacts.html')
-                | Контакты
-          label(for="mainNavMenu").d-md-none.MainHeader-CloseMenu
-            div
-              div
-              div
-        label(for="mainNavMenu").d-md-none.w-100.h-100
-    main.Content
-      div.container.Content-Header
-        h1.text-black-50
-          block pageHeader
-        a(href = '/').text-black-50
-          | Главная
-        block crumbs
-
-        div.border-bottom.my-3
-
-      block content
-
-    footer.d-flex.flex-column-reverse.flex-sm-row.justify-content-between.align-items-sm-center.w-100.p-3.bg-primary.text-white.Footer
-      p.m-0.mr-2
-        | Все права защищены <br>
-        | © 2016 - 2019
-      div.flex-shrink-0
-        p.m-0.d-flex.align-items-center
-          span Барнаул&nbsp;&nbsp;
-          a(href="tel:+73852570858").text-reset.d-flex.align-items-center
-            +icon('phone').mx-1
-            b 8 (3852) 57&ndash;08&ndash;58
-        p.m-0.d-flex.align-items-center
-          span Красноярск
-          a(href="tel:+73912154602").text-reset.d-flex.align-items-center
-            +icon('phone').mx-1
-            b 8 (391) 215&ndash;46&ndash;02
-        p.m-0.d-flex.align-items-center
-          span
-           | Новосибирск
-          a(href="tel:+73832772367").text-reset.d-flex.align-items-center
-            +icon('phone').mx-1
-            b 8 (383) 277&ndash;23&ndash;67
 
       script(type='text/javascript', src='../js/main.js')
 

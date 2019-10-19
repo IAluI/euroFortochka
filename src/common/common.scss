@@ -29,9 +29,23 @@ html {
 
 @import "../../tmp/icons";
 
+.PageWrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  main {
+    flex: 1 0 auto;
+  }
+}
+
 .Divider {
   width: 100%;
   border-bottom: 1px solid lightgray;
+}
+
+.HiddenInput {
+  position: absolute;
+  visibility: hidden;
 }
 
 .MainHeader {
@@ -45,7 +59,7 @@ html {
 
 .MainHeader-Bar {
   position: relative;
-  z-index: 1;
+  //z-index: 1;
 }
 
 .MainHeader-Bar > * {
@@ -153,10 +167,10 @@ html {
         top: auto;
         left: 0;
         right: 0;
-        bottom: -1rem;
+        bottom: calc(-1rem + 1px);
         transform: none;
-        width: 0;
-        height: 0;
+        //width: 0;
+        height: 1px;
         border: {
           left: 3.5rem solid transparent;
           right: 3.5rem solid transparent;
@@ -266,13 +280,6 @@ html {
   }
 }
 
-.MainHeader-BurgerCheckbox {
-  position: absolute;
-  right: 0;
-  z-index: -1;
-  opacity: 0;
-}
-
 .MainHeader-CloseMenu {
   position: absolute;
   right: -4rem;
@@ -364,17 +371,102 @@ html {
 
 }
 
+.Faq-Header {
+
+}
+
 .Faq-QuestionItem {
-  /*> input:checked {
-    ~ .Faq-Answer {*/
-  &:hover {
-    .Faq-Answer {
-      max-height: 5rem;
+  // Как это работает https://stackoverflow.com/questions/3508605/how-can-i-transition-height-0-to-height-auto-using-css#answer-43965099
+  $animationDuration: .5s;
+  > input:checked {
+    ~ .Faq-AnswerWrapper:after {
+      height: 50px;
+      transition: height $animationDuration linear, max-height 0s $animationDuration linear;
+      max-height: 0px;
+    }
+    ~ .Faq-AnswerWrapper .Faq-Answer {
+      transition: margin-bottom $animationDuration cubic-bezier(0, 0, 0, 1);
+      margin-bottom: 0;
+      max-height: 1000000px;
+      visibility: visible;
+    }
+  }
+  .Faq-AnswerWrapper {
+    overflow: hidden;
+    &:after {
+      content: '';
+      height: 0;
+      transition: height $animationDuration linear;
+      max-height: 50px;
     }
   }
   .Faq-Answer {
-    transition: max-height 1s;
+    margin-bottom: -2000px;
+    transition: margin-bottom $animationDuration cubic-bezier(1, 0, 1, 1), visibility 0s $animationDuration, max-height 0s 0.3s;
+    visibility: hidden;
     max-height: 0;
-    overflow: hidden;
+  }
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  .Faq-Question {
+    position: relative;
+    padding-right: 3.75rem;
+    border: {
+      color: transparent;
+      width: 1px;
+      style: solid;
+    }
+    > label {
+      margin: 0;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+    > label[for$="Default"] {
+      display: none;
+    }
+    .Faq-QuestionExpand {
+      position: absolute;
+      top: 50%;
+      right: 1rem;
+      transform: translateY(-50%);
+      transition: transform .3s;
+      z-index: -1;
+      width: 1.75rem;
+      height: 1.75rem;
+      border-radius: 50%;
+      background-color: $primary;
+      > div {
+        position: absolute;
+        top: 50%;
+        width: 70%;
+        margin: {
+          left: 15%;
+          right: 15%;
+        };
+        height: 2px;
+        background-color: #000;
+      }
+      > div:nth-child(1) {
+        transform: translateY(-50%) rotate(90deg);
+      }
+      > div:nth-child(2) {
+        transform: translateY(-50%);
+      }
+    }
+  }
+  > input:checked ~ .Faq-Question {
+    border-color: $primary;
+    .Faq-QuestionExpand {
+      transform: translateY(-50%) rotate(135deg);
+    }
+    > label[for$="Default"] {
+      display: block;
+    }
+  }
+  .Faq-Question:hover {
+    cursor: pointer;
+    border-color: $primary;
   }
 }

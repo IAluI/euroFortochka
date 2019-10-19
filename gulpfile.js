@@ -53,9 +53,9 @@ const paths = {
     watch: "./src/fonts/**/*.{ttf,otf,woff,woff2}"
   },
   images: {
-    src: "./src/{common/img,pages/img}/*.{jpg,jpeg,png,gif,svg}",
+    src: "./src/{common/img,pages/*/img}/*.{jpg,jpeg,png,gif,svg}",
     dist: "./dist/img/",
-    watch: "./src/{common/img,pages/img}/*.{jpg,jpeg,png,gif,svg}"
+    watch: "./src/{common/img,pages/*/img}/*.{jpg,jpeg,png,gif,svg}"
   },
   styles: {
     src: "./src/{common,pages}/**/*.scss",
@@ -103,12 +103,12 @@ gulp.task('images', () => {
         max: 75,
         quality: 'medium'
       }),
-      /*imagemin.svgo({
+      imagemin.svgo({
         plugins: [
           {removeViewBox: false},
           {cleanupIDs: false}
         ]
-      }),*/
+      }),
       imagemin.optipng({optimizationLevel: 3}),
       pngquant({
         quality: [0.7, 0.8],
@@ -125,23 +125,10 @@ gulp.task('images', () => {
 gulp.task('svgSprite', () => {
   return gulp.src(paths.svgSprite.src)
     .pipe(svgSprite({
-      //dest: '.',
       mode: {
-        /*shape: {
-          transform: [
-            {svgo: {
-                plugins: [
-                    {transformsWithOnePath: true},
-                    {moveGroupAttrsToElems: false}
-                ]
-            }}
-          ]
-        },*/
         symbol: {
           dest: '.',
           sprite: 'icons.svg',
-          /*prefix: '%s',*/
-          //dimensions: '',
           render: {
             scss: {
               dest: '_icons.scss',
@@ -153,9 +140,7 @@ gulp.task('svgSprite', () => {
       }
     }))
     .pipe(gulp.dest((file) => {
-      //console.log(path.resolve(__dirname, './srs/common/scssSpriteTemplate.mustache'))
-
-      return file.extname == '.scss' ? './tmp/' : paths.svgSprite.dist;
+      return file.extname == '.svg' ?  paths.svgSprite.dist : './tmp/';
     }))
     .pipe(browserSync.stream());
 });
