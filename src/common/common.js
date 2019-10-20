@@ -11,3 +11,5 @@ $('#MainHeaderMenu').click(() => {
 });
 */
 
+import faqPage from '../pages/faq/faq';
+faqPage();

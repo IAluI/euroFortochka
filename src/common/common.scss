@@ -377,7 +377,7 @@ html {
 
 .Faq-QuestionItem {
   // Как это работает https://stackoverflow.com/questions/3508605/how-can-i-transition-height-0-to-height-auto-using-css#answer-43965099
-  $animationDuration: .5s;
+  /*$animationDuration: .5s;
   > input:checked {
     ~ .Faq-AnswerWrapper:after {
       height: 50px;
@@ -405,6 +405,12 @@ html {
     transition: margin-bottom $animationDuration cubic-bezier(1, 0, 1, 1), visibility 0s $animationDuration, max-height 0s 0.3s;
     visibility: hidden;
     max-height: 0;
+  }*/
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  .Faq-AnswerWrapper {
+    height: 0;
+    transition: height .3s;
+    overflow: hidden;
   }
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   .Faq-Question {
