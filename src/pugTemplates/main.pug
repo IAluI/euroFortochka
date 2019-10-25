@@ -21,6 +21,22 @@ html(lang='ru')
       block title
   body
     div.PageWrapper
+      div(id="callback", tabindex="-1").modal.fade
+        div.modal-dialog
+          div.modal-content
+            div.modal-header
+              h5.modal-title
+                | Оставьте Ваши контактные данные:
+              button(type="button", id="callbackClose").close
+                span &times;
+            div.modal-body
+              input(type="text", placeholder="Введите имя").mb-3.form-control
+              input(type="text", placeholder="Введите город").mb-3.form-control
+              input(type="text", placeholder="Введите номер телефона").mb-3.form-control
+              textarea(rows="4", placeholder="Введите сообщение").form-control
+            div.modal-footer
+              button(type="button", id="callbackSubmit").btn.btn-primary
+                | Оставить заявку
       header.MainHeader
         input(type="checkbox", id="mainNavMenu").HiddenInput
         div.d-flex.justify-content-between.py-2.shadow.MainHeader-Bar
