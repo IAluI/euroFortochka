@@ -14,9 +14,6 @@ html(lang='ru')
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width', initial-scale='1', shrink-to-fit='no')
     link(rel='stylesheet', type='text/css', href='/css/main.css')
-
-    link(rel="stylesheet", href="https://unpkg.com/aos@next/dist/aos.css")
-
     title
       block title
   body
@@ -41,15 +38,15 @@ html(lang='ru')
         input(type="checkbox", id="mainNavMenu").HiddenInput
         div.d-flex.justify-content-between.py-2.shadow.MainHeader-Bar
           div.d-md-none.d-flex.align-items-center
-            //.MainHeader-Burger
-            //button(type="button", id="MainHeaderMenu").d-flex.align-items-center.btn.btn-primary.p-2
+            //- .MainHeader-Burger
+            //- button(type="button", id="MainHeaderMenu").d-flex.align-items-center.btn.btn-primary.p-2
             label(for="mainNavMenu").m-0.d-flex.align-items-center.btn.btn-primary.p-2.MainHeader-MenuBtn
-              //svg(xmlns="http://www.w3.org/2000/svg", viewBox="0 0 16 12", fill="#fff")
+              //- svg(xmlns="http://www.w3.org/2000/svg", viewBox="0 0 16 12", fill="#fff")
                 path(d="M0 0h16v2H0V0zm0 5h16v2H0V5zm0 5h16v2H0v-2z")
               div.MainHeader-Burger
                 div
           div.d-none.d-sm-flex.align-items-center.flex-shrink-0.MainHeader-Logo
-            a(href="http://еврофорточка.рф").MainHeader-LogoImg
+            a(href="/", title="На главную страницу").MainHeader-LogoImg
               img(src = '/img/common/main-logo.png', alt = 'Еврофорточка').h-100
             div.h-100.mx-2.bg-primary.MainHeader-LogoDivider
             p.m-0.text-primary.MainHeader-LogoText
@@ -142,7 +139,3 @@ html(lang='ru')
               b 8 (383) 277&ndash;23&ndash;67
 
       script(type='text/javascript', src='../js/main.js')
-
-      //- script(src="https://unpkg.com/aos@next/dist/aos.js")
-      //- script
-      //-  | AOS.init();

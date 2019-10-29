@@ -1,0 +1,1 @@
+<img class="h-100" src="/img/common/main-logo.png" alt="Еврофорточка">

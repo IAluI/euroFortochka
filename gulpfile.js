@@ -6,6 +6,8 @@ const webpack = require('webpack');
 const notifier = require('node-notifier');
 const path = require('path');
 
+// модуль для форматирования html
+const htmlbeautify = require('gulp-html-beautify');
 // модуль для создания svg-спрайтов
 const svgSprite = require('gulp-svg-sprite');
 // модуль для склеевания фалов
@@ -66,6 +68,11 @@ const paths = {
     src: "./src/common/icons/*.svg",
     dist: "./dist/img/common/",
     watch: ["./src/common/icons/*.svg", "./src/common/scssSpriteTemplate.mustache"]
+  },
+  btxTemplate: {
+    src: "./src/template/**",
+    dist: "./dist/template/",
+    watch: "./src/template/**",
   }
 };
 
@@ -82,8 +89,32 @@ gulp.task('pug', () => {
     .pipe(rename({
       dirname: 'pages'
     }))
+    .pipe(htmlbeautify())
     .pipe(gulp.dest(paths.pug.dist))
     .pipe(browserSync.reload({ stream: true }));
+});
+
+gulp.task('styles', () => {
+  return gulp.src(paths.styles.src)
+    .pipe(sass())
+    .pipe(autoprefixer())
+    .pipe(gulpIf(!isDevelopment, cssmin()))
+    .pipe(concat('main.css'))
+    .pipe(gulp.dest(paths.styles.dist))
+    .pipe(rename('template_styles.css'))
+    .pipe(gulp.dest(paths.btxTemplate.dist))
+    .pipe(browserSync.stream());
+});
+
+gulp.task('btxTemplate', () => {
+  return gulp.src(paths.btxTemplate.src, {
+    dot: true
+  })
+    /*.pipe(rename((path) => {
+      console.log(path);
+    }))*/
+    .pipe(gulp.dest(paths.btxTemplate.dist))
+    .pipe(browserSync.stream());
 });
 
 gulp.task('fonts', () => {
@@ -205,16 +236,6 @@ gulp.task('webpack', function(callback) {
   });
 });
 
-gulp.task('styles', () => {
-  return gulp.src(paths.styles.src)
-    .pipe(sass())
-    .pipe(autoprefixer())
-    .pipe(gulpIf(!isDevelopment, cssmin()))
-    .pipe(concat('main.css'))
-    .pipe(gulp.dest(paths.styles.dist))
-    .pipe(browserSync.stream());
-});
-
 gulp.task('webserver', () => {
   browserSync.init({
     server: "./dist/",
@@ -234,6 +255,7 @@ gulp.task('webserver', () => {
   gulp.watch(paths.images.watch, gulp.series('images'));
   gulp.watch(paths.svgSprite.watch, gulp.series('svgSprite'));
   gulp.watch(paths.fonts.watch, gulp.series('fonts'));
+  gulp.watch(paths.btxTemplate.watch, gulp.series('btxTemplate'));
 });
 
 gulp.task('build',
@@ -244,7 +266,8 @@ gulp.task('build',
       'images',
       'styles',
       'webpack',
-      'pug'
+      'pug',
+      'btxTemplate'
     )
   )
 );
