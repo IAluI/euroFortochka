@@ -1,3 +1,4 @@
+| <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 mixin icon(name, color)
   svg(class = `icon icon-${name}${color ? ' icon-' + color: ''}`)&attributes(attributes)
     use(xlink:href = `/img/common/icons.svg#${name}`)
@@ -11,13 +12,21 @@ mixin crumbs(name, link)
 doctype html
 html(lang='ru')
   head
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width', initial-scale='1', shrink-to-fit='no')
-    link(rel='stylesheet', type='text/css', href='/css/main.css')
+    | <?
+    | use Bitrix\Main\Page\Asset;
+    | Asset::getInstance()->addJs('/local/assets/js/main.js');
+    | $APPLICATION->ShowHead();
+    | ?>
     title
-      block title
+      | <?
+      | $APPLICATION->ShowTitle()
+      | ?>
   body
     div.PageWrapper
+      div#panel
+        | <?
+        | $APPLICATION->ShowPanel();
+        | ?>
       div(id="callback", tabindex="-1").modal.fade
         div.modal-dialog
           div.modal-content

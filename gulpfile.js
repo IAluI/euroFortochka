@@ -6,6 +6,8 @@ const webpack = require('webpack');
 const notifier = require('node-notifier');
 const path = require('path');
 
+// модуль для форматирования
+const prettier = require('@bdchauvette/gulp-prettier');
 // модуль для форматирования html
 const htmlbeautify = require('gulp-html-beautify');
 // модуль для создания svg-спрайтов
@@ -49,6 +51,11 @@ const paths = {
     dist: "./dist/",
     watch: "./src/{pugTemplates,pages}/**/*.pug"
   },
+  btxPug: {
+    src: "./src/www/**/*.pug",
+    dist: "./dist/www/",
+    watch: "./src/www/**/*.pug"
+  },
   fonts: {
     src: "./src/fonts/**/*.{ttf,otf,woff,woff2}",
     dist: "./dist/fonts/",
@@ -70,9 +77,9 @@ const paths = {
     watch: ["./src/common/icons/*.svg", "./src/common/scssSpriteTemplate.mustache"]
   },
   btxTemplate: {
-    src: "./src/template/**",
-    dist: "./dist/template/",
-    watch: "./src/template/**",
+    src: ["./src/www/**", "!./src/www/**/*.pug"],
+    dist: "./dist/www/",
+    watch: ["./src/www/**", "!./src/www/**/*.pug"],
   }
 };
 
@@ -94,6 +101,22 @@ gulp.task('pug', () => {
     .pipe(browserSync.reload({ stream: true }));
 });
 
+gulp.task('btxPug', () => {
+  return gulp.src(paths.btxPug.src)
+    .pipe(pug())
+    /*.pipe(prettier({
+      printWidth: 120,
+      //parser: "php",
+      //plugins: ["./node_modules/@prettier/plugin-php"]
+    }))*/
+    //.pipe(htmlbeautify())
+    .pipe(rename({
+      extname: '.php'
+    }))
+    .pipe(gulp.dest(paths.btxPug.dist))
+    .pipe(browserSync.reload({ stream: true }));
+});
+
 gulp.task('styles', () => {
   return gulp.src(paths.styles.src)
     .pipe(sass())
@@ -102,7 +125,7 @@ gulp.task('styles', () => {
     .pipe(concat('main.css'))
     .pipe(gulp.dest(paths.styles.dist))
     .pipe(rename('template_styles.css'))
-    .pipe(gulp.dest(paths.btxTemplate.dist))
+    .pipe(gulp.dest("./dist/www/local/templates/euroFortochka/"))
     .pipe(browserSync.stream());
 });
 
@@ -150,6 +173,7 @@ gulp.task('images', () => {
       path.dirname = path.dirname.replace(/pages\\|img/g, '');
     }))
     .pipe(gulp.dest(paths.images.dist))
+    .pipe(gulp.dest("./dist/www/local/assets/img/"))
     .pipe(browserSync.stream());
 });
 
@@ -173,6 +197,7 @@ gulp.task('svgSprite', () => {
     .pipe(gulp.dest((file) => {
       return file.extname == '.svg' ?  paths.svgSprite.dist : './tmp/';
     }))
+    .pipe(gulp.dest("./dist/www/local/assets/img/common/"))
     .pipe(browserSync.stream());
 });
 
@@ -251,6 +276,7 @@ gulp.task('webserver', () => {
   });
 
   gulp.watch(paths.pug.watch, gulp.series('pug'));
+  gulp.watch(paths.btxPug.watch, gulp.series('btxPug'));
   gulp.watch(paths.styles.watch, gulp.series('styles'));
   gulp.watch(paths.images.watch, gulp.series('images'));
   gulp.watch(paths.svgSprite.watch, gulp.series('svgSprite'));
@@ -267,6 +293,7 @@ gulp.task('build',
       'styles',
       'webpack',
       'pug',
+      'btxPug',
       'btxTemplate'
     )
   )

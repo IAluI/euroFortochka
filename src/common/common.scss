@@ -29,6 +29,10 @@ html {
 
 @import "../../tmp/icons";
 
+footer a {
+  color: inherit;
+}
+
 .PageWrapper {
   height: 100vh;
   display: flex;

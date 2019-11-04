@@ -1,0 +1,54 @@
+<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?
+$aMenuLinks = Array(
+	Array(
+		"Акции",
+		"promotions/",
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Оборудование",
+		"equipment/",
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Фильтры",
+		"filters/",
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Монтаж",
+		"installation/",
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+    "Наши клиенты",
+    "portfolio/",
+    Array(),
+    Array(),
+    ""
+  ),
+  Array(
+    "Вопросы и ответы",
+    "faq/",
+    Array(),
+    Array(),
+    ""
+  ),
+	Array(
+		"Контакты", 
+		"contacts/", 
+		Array(), 
+		Array(), 
+		"" 
+	)
+);
+?>
