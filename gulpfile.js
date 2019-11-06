@@ -96,7 +96,9 @@ gulp.task('pug', () => {
     .pipe(rename({
       dirname: 'pages'
     }))
-    .pipe(htmlbeautify())
+    .pipe(prettier({
+      htmlWhitespaceSensitivity: 'ignore'
+    }))
     .pipe(gulp.dest(paths.pug.dist))
     .pipe(browserSync.reload({ stream: true }));
 });
