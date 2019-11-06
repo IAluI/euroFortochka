@@ -141,3 +141,4 @@
           <h1 class="text-black-50"></h1>
           <a class="text-black-50" href="/">Главная</a>
           <div class="border-bottom my-3"></div>
+        </div>
