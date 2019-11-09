@@ -1,7 +1,6 @@
-$primary: #7eb500;
-$secondary: #07507B;
+@import "./src/common/colors";
 
-@import "../../node_modules/bootstrap/scss/bootstrap";
+@import "./node_modules/bootstrap/scss/bootstrap";
 
 @function calc-font-size($f-min, $f-max, $v-min, $v-max) {
   $k: ($f-max - $f-min)/($v-max - $v-min);
@@ -375,10 +374,7 @@ footer a {
 
 }
 
-.Faq-Header {
-
-}
-
+/*
 .Faq-QuestionItem {
   .Faq-AnswerWrapper {
     height: 0;
@@ -393,24 +389,12 @@ footer a {
       width: 1px;
       style: solid;
     }
-    /*> label {
-      margin: 0;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-    }
-    > label[for$="Default"] {
-      display: none;
-    }*/
     .Faq-QuestionExpand {
       position: absolute;
       top: 50%;
       right: 1rem;
       transform: translateY(-50%);
       transition: transform .3s;
-      //z-index: -1;
       width: 1.75rem;
       height: 1.75rem;
       border-radius: 50%;
@@ -440,17 +424,8 @@ footer a {
       transform: translateY(-50%) rotate(135deg);
     }
   }
-  /*> input:checked ~ .Faq-Question {
-    border-color: $primary;
-    .Faq-QuestionExpand {
-      transform: translateY(-50%) rotate(135deg);
-    }
-    > label[for$="Default"] {
-      display: block;
-    }
-  }*/
   .Faq-Question:hover {
     cursor: pointer;
     border-color: $primary;
   }
-}
+}*/

@@ -1,5 +1,6 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
+        </div>
       </main>
       <footer
         class="d-flex flex-column-reverse flex-sm-row justify-content-between align-items-sm-center w-100 p-3 bg-primary text-white Footer"

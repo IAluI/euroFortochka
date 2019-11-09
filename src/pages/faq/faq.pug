@@ -16,19 +16,13 @@ mixin questions(questionsList)
     //- qBlockIndex++;
     //- qBlockName = 'qBlock' + qBlockIndex
     section.container.Faq
-      //- input(type = 'radio', name = qBlockName, id = qBlockName + 'Default', checked).HiddenInput
       h2.text-center.Faq-Header
         = qBlock.header
       ul.list-unstyled
-        //- var qIndex = 0;
         each item in qBlock.questions
-          //- qIndex++;
           li.Faq-QuestionItem
-            //- input(type = 'radio', name = qBlockName, id = qBlockName + 'Q' + qIndex).HiddenInput
             h3.Faq-Question
               = item.question
-              //- label(for = qBlockName + 'Q' + qIndex)
-              //- label(for = qBlockName + 'Default')
               div.Faq-QuestionExpand
                 div
                 div
