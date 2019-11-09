@@ -111,7 +111,6 @@ gulp.task('btxPug', () => {
       //parser: "php",
       //plugins: ["./node_modules/@prettier/plugin-php"]
     }))*/
-    //.pipe(htmlbeautify())
     .pipe(rename({
       extname: '.php'
     }))
@@ -121,7 +120,11 @@ gulp.task('btxPug', () => {
 
 gulp.task('styles', () => {
   return gulp.src(paths.styles.src)
-    .pipe(sass())
+    .pipe(sass({
+      includePaths: [
+        process.cwd()
+      ]
+    }))
     .pipe(autoprefixer())
     .pipe(gulpIf(!isDevelopment, cssmin()))
     .pipe(concat('main.css'))
@@ -138,6 +141,11 @@ gulp.task('btxTemplate', () => {
     /*.pipe(rename((path) => {
       console.log(path);
     }))*/
+    .pipe(gulpIf(/.*\.scss/, sass({
+      includePaths: [
+        process.cwd()
+      ]
+    })))
     .pipe(gulp.dest(paths.btxTemplate.dist))
     .pipe(browserSync.stream());
 });

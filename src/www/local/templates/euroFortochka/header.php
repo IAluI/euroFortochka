@@ -92,7 +92,7 @@
             </p>
           </div>
           <div class="d-none d-xl-flex align-items-center flex-shrink-1">
-            <h4 class="m-0 w-100">Децентрализованные системы вентиляции</h4>
+            <div class="h4 m-0 w-100">Децентрализованные системы вентиляции</div>
           </div>
           <div class="d-none d-md-block flex-shrink-0">
             <?
@@ -142,3 +142,4 @@
           <a class="text-black-50" href="/">Главная</a>
           <div class="border-bottom my-3"></div>
         </div>
+        <div class="container">
