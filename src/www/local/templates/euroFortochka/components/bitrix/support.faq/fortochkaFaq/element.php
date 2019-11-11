@@ -12,7 +12,7 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
-<?$APPLICATION->IncludeComponent(
+<?/*$APPLICATION->IncludeComponent(
 	"bitrix:support.faq.element.detail",
 	"",
 	Array(
@@ -37,4 +37,4 @@ $this->setFrameMode(true);
 		"SECTION_ID" => $arResult["VARIABLES"]["SECTION_ID"],
 	),
 	$component
-);?>
+);*/?>

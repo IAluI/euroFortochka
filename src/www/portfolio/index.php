@@ -6,54 +6,40 @@
 <?$APPLICATION->IncludeComponent(
 	"bitrix:support.faq.section.list",
 	"euroFortochka",
-	Array(
-		"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
-		"IBLOCK_ID" => $arParams["IBLOCK_ID"],
-		"CACHE_TYPE" => $arParams["CACHE_TYPE"],
-		"CACHE_TIME" => $arParams["CACHE_TIME"],
-		"CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
+	array(
 		"AJAX_MODE" => "N",
-		"SECTION" => $arParams["SECTION"],
-		"EXPAND_LIST" => $arParams["EXPAND_LIST"],
-		"LINK_ELEMENTS" => "",
-		"LINK_ELEMENTS_LINK" => "/support/faq/?ELEMENT_ID=#ELEMENT_ID#",
-		"AJAX_OPTION_SHADOW" => "Y",
-		"AJAX_OPTION_JUMP" => "N",
-		"AJAX_OPTION_STYLE" => "Y",
 		"AJAX_OPTION_HISTORY" => "N",
-		"SHOW_RATING" => $arParams["SHOW_RATING"],
-		"RATING_TYPE" => $arParams["RATING_TYPE"],
-		"PATH_TO_USER" => $arParams["PATH_TO_USER"],
-		"SECTION_ID" => $arResult["VARIABLES"]["SECTION_ID"],
-		"SECTION_URL" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["section"],
+		"AJAX_OPTION_JUMP" => "N",
+		"AJAX_OPTION_STYLE" => "N",
+		"CACHE_GROUPS" => "N",
+		"CACHE_TIME" => "36000000",
+		"CACHE_TYPE" => "A",
+		"EXPAND_LIST" => "N",
+		"IBLOCK_ID" => "5",
+		"IBLOCK_TYPE" => "services",
+		"SECTION" => "",
+    "CUR_SECTION" => $_REQUEST["SECTION_ID"],
+		"SECTION_URL" => "?SECTION_ID=#SECTION_ID#"
 	),
-	$component
-);?>
-<?$APPLICATION->IncludeComponent(
+	false
+);?><?$APPLICATION->IncludeComponent(
 	"bitrix:support.faq.element.list",
 	"euroFortochka",
 	Array(
-		"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
-		"IBLOCK_ID" => $arParams["IBLOCK_ID"],
-		"CACHE_TYPE" => $arParams["CACHE_TYPE"],
-		"CACHE_TIME" => $arParams["CACHE_TIME"],
-		"CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
 		"AJAX_MODE" => "N",
-		"SECTION" => $arParams["SECTION"],
-		"EXPAND_LIST" => $arParams["EXPAND_LIST"],
-		"LINK_ELEMENTS" => "",
-		"LINK_ELEMENTS_LINK" => "/support/faq/?ELEMENT_ID=#ELEMENT_ID#",
-		"AJAX_OPTION_SHADOW" => "Y",
-		"AJAX_OPTION_JUMP" => "N",
-		"AJAX_OPTION_STYLE" => "Y",
 		"AJAX_OPTION_HISTORY" => "N",
-		"SHOW_RATING" => $arParams["SHOW_RATING"],
-		"RATING_TYPE" => $arParams["RATING_TYPE"],
-		"PATH_TO_USER" => $arParams["PATH_TO_USER"],
-		"SECTION_ID" => $arResult["VARIABLES"]["SECTION_ID"],
-		"DETAIL_URL" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["detail"],
-	),
-	$component
+		"AJAX_OPTION_JUMP" => "N",
+		"AJAX_OPTION_STYLE" => "N",
+		"CACHE_GROUPS" => "N",
+		"CACHE_TIME" => "36000000",
+		"CACHE_TYPE" => "A",
+		"IBLOCK_ID" => "5",
+		"IBLOCK_TYPE" => "services",
+		"PATH_TO_USER" => "",
+		"RATING_TYPE" => "",
+		"SECTION_ID" => $_REQUEST["SECTION_ID"],
+		"SHOW_RATING" => "N"
+	)
 );?>
 
 <?

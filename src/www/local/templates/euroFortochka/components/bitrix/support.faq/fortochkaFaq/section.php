@@ -64,9 +64,3 @@ $this->setFrameMode(true);
 	),
 	$component
 );?>
-<pre>
-  <?
-    print_r($arResult["VARIABLES"]);
-    echo $arResult["VARIABLES"]["SECTION_ID"] ? "Yes" : "No";
-  ?>
-</pre>

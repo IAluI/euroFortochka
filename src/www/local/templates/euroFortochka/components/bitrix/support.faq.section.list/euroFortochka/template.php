@@ -20,9 +20,9 @@
   </p>
   <ul class="m-0">
     <?foreach ($arResult['SECTIONS'] as $val):?>
-      <?if($arParams["SECTION_ID"]==$val["ID"]) $SELECTED_ITEM = $val?>
+      <?if($arParams['CUR_SECTION'] == $val["ID"]) $SELECTED_ITEM = $val?>
       <li>
-        <?='<a href="'.$val['SECTION_PAGE_URL'].'" class="'.($arParams["SECTION_ID"]==$val["ID"]?'':'un').'selected-faq-item">'.$val['NAME'].'</a>'?>
+        <?='<a href="'.$val['SECTION_PAGE_URL'].'" class="'.($arParams['CUR_SECTION'] == $val["ID"]?'font-weight-bold':'').'">'.$val['NAME'].'</a>'?>
       </li>
     <?endforeach;?>
   </ul>
@@ -32,3 +32,9 @@
   <?=$SELECTED_ITEM["DESCRIPTION"]?>
 </h1>
 <?endif;?>
+
+<pre>
+  <?
+    print_r($arParams['CUR_SECTION']);
+  ?>
+</pre>
