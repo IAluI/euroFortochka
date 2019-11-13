@@ -8,7 +8,7 @@
     <h2>Барнаул</h2>
     <p class="d-flex align-items-center">
       <svg class="icon icon-phone mr-1">
-        <use xlink:href="/img/common/icons.svg#phone"></use>
+        <use xlink:href="/local/assets/img/common/icons.svg#phone"></use>
       </svg>
       <span>Телефон</span>
       <a class="ml-1" href="tel:+73852570858">
@@ -17,7 +17,7 @@
     </p>
     <p class="d-flex align-items-center">
       <svg class="icon icon-location mr-1">
-        <use xlink:href="/img/common/icons.svg#location"></use>
+        <use xlink:href="/local/assets/img/common/icons.svg#location"></use>
       </svg>
       <span>Адрес</span>
       <a
@@ -30,7 +30,7 @@
     </p>
     <p class="d-flex align-items-center">
       <svg class="icon icon-mail mr-1">
-        <use xlink:href="/img/common/icons.svg#mail"></use>
+        <use xlink:href="/local/assets/img/common/icons.svg#mail"></use>
       </svg>
       <span>email</span>
       <a class="ml-1" href="mailto:barnaul@aba24.ru">
@@ -42,7 +42,7 @@
     <h2>Красноярск</h2>
     <p class="d-flex align-items-center">
       <svg class="icon icon-phone mr-1">
-        <use xlink:href="/img/common/icons.svg#phone"></use>
+        <use xlink:href="/local/assets/img/common/icons.svg#phone"></use>
       </svg>
       <span>Телефон</span>
       <a class="ml-1" href="tel:+73912154602">
@@ -51,7 +51,7 @@
     </p>
     <p class="d-flex align-items-center">
       <svg class="icon icon-location mr-1">
-        <use xlink:href="/img/common/icons.svg#location"></use>
+        <use xlink:href="/local/assets/img/common/icons.svg#location"></use>
       </svg>
       <span>Адрес</span>
       <a
@@ -64,7 +64,7 @@
     </p>
     <p class="d-flex align-items-center">
       <svg class="icon icon-mail mr-1">
-        <use xlink:href="/img/common/icons.svg#mail"></use>
+        <use xlink:href="/local/assets/img/common/icons.svg#mail"></use>
       </svg>
       <span>email</span>
       <a class="ml-1" href="mailto:2154602@mail.ru">
@@ -76,7 +76,7 @@
     <h2>Новосибирск</h2>
     <p class="d-flex align-items-center">
       <svg class="icon icon-phone mr-1">
-        <use xlink:href="/img/common/icons.svg#phone"></use>
+        <use xlink:href="/local/assets/img/common/icons.svg#phone"></use>
       </svg>
       <span>Телефон</span>
       <a class="ml-1" href="tel:+73832772367">
@@ -85,7 +85,7 @@
     </p>
     <p class="d-flex align-items-center">
       <svg class="icon icon-location mr-1">
-        <use xlink:href="/img/common/icons.svg#location"></use>
+        <use xlink:href="/local/assets/img/common/icons.svg#location"></use>
       </svg>
       <span>Адрес</span>
       <a
@@ -98,7 +98,7 @@
     </p>
     <p class="d-flex align-items-center">
       <svg class="icon icon-mail mr-1">
-        <use xlink:href="/img/common/icons.svg#mail"></use>
+        <use xlink:href="/local/assets/img/common/icons.svg#mail"></use>
       </svg>
       <span>email</span>
       <a class="ml-1" href="mailto:oooaba54@gmail.com">

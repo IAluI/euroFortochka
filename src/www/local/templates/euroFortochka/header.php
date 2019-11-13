@@ -84,7 +84,7 @@
             <a class="MainHeader-LogoImg" href="/" title="На главную страницу">
               <img
                   class="h-100"
-                  src="/img/common/main-logo.png"
+                  src="/local/assets/img/common/main-logo.png"
                   alt="Еврофорточка"
               />
             </a>

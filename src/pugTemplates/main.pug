@@ -1,6 +1,6 @@
 mixin icon(name, color)
   svg(class = `icon icon-${name}${color ? ' icon-' + color: ''}`)&attributes(attributes)
-    use(xlink:href = `/img/common/icons.svg#${name}`)
+    use(xlink:href = `/local/assets/img/common/icons.svg#${name}`)
 
 mixin crumbs(name, link)
   span.mx-1
