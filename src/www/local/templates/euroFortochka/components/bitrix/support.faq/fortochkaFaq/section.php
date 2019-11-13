@@ -64,3 +64,9 @@ $this->setFrameMode(true);
 	),
 	$component
 );?>
+
+<pre>
+  <?
+    print_r($arResult["URL_TEMPLATES"]);
+  ?>
+</pre>

@@ -11,6 +11,6 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 ?>
-<?
+<?=
   require("section.php");
 ?>
