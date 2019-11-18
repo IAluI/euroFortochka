@@ -1,5 +1,3 @@
-import 'bootstrap';
-
 $(document).ready(() => {
   let callbackModal = $('#callback').modal({
     show: false

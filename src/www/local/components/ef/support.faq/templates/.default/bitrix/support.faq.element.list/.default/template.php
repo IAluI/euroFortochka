@@ -31,9 +31,3 @@ $this->setFrameMode(true);
   </li>
 <?endforeach;?>
 </ul>
-
-<pre>
-  <?
-    print_r($arParams);
-  ?>
-</pre>

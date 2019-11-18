@@ -1,11 +1,11 @@
 <?
   require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-  $APPLICATION->SetTitle("Контакты");
+  $APPLICATION->SetTitle("Вопросы и ответы");
 ?>
 
 <?$APPLICATION->IncludeComponent(
 	"ef:support.faq",
-	"fortochkaFaq",
+	".default",
 	array(
 		"AJAX_MODE" => "N",
 		"AJAX_OPTION_ADDITIONAL" => "",
@@ -17,20 +17,20 @@
 		"CACHE_TYPE" => "A",
 		"EXPAND_LIST" => "N",
 		"IBLOCK_ID" => "5",
-		"IBLOCK_TYPE_ID" => "services",
 		"IBLOCK_TYPE" => "services",
+		"IBLOCK_TYPE_ID" => "services",
 		"PATH_TO_USER" => "",
 		"RATING_TYPE" => "",
-		"SECTION" => "",
+		"SECTION" => "-",
 		"SHOW_RATING" => "N",
 		"COMPONENT_TEMPLATE" => ".default",
 		"SEF_MODE" => "Y",
 		"SEF_FOLDER" => "/faq/",
 		"SEF_URL_TEMPLATES" => array(
-			"faq" => "",
-			"section" => "#SECTION_ID#/",
-			"detail" => "#SECTION_ID#/#ELEMENT_ID#",
-		),
+			"faq" => "#SECTION_CODE#/",
+			"section" => "",
+			"element" => "",
+		)
 	),
 	false
 );?>

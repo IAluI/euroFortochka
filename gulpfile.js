@@ -238,14 +238,14 @@ gulp.task('webpack', function(callback) {
         }
       ]
     },
-    plugins: [
+    /*plugins: [
       new webpack.ProvidePlugin({
         $: 'jquery',
         jQuery: 'jquery',
         'window.jQuery': 'jquery',
         Popper: ['popper.js', 'default']
       })
-    ]
+    ]*/
   };
 
   webpack(options, function(err, stats) {
