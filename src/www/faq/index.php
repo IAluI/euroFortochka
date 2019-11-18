@@ -1,8 +1,6 @@
 <?
   require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-  $APPLICATION->SetTitle("Вопросы и ответы");
 ?>
-
 <?$APPLICATION->IncludeComponent(
 	"ef:support.faq",
 	".default",

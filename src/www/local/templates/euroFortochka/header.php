@@ -5,7 +5,6 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-    <meta charset="utf-8" />
     <meta
       name="viewport"
       content="width=device-width"
@@ -53,7 +52,7 @@
     ?>
     <title>
       <?
-        $APPLICATION->ShowTitle()
+        $APPLICATION->ShowTitle();
       ?>
     </title>
   </head>
@@ -181,8 +180,17 @@
       </header>
       <main class="Content">
         <div class="container Content-Header">
-          <h1 class="text-black-50"></h1>
-          <a class="text-black-50" href="/">Главная</a>
-          <div class="border-bottom my-3"></div>
+          <?
+            $APPLICATION->IncludeComponent(
+              "bitrix:breadcrumb",
+              "",
+              Array(
+                "START_FROM" => "0",
+                "PATH" => "",
+                "SITE_ID" => "s1"
+              )
+            );
+          ?>
+          <div class="border-bottom mb-3"></div>
         </div>
         <div class="container">
