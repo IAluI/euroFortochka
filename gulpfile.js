@@ -218,7 +218,7 @@ gulp.task('webpack', function(callback) {
       main: path.resolve(__dirname, 'src/common/common.js')
     },
     output:  {
-      path: path.resolve(__dirname, 'dist/js'),
+      path: path.resolve(__dirname, 'dist/www/local/assets/js'),
       publicPath: '/js/'
     },
     watch:   isDevelopment,

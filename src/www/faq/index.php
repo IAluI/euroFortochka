@@ -4,7 +4,7 @@
 ?>
 
 <?$APPLICATION->IncludeComponent(
-	"bitrix:support.faq",
+	"ef:support.faq",
 	"fortochkaFaq",
 	array(
 		"AJAX_MODE" => "N",
@@ -23,12 +23,13 @@
 		"RATING_TYPE" => "",
 		"SECTION" => "",
 		"SHOW_RATING" => "N",
+		"COMPONENT_TEMPLATE" => ".default",
 		"SEF_MODE" => "Y",
 		"SEF_FOLDER" => "/faq/",
 		"SEF_URL_TEMPLATES" => array(
 			"faq" => "",
 			"section" => "#SECTION_ID#/",
-			"detail" => "",
+			"detail" => "#SECTION_ID#/#ELEMENT_ID#",
 		),
 	),
 	false

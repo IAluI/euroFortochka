@@ -1,4 +1,6 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?
+  if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+?>
 
 <!DOCTYPE html>
 <html lang="ru">
@@ -11,8 +13,17 @@
       shrink-to-fit="no"
     />
     <?
+      /*CJSCore::RegisterExt(
+          "commonScript",
+          array(
+              "js" => "/local/assets/js/main.js",
+              "skip_core" => true,
+          )
+      );
+      CJSCore::Init(array('commonScript'));*/
       use Bitrix\Main\Page\Asset;
-      Asset::getInstance()->addJs('/local/assets/js/main.js');
+      Asset::getInstance()->addJs('/local/assets/js/main.js', true);
+      //Asset::getInstance()->addString('<script type="text/javascript" src="/local/assets/js/main.js"></script>', true, AssetLocation::BEFORE_JS);
       $APPLICATION->ShowHead();
     ?>
     <title>

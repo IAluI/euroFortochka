@@ -1,11 +1,9 @@
 export default function () {
   $(document).ready(() => {
-
     const showAnswer = (function () {
       let question = $('.Faq-Question').first();
       let answer = question.siblings('.Faq-AnswerWrapper');
       return (e) => {
-        //console.log(e.currentTarget);
         let newQuestion = $(e.currentTarget);
 
         if (question[0] !== newQuestion[0]) {
@@ -29,6 +27,5 @@ export default function () {
     })();
 
     $('.Faq-Question').click(showAnswer);
-
   })
 }
