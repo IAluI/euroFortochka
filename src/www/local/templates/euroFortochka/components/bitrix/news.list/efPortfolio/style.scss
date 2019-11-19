@@ -1,5 +1,10 @@
 @import "./src/common/colors";
 
+.Portfolio-Item {
+  flex: 0 1 15.8rem;
+  padding: 0 15px;
+}
+
 .Portfolio-PrevWrapper {
   position: relative;
   height: 0;

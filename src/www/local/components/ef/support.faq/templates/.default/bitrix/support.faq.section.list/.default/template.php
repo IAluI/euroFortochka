@@ -35,7 +35,7 @@ $this->setFrameMode(true);
   </ul>
 </div>
 <?if(isset($SELECTED_ITEM)):?>
-<h1 class="h2 text-center">
+<h1 class="text-center">
   <?=$SELECTED_ITEM["DESCRIPTION"]?>
 </h1>
 <?endif;?>

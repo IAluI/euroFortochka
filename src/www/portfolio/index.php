@@ -1,7 +1,7 @@
 <?
   require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 ?>
-<h1 class="h2 text-center mb-3">
+<h1 class="text-center mb-3">
   Примеры наших работ
 </h1>
 <?$APPLICATION->IncludeComponent("bitrix:news.list", "efPortfolio", Array(
