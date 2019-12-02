@@ -34,8 +34,3 @@ $this->setFrameMode(true);
     <?endforeach;?>
   </ul>
 </div>
-<?if(isset($SELECTED_ITEM)):?>
-<h1 class="text-center">
-  <?=$SELECTED_ITEM["DESCRIPTION"]?>
-</h1>
-<?endif;?>

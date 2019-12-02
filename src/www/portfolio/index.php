@@ -1,9 +1,6 @@
 <?
   require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 ?>
-<h1 class="text-center mb-3">
-  Примеры наших работ
-</h1>
 <?$APPLICATION->IncludeComponent("bitrix:news.list", "efPortfolio", Array(
 	"ACTIVE_DATE_FORMAT" => "d.m.Y",	// Формат показа даты
 		"ADD_SECTIONS_CHAIN" => "N",	// Включать раздел в цепочку навигации

@@ -10,10 +10,15 @@
         "IBLOCK_ID" => $arParams["IBLOCK_ID"]
       ),
       false,
-      Array("ID"),
+      Array(
+        "ID",
+        "DESCRIPTION"
+      ),
       false
     );
-    $arResult["VARIABLES"]["SECTION_ID"] = $sections->GetNext()["ID"];
+    $buff = $sections->GetNext();
+    $arResult["VARIABLES"]["SECTION_ID"] = $buff["ID"];
+    $arResult["VARIABLES"]["SECTION_DESC"] = $buff["DESCRIPTION"];
   } elseif (!$arResult["VARIABLES"]["SECTION_ID"]) {
     $sections = CIBlockSection::GetList(
         Array(
@@ -24,9 +29,14 @@
           "IBLOCK_ID" => $arParams["IBLOCK_ID"]
         ),
         false,
-        Array("ID"),
+        Array(
+          "ID",
+          "DESCRIPTION"
+        ),
         false
     );
-    $arResult["VARIABLES"]["SECTION_ID"] = $sections->GetNext()["ID"];
+    $buff = $sections->GetNext();
+    $arResult["VARIABLES"]["SECTION_ID"] = $buff["ID"];
+    $arResult["VARIABLES"]["SECTION_DESC"] = $buff["DESCRIPTION"];
   }
 ?>

@@ -12,6 +12,10 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
+<?
+  $APPLICATION->AddChainItem($arResult["VARIABLES"]["SECTION_DESC"]);
+  $APPLICATION->SetTitle($arResult["VARIABLES"]["SECTION_DESC"]);
+?>
 <?$APPLICATION->IncludeComponent(
 	"bitrix:support.faq.section.list",
 	"",

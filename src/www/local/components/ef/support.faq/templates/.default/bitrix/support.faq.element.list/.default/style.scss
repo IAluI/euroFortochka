@@ -8,16 +8,22 @@
 
 .Faq-Question {
   position: relative;
-  padding-right: 3.75rem;
+  padding: {
+    top: 5px;
+    bottom: 5px;
+    left: 5px;
+    right: 3.75rem;
+  }
   border: {
     color: transparent;
     width: 1px;
     style: solid;
+    radius: 5px;
   }
   .Faq-QuestionExpand {
     position: absolute;
     top: 50%;
-    right: 0;
+    right: 5px;
     transform: translateY(-50%);
     transition: transform .3s;
     width: 1.75rem;

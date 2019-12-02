@@ -183,7 +183,7 @@
           <?
             $APPLICATION->IncludeComponent(
               "bitrix:breadcrumb",
-              "",
+              "efBreadCrumb",
               Array(
                 "START_FROM" => "0",
                 "PATH" => "",
