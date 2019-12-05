@@ -1,0 +1,126 @@
+@import "./src/common/grid";
+@import "./src/common/colors";
+
+.Installation-Types {
+  padding-bottom: 2.5rem;
+  p {
+    margin-bottom: 0.5rem;
+  }
+  .Installation-Type {
+    max-width: 262.5px;
+    margin: auto;
+  }
+  .Installation-TypeHeader {
+    font-size: 1.25rem;
+  }
+  .Installation-TypeImg {
+    display: block;
+    max-height: 6rem;
+    max-width: 100%;
+    margin: 0.5rem auto;
+  }
+  .Installation-TypeLinks {
+    min-height: 3rem;
+  }
+  .Installation-TypePrice {
+    font-size: 1.75rem;
+  }
+  .swiper-slide {
+    height: auto;
+  }
+  @media (min-width: map-get($grid-breakpoints, lg)) {
+    .swiper-slide {
+      width: 25%;
+      padding: 0 7.5px;
+    }
+    .swiper-pagination {
+      display: none;
+    }
+  }
+}
+
+.Installation-Steps {
+  padding-bottom: 2.5rem;
+  .Installation-Step {
+    margin: auto;
+    padding: 0 0.5rem;
+    height: 100%;
+    max-width: 262.5px;
+  }
+  .Installation-StepNum {
+    font: {
+      size: 1.25rem;
+      weight: 700;
+    }
+    text-align: center;
+    margin: 0.5rem auto;
+  }
+  .Installation-StepImg {
+    position: relative;
+    height: 0;
+    padding-top: 66%;
+    > div {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      overflow: hidden;
+      > img {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        min-height: 100%;
+        min-width: 100%;
+      }
+    }
+  }
+  .Installation-StepHeader {
+    font: {
+      size: 1rem;
+      weight: 700;
+    }
+    line-height: 1.5;
+    text-align: center;
+    min-height: 3rem;
+    margin: 0.5rem auto;
+  }
+  /*.Installation-StepDetail {
+    cursor: pointer;
+    color: $primary;
+    &:hover {
+      text-decoration: underline;
+    }
+  }*/
+  .swiper-slide {
+    height: auto;
+  }
+  @media (min-width: map-get($grid-breakpoints, lg)) {
+    .swiper-slide {
+      width: 25%;
+      padding: 0 7.5px;
+    }
+    .swiper-pagination {
+      display: none;
+    }
+  }
+}
+
+.Installation-UnstdPrices {
+  overflow: hidden;
+  margin: {
+    left: auto;
+    right: auto;
+    bottom: 1.5rem;
+  }
+  tr:nth-child(odd) {
+    background-color: #dedede47;
+  }
+  td {
+    //line-height: 2;
+    padding: 0.5rem 1rem;
+    min-width: 9rem;
+    //max-width: map-get($container-max-widths, xl) / 2;
+  }
+}

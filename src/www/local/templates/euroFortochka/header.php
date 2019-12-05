@@ -13,7 +13,7 @@
     />
     <?
       use Bitrix\Main\Page\Asset;
-      use Bitrix\Main\Page\AssetLocation;
+      //use Bitrix\Main\Page\AssetLocation;
       /*Asset::getInstance()->addString(
         '<script' .
         'type="text/javascript"' .
@@ -146,7 +146,7 @@
             ?>
           </div>
           <div class="d-flex align-items-center flex-shrink-0">
-            <button class="btn btn-primary MainHeader-Callback" type="button">
+            <button class="btn btn-primary Callback" type="button">
               Оставить заявку
             </button>
           </div>

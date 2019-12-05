@@ -15,7 +15,11 @@ $this->setFrameMode(true);
 <?//elements list?>
 <ul class="list-unstyled">
 <?foreach ($arResult['ITEMS'] as $key=>$val):?>
-  <li>
+  <?
+  	$this->AddEditAction($val['ID'],$val['EDIT_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_EDIT"));
+  	$this->AddDeleteAction($val['ID'],$val['DELETE_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BSFE_ELEMENT_DELETE_CONFIRM')));
+  ?>
+  <li id="<?=$this->GetEditAreaId($val['ID']);?>">
     <h2 class="h4 Faq-Question">
       <?=$val['NAME']?>
       <div class="Faq-QuestionExpand">

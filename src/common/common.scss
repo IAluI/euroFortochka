@@ -1,6 +1,14 @@
 @import "./src/common/colors";
+@import "./src/common/grid";
 
 @import "./node_modules/bootstrap/scss/bootstrap";
+@import "./node_modules/swiper/swiper";
+@import "./node_modules/swiper/components/pagination/pagination";
+@import "./node_modules/swiper/components/navigation/navigation";
+
+:root {
+  --swiper-pagination-color: #000;
+}
 
 @function calc-font-size($f-min, $f-max, $v-min, $v-max) {
   $k: ($f-max - $f-min)/($v-max - $v-min);
@@ -52,17 +60,11 @@ footer a {
 }
 
 .MainHeader {
-  /*position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;*/
-  //z-index: $zindex-modal;
-  //width: 100%;
+
 }
 
 .MainHeader-Bar {
   position: relative;
-  //z-index: 1;
 }
 
 .MainHeader-Bar > * {
@@ -92,7 +94,6 @@ footer a {
   right: 0;
   z-index: $zindex-modal-backdrop;
   overflow: hidden;
-  //display: flex;
   transition: background-color 0.3s;
   pointer-events: none;
 
@@ -152,7 +153,6 @@ footer a {
       }
     }
     @media (min-width: map-get($grid-breakpoints, md)) {
-      //position: relative;
       display: block;
       width: 7rem;
       padding: {
@@ -160,7 +160,6 @@ footer a {
         bottom: 0.5rem;
         left: 0;
       }
-      //margin-bottom: 1rem;
       font-size: 0.8rem;
       text-align: center;
       background-color: transparent;
@@ -172,7 +171,6 @@ footer a {
         right: 0;
         bottom: calc(-1rem + 1px);
         transform: none;
-        //width: 0;
         height: 1px;
         border: {
           left: 3.5rem solid transparent;
@@ -328,7 +326,7 @@ footer a {
 }
 
 #mainNavMenu:checked ~ .MainHeader-Nav .MainHeader-CloseMenu {
-  transform: translateY(0)/* scale(.7)*/;
+  transform: translateY(0);
   > div > div {
     transition: {
       property: transform, opacity;
@@ -346,22 +344,15 @@ footer a {
   }
 }
 
-.MainHeader-Callback {
-  //font-size: 1.5rem;
-}
-
 .Content {
-  //margin-top: 200px;
+
 }
 
 .Content-Header {
-  /*h1 {
-    opacity: 0.65;
-  }*/
+
 }
 
 .Footer {
-  //font-size: 1.5rem;
   > * {
     margin-bottom: 1rem;
     @media (min-width: map-get($grid-breakpoints, sm)) {
@@ -369,63 +360,3 @@ footer a {
     }
   }
 }
-
-.Contacts {
-
-}
-
-/*
-.Faq-QuestionItem {
-  .Faq-AnswerWrapper {
-    height: 0;
-    transition: height .3s;
-    overflow: hidden;
-  }
-  .Faq-Question {
-    position: relative;
-    padding-right: 3.75rem;
-    border: {
-      color: transparent;
-      width: 1px;
-      style: solid;
-    }
-    .Faq-QuestionExpand {
-      position: absolute;
-      top: 50%;
-      right: 1rem;
-      transform: translateY(-50%);
-      transition: transform .3s;
-      width: 1.75rem;
-      height: 1.75rem;
-      border-radius: 50%;
-      background-color: $primary;
-      > div {
-        position: absolute;
-        top: 50%;
-        width: 70%;
-        margin: {
-          left: 15%;
-          right: 15%;
-        };
-        height: 2px;
-        background-color: #000;
-      }
-      > div:nth-child(1) {
-        transform: translateY(-50%) rotate(90deg);
-      }
-      > div:nth-child(2) {
-        transform: translateY(-50%);
-      }
-    }
-  }
-  .Faq-Question_isActive {
-    border-color: $primary;
-    .Faq-QuestionExpand {
-      transform: translateY(-50%) rotate(135deg);
-    }
-  }
-  .Faq-Question:hover {
-    cursor: pointer;
-    border-color: $primary;
-  }
-}*/

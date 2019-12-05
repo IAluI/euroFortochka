@@ -67,9 +67,14 @@ const paths = {
     watch: "./src/{common/img,pages/*/img}/*.{jpg,jpeg,png,gif,svg}"
   },
   styles: {
-    src: "./src/{common,pages}/**/*.scss",
-    dist: "./dist/css/",
-    watch: "./src/{common,pages}/**/*.scss"
+    src: "./src/pages/**/*.scss",
+    dist: "./dist/assets/",
+    watch: "./src/pages/**/*.scss"
+  },
+  templStyles: {
+    src: "./src/common/common.scss",
+    dist: "./dist/www/local/templates/euroFortochka/",
+    watch: "./src/common/common.scss"
   },
   svgSprite: {
     src: "./src/common/icons/*.svg",
@@ -77,9 +82,9 @@ const paths = {
     watch: ["./src/common/icons/*.svg", "./src/common/scssSpriteTemplate.mustache"]
   },
   btxTemplate: {
-    src: ["./src/www/**", "!./src/www/**/*.pug"],
+    src: ["./src/www/**", "!./src/www/**/*.pug", "!./src/www/**/*.scss"],
     dist: "./dist/www/",
-    watch: ["./src/www/**", "!./src/www/**/*.pug"],
+    watch: ["./src/www/**", "!./src/www/**/*.pug", "!./src/www/**/*.scss"],
   }
 };
 
@@ -127,11 +132,24 @@ gulp.task('styles', () => {
     }))
     .pipe(autoprefixer())
     .pipe(gulpIf(!isDevelopment, cssmin()))
-    .pipe(concat('main.css'))
+    .pipe(rename({
+      basename: 'style'
+    }))
     .pipe(gulp.dest(paths.styles.dist))
-    .pipe(rename('template_styles.css'))
-    .pipe(gulp.dest("./dist/www/local/templates/euroFortochka/"))
     .pipe(browserSync.stream());
+});
+
+gulp.task('templStyles', () => {
+  return gulp.src(paths.templStyles.src)
+    .pipe(sass({
+      includePaths: [
+        process.cwd()
+      ]
+    }))
+    .pipe(autoprefixer())
+    .pipe(gulpIf(!isDevelopment, cssmin()))
+    .pipe(rename('template_styles.css'))
+    .pipe(gulp.dest(paths.templStyles.dist))
 });
 
 gulp.task('btxTemplate', () => {
@@ -219,7 +237,7 @@ gulp.task('webpack', function(callback) {
     },
     output:  {
       path: path.resolve(__dirname, 'dist/www/local/assets/js'),
-      publicPath: '/js/'
+      //publicPath: '/js/'
     },
     watch:   isDevelopment,
     watchOptions: {
@@ -227,6 +245,9 @@ gulp.task('webpack', function(callback) {
       ignored: /node_modules/
     },
     devtool: isDevelopment ? 'cheap-module-inline-source-map' : false,
+    resolve: {
+      modules: [path.resolve(__dirname, 'src')]
+    },
     module:  {
       rules: [
         {
@@ -277,7 +298,9 @@ gulp.task('webserver', () => {
     port: 4000,
     middleware: [
       function(req, res, next) {
-        if (!/(^\/css\/)|(^\/img\/)|(^\/js\/)/.test(req.url)) {
+        if (/(^\/local\/)/.test(req.url)) {
+          req.url = '/www' + req.url;
+        } else if (!/(^\/assets\/)|(^\/img\/)/.test(req.url)) {
           req.url = '/pages' + req.url;
         }
         next();
@@ -287,6 +310,7 @@ gulp.task('webserver', () => {
 
   gulp.watch(paths.pug.watch, gulp.series('pug'));
   gulp.watch(paths.btxPug.watch, gulp.series('btxPug'));
+  gulp.watch(paths.templStyles.watch, gulp.series('templStyles'));
   gulp.watch(paths.styles.watch, gulp.series('styles'));
   gulp.watch(paths.images.watch, gulp.series('images'));
   gulp.watch(paths.svgSprite.watch, gulp.series('svgSprite'));
@@ -300,6 +324,7 @@ gulp.task('build',
     gulp.parallel(
       'fonts',
       'images',
+      'templStyles',
       'styles',
       'webpack',
       'pug',
