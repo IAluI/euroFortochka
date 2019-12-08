@@ -1,0 +1,152 @@
+@import "./src/common/grid";
+@import "./src/common/colors";
+
+.PromoKiv {
+  background: {
+    image: url("/local/assets/img/index/background-promo.png");
+    repeat: no-repeat;
+    position: center center;
+    size: cover;
+  };
+  .PromoKiv-Img {
+    width: 100%;
+    max-width: map-get($container-max-widths, xl) / 2;
+  }
+  .PromoKiv-Offer {
+    font-weight: 500;
+    text-align: center;
+    h2 {
+      font: {
+        size: 1rem;
+        weight: inherit;
+      }
+      line-height: 1.5;
+    }
+    .PromoKiv-OfferBlock {
+      background-color: transparentize($primary, 0.25);;
+    }
+  }
+}
+
+.IndexPageNav {
+  text-align: center;
+  li {
+    padding: 0 1rem;
+    margin-bottom: 1rem;
+    flex: 1 1 10rem;
+    > div {
+      height: 2.5rem;
+      margin-bottom: 0.5rem;
+      img {
+        height: 100%;
+      }
+      span {
+        position: relative;
+        bottom: 20%;
+      }
+    }
+    > a {
+      display: block;
+    }
+  }
+}
+
+.WhyBreezer-Description {
+  position: relative;
+  padding-left: 4.5rem;
+  &:before {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2.5rem;
+    height: 2.5rem;
+    background: {
+      image: url("/local/assets/img/index/attention.png");
+      size: cover;
+    }
+  }
+}
+
+.WhyBreezer-Compare {
+  //overflow: visible;
+  padding-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  .swiper-pagination {
+    /*top: 50%;
+    transform: transalateY(-50%);
+    left: -15px;
+    width: 15px;*/
+    bottom: auto;
+    top: 0;
+    .swiper-pagination-bullet {
+      margin: 0 1rem;
+    }
+  }
+  @media (min-width: map-get($grid-breakpoints, lg)) {
+    .swiper-slide {
+      height: auto;
+    }
+  }
+}
+
+.WhyBreezer-CompareImg {
+  width: 100%;
+  max-width: map-get($container-max-widths, xl) / 2 - 30px;
+  margin: auto;
+}
+
+.WhyBreezer-CompareColumn {
+  > * {
+    position: relative;
+    top: 50%;
+    display: block;
+    transform: translateY(-50%);
+  }
+  /*&:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+  }
+  > * {
+    display: inline-block;
+    vertical-align: middle;
+  }*/
+  /*> *:first-child:before {
+    content: '';
+    height: 100%;
+  }*/
+}
+
+.WhyBreezer-CompareProps {
+
+  li {
+    display: flex;
+    align-items: center;
+    img:first-child {
+      flex: 0 0 auto;
+      width: 2rem;
+      height: 2rem;
+      margin-right: 1rem;
+    }
+  }
+}
+
+.WhyBreezer-Nav {
+  > div {
+    cursor: pointer;
+    > img {
+      width: 3rem;
+      height: 3rem;
+    }
+  }
+  > div:hover {
+    text-decoration: underline;
+  }
+  > div.isActive {
+    font-weight: 700;
+    text-decoration: underline;
+  }
+}

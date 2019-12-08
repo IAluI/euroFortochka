@@ -8,8 +8,10 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 global $APPLICATION;
 
 //delayed function must return a string
-if(empty($arResult))
+$itemSize = count($arResult);
+if($itemSize < 2) {
 	return "";
+}
 
 $strReturn = '';
 
@@ -19,10 +21,9 @@ if(!is_array($css) || !in_array("/bitrix/css/main/font-awesome.css", $css))
 {
 	$strReturn .= '<link href="'.CUtil::GetAdditionalFileURL("/bitrix/css/main/font-awesome.css").'" type="text/css" rel="stylesheet" />'."\n";
 }
-$itemSize = count($arResult);
-if ($itemSize > 1) {
-  $strReturn .= '<h1>' . htmlspecialcharsex($arResult[$itemSize - 1]["TITLE"]) . '</h1>';
-}
+
+$strReturn .= '<div class="border-bottom mb-3 container">';
+$strReturn .= '<h1>' . htmlspecialcharsex($arResult[$itemSize - 1]["TITLE"]) . '</h1>';
 $strReturn .= '<div class="bx-breadcrumb" itemprop="http://schema.org/breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">';
 
 for($index = 0; $index < $itemSize; $index++)
@@ -52,5 +53,6 @@ for($index = 0; $index < $itemSize; $index++)
 }
 
 $strReturn .= '<div style="clear:both"></div></div>';
+$strReturn .= '</div>';
 
 return $strReturn;

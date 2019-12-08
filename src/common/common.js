@@ -8,6 +8,15 @@ $(document).ready(() => {
   $('#callbackClose, #callbackSubmit').click(() => {
     callbackModal.modal('hide');
   });
+
+  $('a[href^="#"]').click(function (e) {
+    e.preventDefault();
+    var id = $(this).attr('href');
+    var top = $(id).offset().top;
+    $('html, body').animate({
+      scrollTop: top
+    }, 350);
+  });
 });
 
 import { installation } from 'pages/installation/installation.js';
@@ -15,6 +24,9 @@ import { installation } from 'pages/installation/installation.js';
 if (window.location.pathname === '/installation/') {
   installation();
 }
+
+import { index } from 'pages/index/index.js';
+index();
 
 
 

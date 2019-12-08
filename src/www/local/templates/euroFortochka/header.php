@@ -179,18 +179,14 @@
         </nav>
       </header>
       <main class="Content">
-        <div class="container Content-Header">
-          <?
-            $APPLICATION->IncludeComponent(
-              "bitrix:breadcrumb",
-              "efBreadCrumb",
-              Array(
-                "START_FROM" => "0",
-                "PATH" => "",
-                "SITE_ID" => "s1"
-              )
-            );
-          ?>
-          <div class="border-bottom mb-3"></div>
-        </div>
-        <div class="container">
+        <?
+          $APPLICATION->IncludeComponent(
+            "bitrix:breadcrumb",
+            "efBreadCrumb",
+            Array(
+              "START_FROM" => "0",
+              "PATH" => "",
+              "SITE_ID" => "s1"
+            )
+          );
+        ?>

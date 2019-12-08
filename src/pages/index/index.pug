@@ -1,1 +1,154 @@
 extends ../../pugTemplates/main.pug
+
+block additionStyle
+  link(rel='stylesheet', type='text/css', href='/assets/index/style.css')
+
+block content
+  section.PromoKiv
+    div.container
+      div.row.p-4
+        div.col-12.col-md-6
+          img(src="/local/assets/img/index/kiv125-promo.png", alt="КИВ-125").PromoKiv-Img
+        div.col-12.col-md-6.PromoKiv-Offer
+          h2
+            | Приточный клапан КИВ-125 / КПВ-125
+          p.h2.mb-3
+            | От духоты, влажности и плесени
+          div.d-inline-block.rounded.p-4.PromoKiv-OfferBlock
+            p
+              | КИВ-125 под ключ (с монтажом) по цене:
+            p.h2.mb-4
+              | от 4300 руб
+            a(class="btn btn-outline-light", href="#", role="button").font-weight-bolder
+              | Подробнее
+  nav.container
+    h2.text-center
+      | Навигация по странице
+    ul.list-unstyled.d-flex.justify-content-araund.flex-wrap.pt-3.m-0.IndexPageNav
+      li
+        div
+          img(src="/local/assets/img/index/znak.png", alt="Восклицательный знак")
+        a(href="#why")
+          | Что такое проветриватель и зачем он нужен?
+      li
+        div
+          span(style="font-size: 48px; font-weight: 700; line-height: 2rem") ...
+        a(href="#type")
+          | Виды проветривателей
+      li
+        div
+          img(src="/local/assets/img/index/koleso.png", alt="Шестеренка")
+        a(href="#difference")
+          | Отличия проветривателя от других устройств
+      li
+        div
+          img(src="/local/assets/img/index/vybor.png", alt="Выбрать")
+        a(href="#compare")
+          | Как выбрать проветриватель?]
+  section
+    div.container
+      h2.text-center
+        a(href="#why", id="why", name="why").text-reset
+          |Зачем нужен проветриватель?
+    div.border-bottom.border-top.pt-3.mb-3
+      div.container
+        p.WhyBreezer-Description
+          i Проветриватель
+          | - это бытовое приточное устройство для подачи свежего воздуха в квартиру, дом или офис.
+          | Основная функция проветривателей - это избавить Вас от
+          strong духоты
+          |,
+          strong сырости
+          | и
+          strong плесени
+          | за счет нормализации процессов воздухообмена в доме.
+    div.container
+      div.swiper-container.WhyBreezer-Compare
+        div.swiper-wrapper
+          //.h-auto
+          div.swiper-slide
+            div.row.h-100
+              div.col-12.col-lg-6.WhyBreezer-CompareColumn
+                img(src="/local/assets/img/index/with-breezer.svg", alt="Потоки воздуха в квартире с проветривателем").WhyBreezer-CompareImg
+              div.col-12.col-lg-6.WhyBreezer-CompareColumn
+                ul.list-unstyled.WhyBreezer-CompareProps
+                  li.mb-3
+                    img(src="/local/assets/img/index/oxygen.png", alt="Кислород")
+                    p.m-0
+                      | Подает в помещение свежий воздух. Окна при этом остаются закрытыми! Соответственно, в Ваш дом НЕ
+                      | поступают шум, пыль и грязь с улицы.  Исключается возможность сквозняков.
+                  li.mb-3
+                    img(src="/local/assets/img/index/ventilation.png", alt="Вентиляция")
+                    p.m-0
+                      | Отработанный воздух вытесняется в вытяжную шахту.
+                  li.mb-3
+                    img(src="/local/assets/img/index/eco.png", alt="Очистка")
+                    p.m-0
+                      | Подаваемый с улицы воздух предварительно очищается. В зависимости от выбранного варианта
+                      | проветривателя класс очистки  варьируется от грубой степени очистки до медицинских стандартов чистоты.
+                  li.mb-3
+                    img(src="/local/assets/img/index/temperature.png", alt="Температура")
+                    p.m-0
+                      | Во многих проветивателях с механической подачей  воздух с улицы предварительно подогревается до
+                      | комнатной температуры, даже если за окном -40.
+                  li.mb-3
+                    img(src="/local/assets/img/index/smile.png", alt="Температура")
+                    p.m-0
+                      | Дома свежо и комфортно.
+          div.swiper-slide
+            div.row.h-100
+              div.col-12.col-lg-6.WhyBreezer-CompareColumn
+                img(src="/local/assets/img/index/open-window.svg", alt="Потоки воздуха в квартире с открытыми окнами").WhyBreezer-CompareImg
+              div.col-12.col-lg-6.WhyBreezer-CompareColumn
+                ul.list-unstyled.WhyBreezer-CompareProps
+                  li.mb-3
+                    img(src="/local/assets/img/index/wind.png", alt="Сквозняк")
+                    p.m-0
+                      | Из окон окон дует, образуется сквозняк.
+                  li.mb-3
+                    img(src="/local/assets/img/index/noise.png", alt="Шум")
+                    p.m-0
+                      | В дом поступает шум городских улиц, который мешает здоровому сну и продуктивной работе.
+                  li.mb-3
+                    img(src="/local/assets/img/index/impurity.png", alt="Загрязнение воздуха")
+                    p.m-0
+                      | Через открытые окна мы впускаем в дом промышленные выбросы, выхлопные газы, тополиный пух и
+                      | цветочную пыльцу.
+          div.swiper-slide
+            div.row.h-100
+              div.col-12.col-lg-6.WhyBreezer-CompareColumn
+                img(src="/local/assets/img/index/close-window.svg", alt="Потоки воздуха в квартире с закрытыми окнами").WhyBreezer-CompareImg
+              div.col-12.col-lg-6.WhyBreezer-CompareColumn
+                ul.list-unstyled.WhyBreezer-CompareProps
+                  li.mb-3
+                    img(src="/local/assets/img/index/co2.png", alt="Угликислый газ")
+                    p.m-0
+                      | Отработанный воздух НЕ уходит, а свежему воздуху неоткуда взяться. Становится душно,
+                      | появляется утомляемость и заложенность носа, что вызвано недостатком свежего воздуха.
+                  li.mb-3
+                    img(src="/local/assets/img/index/water.png", alt="Влажность")
+                    p.m-0
+                      | В воздухе накапливается влага, которая конденсируется на окнах и наружных стенах. Возникает
+                      | эффект "плачущих окон". Уменьшается долговечность  ремонта.
+                  li.mb-3
+                    img(src="/local/assets/img/index/fungus.png", alt="Грибок и плесень")
+                    p.m-0
+                      | Влажность и тепло - это благоприятные условия для развития плесени. Плесень разрушает
+                      | строительные материалы. А ее споры распространяются в воздухе и попадают в легкие человека.
+                  li.mb-3
+                    img(src="/local/assets/img/index/ventilation.png", alt="Вентиляция", style="transform: rotate(180deg)")
+                    p.m-0
+                      | Во многих проветивателях с механической подачей  воздух с улицы предварительно подогревается до
+                      | комнатной температуры, даже если за окном -40.
+        div.swiper-pagination
+      div.d-flex.justify-content-around.text-center.WhyBreezer-Nav
+        div.isActive
+          img(src="/local/assets/img/index/with-breezer-icon.svg", alt="Проветриватель")
+          p С проветривателем
+        div
+          img(src="/local/assets/img/index/open-window-icon.svg", alt="Окна открыты")
+          p Окна открыты
+        div
+          img(src="/local/assets/img/index/close-window-icon.svg", alt="Окна закрыты")
+          p Окна закрыты
+
