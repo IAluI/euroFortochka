@@ -1,6 +1,14 @@
 @import "./src/common/grid";
 @import "./src/common/colors";
 
+.swiper-slide {
+  margin-bottom: 1.5rem;
+}
+
+.swiper-container-horizontal > .swiper-pagination-bullets {
+  bottom: 0;
+}
+
 .PromoKiv {
   background: {
     image: url("/local/assets/img/index/background-promo.png");
@@ -51,7 +59,7 @@
   }
 }
 
-.WhyBreezer-Description {
+.Important {
   position: relative;
   padding-left: 4.5rem;
   &:before {
@@ -148,5 +156,117 @@
   > div.isActive {
     font-weight: 700;
     text-decoration: underline;
+  }
+}
+
+.TypeBreezer {
+  margin-left: -15px;
+  padding: 15px;
+  width: calc(100% + 30px);
+  .TypeBreezer-Space {
+    flex: 0 0 15px;
+  }
+  @media (min-width: map-get($grid-breakpoints, lg)) {
+    .TypeBreezer-Space {
+      display: none;
+    }
+  }
+  table {
+    overflow: hidden;
+  }
+  .TypeBreezer-Img {
+    margin: auto;
+    width: 9.5rem;
+    height: 9.5rem;
+    &:before {
+      content: '';
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+    img {
+      width: 97%;
+      vertical-align: middle;
+    }
+  }
+  tr:nth-child(2) {
+    td {
+      vertical-align: top;
+    }
+    td:first-child {
+      vertical-align: middle;
+    }
+  }
+  .TypeBreezer-Advantages, .TypeBreezer-Disadvantages {
+    li {
+      position: relative;
+    }
+  }
+  .TypeBreezer-Advantages {
+    li:before {
+      content: "+";
+      position: absolute;
+      left: -0.75rem;
+    }
+  }
+  .TypeBreezer-Disadvantages {
+    li:before {
+      content: "-\00a0";
+      position: absolute;
+      left: -0.75rem;
+    }
+  }
+  tr:nth-child(odd) {
+    background-color: #dedede47;
+  }
+  td, th {
+    padding: 0.5rem 1rem;
+    //min-width: 9rem;
+  }
+}
+
+.DifferenceBreezer {
+  h3 {
+    font: {
+      size: 1.25rem;
+      weight: 700;
+    }
+  }
+  li {
+    position: relative;
+    padding-left: 1rem;
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0.1rem;
+      top: 0.6rem;
+      //top: 50%;
+      //transform: translateY(-50%) rotate(45deg);
+      //transition: transform .3s;
+      transform: rotate(45deg);
+      width: 0.5rem;
+      height: 0.5rem;
+      background-color: $primary;
+    }
+  }
+  .swiper-slide {
+    > img {
+      display: block;
+      margin: auto;
+      width: 100%;
+      max-width: map-get($container-max-widths, xl) / 3 - 30px;
+    }
+  }
+  @media (min-width: map-get($grid-breakpoints, lg)) {
+    .swiper-wrapper {
+      justify-content: space-around;
+    }
+    .swiper-slide {
+      width: 33%;
+      padding: 0 7.5px;
+    }
+    .swiper-pagination {
+      display: none;
+    }
   }
 }

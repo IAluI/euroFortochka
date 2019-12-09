@@ -1,8 +1,16 @@
 @import "./src/common/grid";
 @import "./src/common/colors";
 
+.swiper-slide {
+  margin-bottom: 1.5rem;
+}
+
+.swiper-container-horizontal > .swiper-pagination-bullets {
+  bottom: 0;
+}
+
 .Installation-Types {
-  padding-bottom: 2.5rem;
+  //padding-bottom: 2.5rem;
   p {
     margin-bottom: 0.5rem;
   }
@@ -27,6 +35,7 @@
   }
   .swiper-slide {
     height: auto;
+    margin-bottom: 1.5rem;
   }
   @media (min-width: map-get($grid-breakpoints, lg)) {
     .swiper-slide {
@@ -40,7 +49,7 @@
 }
 
 .Installation-Steps {
-  padding-bottom: 2.5rem;
+  //padding-bottom: 2.5rem;
   .Installation-Step {
     margin: auto;
     padding: 0 0.5rem;

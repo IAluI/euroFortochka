@@ -52,7 +52,7 @@ block content
           | Зачем нужен проветриватель?
     div.border-bottom.border-top.pt-3.mb-3
       div.container
-        p.WhyBreezer-Description
+        p.Important
           i Проветриватель
           | - это бытовое приточное устройство для подачи свежего воздуха в квартиру, дом или офис.
           | Основная функция проветривателей - это избавить Вас от
@@ -154,41 +154,153 @@ block content
   section
     div.container
       h2.text-center
-        a(href="#why", id="why", name="why").text-reset
+        a(href="#type", id="type", name="type").text-reset
           | Виды проветривателей
-      table.rounded.shadow
-        tbody
-          tr
-            th
-            th Пассивные
-            th Активные
-            th Приточно-вытяжные с рекуператором
-          tr
-            th Проветриватели
-            td 
-              img(src="/local/assets/img/installation/passive-vent.svg", alt="Пассивный проветриватель")
-              span С естественной подачей воздуха
-            td
-              img(src="/local/assets/img/common/active-vent.svg", alt="Активный проветриватель")
-              span С принудительной подачей воздуха
-            td
-              img(src="/local/assets/img/common/recuperate-vent.svg", alt="Проветриватель с рекуператором")
-              span Принудительная приточно-вытяжная вентиляция с рекуперацией
-          tr
-            th Принцип работы
-            td
-              
-            td
-            td
-          tr
-            th Достоинства и недостатки
-            td
-            td
-            td
-          tr
-            th Модели проветривателей
-            td
-            td
-            td
-
-
+      div.overflow-auto.d-flex.TypeBreezer
+        div
+          table.rounded.shadow
+            tbody
+              tr
+                th
+                th Пассивные
+                th Активные
+                th Приточно-вытяжные с рекуператором
+              tr
+                th Проветриватели
+                td
+                  div.TypeBreezer-Img
+                    img(src="/local/assets/img/common/passive-vent.svg", alt="Пассивный проветриватель")
+                  //br
+                  span С естественной подачей воздуха
+                td
+                  div.TypeBreezer-Img
+                    img(src="/local/assets/img/common/active-vent.svg", alt="Активный проветриватель")
+                  //br
+                  span С принудительной подачей воздуха
+                td
+                  div.TypeBreezer-Img
+                    img(src="/local/assets/img/common/recuperate-vent.svg", alt="Проветриватель с рекуператором")
+                  //br
+                  span Принудительная приточно-вытяжная вентиляция с рекуперацией
+              tr
+                th Принцип работы
+                td работают за счет естественной тяги - только при наличии вытяжной шахты
+                td подача воздуха за счет встроенного вентилятора
+                td.
+                  подача и забор воздуха за счет встроенного вентилятора, который попеременно работает то на приток, то на
+                  вытяжку. Рекуператор при этом отдает тепло вытяжного воздуха приточному, т.о. подогрев не требуется.
+              tr
+                th Достоинства и недостатки
+                td
+                  ul.list-unstyled.TypeBreezer-Advantages
+                    li Просто, дешево, компактно
+                    li Не потребляют электроэнергию
+                  ul.list-unstyled.TypeBreezer-Disadvantages
+                    li Производительность зависит от степени разряжения, которое создает вытяжка
+                    li Нет подогрева
+                    li Низкая степень очистки воздуха
+                    li Ручная регулировка
+                td
+                  ul.list-unstyled.TypeBreezer-Advantages
+                    li Производительность ограничена только мощность вентилятора, в среднем 120-200 м3/ч
+                    li Работа проветривателя не зависит от наличия или отсутствия вытяжки
+                    li Автоматическая регулировка
+                    li Подогрев приточного воздуха
+                    li Очистка приточного воздуха
+                    li Климат-контроль
+                  ul.list-unstyled.TypeBreezer-Disadvantages
+                    li Стоимость
+                    li Энергопотребление до 1,5 кВт/ч при  подогреве приточного воздуха от -40 до +25
+                    li Габариты
+                td
+                  ul.list-unstyled.TypeBreezer-Advantages
+                    li Производительность в режиме  рекуперации  60-80 м3/ч
+                    li Автоматическая регулировка
+                    li Подогрев приточного воздуха вытяжным
+                    li Энергопотребление 18 Вт
+                    li Очистка приточного воздуха
+                  ul.list-unstyled.TypeBreezer-Disadvantages
+                    li Габариты и шум
+              tr
+                th Модели проветривателей
+                td
+                  a(href="") КИВ-125
+                  | ,
+                  a(href="") VAKIO KIV
+                td
+                  a(href="") ТИОН О2
+                  | ,
+                  a(href="") ТИОН 3S
+                  | ,
+                  a(href="") BALLU AIR MASTER
+                td
+                  a(href="") VAKIO BASE
+                  | ,
+                  a(href="") УВРК 50М
+        div.TypeBreezer-Space
+  section
+    div.container
+      h2.text-center
+        a(href="#difference", id="difference", name="difference").text-reset
+          | Проветриватель, очиститель или кондиционер. В чем разница?
+      div.swiper-container.DifferenceBreezer
+        div.swiper-wrapper
+          div.swiper-slide
+            h3.text-center
+              | Проветриватель
+            img(src="/local/assets/img/index/breezer.jpg", alt="Проветриватель")
+            ul.list-unstyled.m-0
+              li Подает свежий воздух
+              li
+                | Предварительно очищает и подогревает воздух до комнатной температуры (
+                a(href='') ТИОН О2
+                | ,
+                a(href='') ТИОН 3S
+                | ,
+                a(href='') Ballu Air Master
+                | ,
+                a(href='') Vakio Base
+                | )
+              li Не охлаждает воздух
+              li
+                | Может очищать воздух внутри помещения в режиме рециркуляции (
+                a(href='') ТИОН 3S
+                | ,
+                a(href='') Ballu Air Master
+                | )
+          div.swiper-slide
+            h3.text-center
+              | Очиститель
+            img(src="/local/assets/img/index/purifier.jpg", alt="Очиститель воздуха")
+            ul.list-unstyled.m-0
+              li Подает свежий воздух
+              li Очищает воздух внутри помещения
+              li
+                | Увлажняет воздух (
+                a(href='') Hisense Ecolife
+                | )
+              li Не дает притока свежего воздуха
+              li Не охлаждает и не подогревает воздух
+          div.swiper-slide
+            h3.text-center
+              | Кондиционер
+            img(src="/local/assets/img/index/conditioner.jpg", alt="Кондиционер")
+            ul.list-unstyled.m-0
+              li Охлаждает воздух
+              li Практически не очищает воздух внутри помещения
+              li Не дает притока свежего воздуха
+              li
+                | Подогревает воздух
+                a(href='https://aba24.ru/shop/konditsioneryi/') Выбрать кондиционер
+        div.swiper-pagination
+    div.border-bottom.border-top.pt-3.mb-3
+      div.container
+        p.Important
+          | Каждое из этих устройств максимально хорошо выполняет лишь свою основную функцию. Поэтому для создания
+          | максимально комфортных условий у Вас должны быть все три прибора одновременно: проветриватель, кондиционер
+          | и очиститель.
+  section
+    div.container
+      h2.text-center
+        a(href="#compare", id="compare", name="compare").text-reset
+          | Сравнение проветривателей

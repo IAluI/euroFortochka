@@ -45,6 +45,7 @@
         AssetLocation::AFTER_JS_KERNEL
       );*/
       Asset::getInstance()->addJs('https://code.jquery.com/jquery-3.4.1.min.js');
+      Asset::getInstance()->addJs('https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js');
       Asset::getInstance()->addJs('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js');
       Asset::getInstance()->addJs('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js');
       Asset::getInstance()->addJs('/local/assets/js/main.js');

@@ -53,5 +53,25 @@ export function index() {
       );
     };
     breakpoint.addListener(sliderReInit);
+
+
+    let DifferenceBreezerSlider = swiperInit({
+      mediaQ: '(min-width: 992px)',
+      swiperContainer: '.DifferenceBreezer',
+      swiperOptions: {
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        spaceBetween: 15,
+        slidesPerView: 1,
+        breakpointsInverse: true,
+        breakpoints: {
+          576: {
+            slidesPerView: 2,
+          }
+        },
+      }
+    });
   });
 }
