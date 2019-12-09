@@ -20,7 +20,7 @@
             <div class="px-2">
               <img
                 class="Installation-TypeImg"
-                src="/local/assets/img/installation/passive-vent.svg"
+                src="/local/assets/img/common/passive-vent.svg"
                 alt="Пассивный проветриватель"
               />
               <div class="border-bottom">
@@ -63,7 +63,7 @@
             <div class="px-2">
               <img
                 class="Installation-TypeImg"
-                src="/local/assets/img/installation/active-vent.svg"
+                src="/local/assets/img/common/active-vent.svg"
                 alt="Активный проветриватель"
               />
               <div class="border-bottom">
@@ -106,7 +106,7 @@
             <div class="px-2">
               <img
                 class="Installation-TypeImg"
-                src="/local/assets/img/installation/active-vent.svg"
+                src="/local/assets/img/common/active-vent.svg"
                 alt="Активный проветриватель"
               />
               <div class="border-bottom">
@@ -143,7 +143,7 @@
             <div class="px-2">
               <img
                 class="Installation-TypeImg"
-                src="/local/assets/img/installation/recuperate-vent.svg"
+                src="/local/assets/img/common/recuperate-vent.svg"
                 alt="Проветриватель с рекуператором"
               />
               <div class="border-bottom">

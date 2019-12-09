@@ -67,9 +67,9 @@ const paths = {
     watch: "./src/{common/img,pages/*/img}/*.{jpg,jpeg,png,gif,svg}"
   },
   styles: {
-    src: "./src/pages/**/*.scss",
+    src: ["./src/pages/**/*.scss", "./src/common/img/*.scss"],
     dist: "./dist/assets/",
-    watch: "./src/pages/**/*.scss"
+    watch: ["./src/pages/**/*.scss", "./src/common/img/*.scss"]
   },
   templStyles: {
     src: "./src/common/common.scss",
