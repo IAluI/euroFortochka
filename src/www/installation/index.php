@@ -3,7 +3,7 @@
 ?>
 <?
   use Bitrix\Main\Page\Asset;
-  Asset::getInstance()->addCss($APPLICATION->GetCurDir() . "/style.css", true);
+  Asset::getInstance()->addCss("/local/assets/css/installation.css", true);
 ?>
 <div class="container">
   <section>

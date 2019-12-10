@@ -31,7 +31,7 @@
       line-height: 1.5;
     }
     .PromoKiv-OfferBlock {
-      background-color: transparentize($primary, 0.25);;
+      background-color: transparentize($primary, 0.25);
     }
   }
 }
@@ -78,14 +78,9 @@
 }
 
 .WhyBreezer-Compare {
-  //overflow: visible;
   padding-top: 1.5rem;
   margin-bottom: 1.5rem;
   .swiper-pagination {
-    /*top: 50%;
-    transform: transalateY(-50%);
-    left: -15px;
-    width: 15px;*/
     bottom: auto;
     top: 0;
     .swiper-pagination-bullet {
@@ -112,20 +107,6 @@
     display: block;
     transform: translateY(-50%);
   }
-  /*&:before {
-    content: '';
-    display: inline-block;
-    vertical-align: middle;
-    height: 100%;
-  }
-  > * {
-    display: inline-block;
-    vertical-align: middle;
-  }*/
-  /*> *:first-child:before {
-    content: '';
-    height: 100%;
-  }*/
 }
 
 .WhyBreezer-CompareProps {
@@ -217,7 +198,7 @@
     }
   }
   tr:nth-child(odd) {
-    background-color: #dedede47;
+    background-color: rgba(222, 222, 222, 0.5);
   }
   td, th {
     padding: 0.5rem 1rem;
@@ -246,7 +227,7 @@
       transform: rotate(45deg);
       width: 0.5rem;
       height: 0.5rem;
-      background-color: $primary;
+      background-color: $secondary;
     }
   }
   .swiper-slide {
@@ -268,5 +249,135 @@
     .swiper-pagination {
       display: none;
     }
+  }
+}
+
+.CompareBreezer {
+  margin-left: -15px;
+  padding: 15px;
+  width: calc(100% + 30px);
+  .CompareBreezer-Space {
+    flex: 0 0 15px;
+  }
+  @media (min-width: map-get($grid-breakpoints, xl)) {
+    .CompareBreezer-Space {
+      display: none;
+    }
+  }
+  table {
+    overflow: hidden;
+  }
+  .CompareBreezer-Img {
+    margin: auto;
+    width: 5.5rem;
+    height: 5.5rem;
+    &:before {
+      content: '';
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+    img {
+      height: 85%;
+      vertical-align: middle;
+    }
+  }
+  tr:first-child {
+    th {
+      vertical-align: top;
+    }
+    th:first-child {
+      vertical-align: middle;
+    }
+  }
+  .CompareBreezer-Rate {
+    height: 2.5rem;
+  }
+  tr:nth-child(even) {
+    background-color: rgba(222, 222, 222, 0.5);//#dedede47;
+  }
+  td, th {
+    padding: 0.5rem 1rem;
+    text-align: center;
+  }
+  th:first-child {
+    text-align: left;
+  }
+}
+
+.WhyWe {
+  background: {
+    image: url("/local/assets/img/index/whyWe-background.jpg");
+    size: cover;
+  };
+}
+
+.WhyWe-Reasons {
+  @media (min-width: map-get($grid-breakpoints, lg)) {
+    .swiper-wrapper {
+      display: block;
+      column-count: 3;
+    }
+    .swiper-pagination {
+      display: none;
+    }
+  }
+}
+
+.WhyWe-Reason {
+  position: relative;
+  padding: {
+    top: 2rem;
+    left: 2rem;
+    bottom: 1rem;
+    right: 1rem;
+  }
+  column-break-inside: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.WhyWe-ReasonCover {
+  padding: {
+    left: 0.5rem;
+    right: 0.5rem;
+    bottom: 0.5rem;
+    top: 4rem;
+  }
+  background-color: transparentize(#fff, 0.55);
+}
+
+.WhyWe-ReasonContent {
+  border: 2px solid transparent;
+  padding: 0.5rem;
+  &:hover {
+    border-color: $primary;
+  }
+}
+
+.WhyWe-Header {
+  position: absolute;
+  top: 0;
+  right: 2rem;
+  left: 0;
+  height: 5.5rem;
+  background-color: transparentize(#000, 0.55);
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  .WhyWe-HeaderIcon {
+    width: 2rem;
+    margin-right: 1rem;
+    img {
+      width: 100%;
+    }
+  }
+  h3 {
+    color: #fff;
+    font: {
+      size: 1.25rem;
+      weight: 700;
+    };
+    margin: 0;
   }
 }

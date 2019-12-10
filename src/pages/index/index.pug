@@ -1,7 +1,7 @@
 extends ../../pugTemplates/main.pug
 
 block additionStyle
-  link(rel='stylesheet', type='text/css', href='/assets/index/style.css')
+  link(rel='stylesheet', type='text/css', href='/local/assets/css/index.css')
 
 block content
   section.PromoKiv
@@ -44,7 +44,7 @@ block content
         div
           img(src="/local/assets/img/index/vybor.png", alt="Выбрать")
         a(href="#compare")
-          | Как выбрать проветриватель?]
+          | Как выбрать проветриватель?
   section
     div.container
       h2.text-center
@@ -304,3 +304,230 @@ block content
       h2.text-center
         a(href="#compare", id="compare", name="compare").text-reset
           | Сравнение проветривателей
+      div.overflow-auto.d-flex.CompareBreezer
+        div
+          table.rounded.shadow
+            tbody
+              tr
+                th Проветриватель
+                th
+                  div.CompareBreezer-Img
+                    img(src="/local/assets/img/common/p_kiv-125.png", alt="КИВ-125")
+                  a(href="") КИВ-125
+                th
+                  div.CompareBreezer-Img
+                    img(src="/local/assets/img/common/p_vakio.png", alt="VAKIO")
+                  a(href="") VAKIO
+                th
+                  div.CompareBreezer-Img
+                    img(src="/local/assets/img/common/p_tion-o2.png", alt="ТИОН O2")
+                  a(href="") ТИОН О2
+                th
+                  div.CompareBreezer-Img
+                    img(src="/local/assets/img/common/p_ballu-air-master.png", alt="BALLU AIR MASTER")
+                  a(href="") BALLU AIR MASTER
+                th
+                  div.CompareBreezer-Img
+                    img(src="/local/assets/img/common/p_tion-s3.png", alt="ТИОН 3S")
+                  a(href="") ТИОН 3S
+              tr
+                th Производительность, м3/ч
+                td 30 - 60
+                td 20 / 30 / 60 / 120
+                td 40 / 65 / 85 / 120
+                td 40 / 80 / 120 / 160 / 200
+                td 30 / 45 / 60 / 75 / 90 / 140
+              tr
+                th Подогрев
+                td НЕТ
+                td За счет рекуперации
+                td ДА
+                td ДА
+                td ДА
+              tr
+                th Очистка воздуха
+                td Пылевой фильтр G4
+                td Фильтр тонкой очистки F6 (EU 6)
+                td Каскад из фильтров: F7, HEPA H11, АК
+                td HD Prefilter, F5, H11, АК, УФ-лампы, Ионизатор
+                td Префильтр, G4, HEPA, АК-XL
+              tr
+                th Воздушная заслонка
+                td Ручная
+                td Ручная
+                td Автоматическая
+                td Автоматическая
+                td Автоматическая
+              tr
+                th Энергопотребление
+                td НЕТ
+                td 5-18 Вт
+                td 18 Вт/1,45 кВт
+                td до 1,03  кВт
+                td 30 Вт/1,45 кВт
+              tr
+                th Уровень шума, дБ
+                td 0
+                td 20 / 29,5
+                td от 32
+                td 25 / 32 / 36 / 39 / 45
+                td 19 / 23 / 29 / 35 / 40 / 47
+              tr
+                th Габариты (ШхВхГ) , мм
+                td d 175, глубина 66
+                td 222 х 470 х 94
+                td 454 х 514 х 163
+                td 455 х 578 х 165
+                td 453 х 528 х 203
+              tr
+                th Диапазон рабочих t
+                td от -40
+                td -47..+50
+                td -40..+50
+                td -40..+50
+                td -40..+50
+              tr
+                th Возможность упр-ия Wi-Fi
+                td НЕТ
+                td НЕТ
+                td ДА
+                td ДА
+                td ДА
+              tr
+                th Страна-производитель
+                td Россия / Китай
+                td Россия
+                td Россия / Китай
+                td Россия / Китай
+                td Россия / Китай
+              tr
+                th Гарантия
+                td 1 год
+                td 2 года
+                td 1 год
+                td 2 года
+                td 2 года
+              tr
+                th Расширенная комплектация
+                td
+                  a(href='') КИВ КВАДРО
+                  | ,
+                  a(href='') Vakio КИВ
+                td
+                  a(href='') Vakio КИВ
+                  | ,
+                  a(href='') Vakio Lumi
+                td
+                  a(href='') Тион MAC
+                  | ,
+                  a(href='') Тион TOP
+                td
+                  a(href='') BMAC-200 CO2
+                  | ,
+                  a(href='') BMAC-200 Wi-Fi
+                td
+                  a(href='') ТИОН 3S Smart
+                  | ,
+                  a(href='') ТИОН 3S Plus
+              tr
+                th Рейтинг
+                td
+                  img(src="/local/assets/img/index/rate_1.svg", alt="").CompareBreezer-Rate
+                td
+                  img(src="/local/assets/img/index/rate_2.svg", alt="").CompareBreezer-Rate
+                td
+                  img(src="/local/assets/img/index/rate_3.svg", alt="").CompareBreezer-Rate
+                td
+                  img(src="/local/assets/img/index/rate_4.svg", alt="").CompareBreezer-Rate
+                td
+                  img(src="/local/assets/img/index/rate_5.svg", alt="").CompareBreezer-Rate
+              tr
+                th Стоимость
+                td 2 000 Р
+                td 16 900 Р
+                td 25 990 Р
+                td 29 990 Р
+                td 38 990 Р
+              tr
+                th
+                td
+                  a(href='').btn.btn-primary Подробнее
+                td
+                  a(href='').btn.btn-primary Подробнее
+                td
+                  a(href='').btn.btn-primary Подробнее
+                td
+                  a(href='').btn.btn-primary Подробнее
+                td
+                  a(href='').btn.btn-primary Подробнее
+        div.CompareBreezer-Space
+  section.WhyWe
+    div.container
+      h2.text-center
+        a(href="#whyWe", id="whyWe", name="whyWe").text-reset
+          | 7 причин выбрать нас
+      div.swiper-container.WhyWe-Reasons
+        div.swiper-wrapper
+          div.swiper-slide.WhyWe-Reason
+            div.WhyWe-Header
+              div.WhyWe-HeaderIcon
+                img(src="/local/assets/img/index/certificate.png", alt="Сертификат")
+              h3 Сертифицированный монтаж
+            div.WhyWe-ReasonCover
+              div.WhyWe-ReasonContent.
+                Мы являемся сертифицированной монтажной компанией. Наши специалисты одобрены компанией ТИОН,
+                производителем Ballu Air Master, Vakio и рекомендованы на официальных сайтах производителей.
+          div.swiper-slide.WhyWe-Reason
+            div.WhyWe-Header
+              div.WhyWe-HeaderIcon
+                img(src="/local/assets/img/index/experience.png", alt="Собака")
+              h3 Опыт
+            div.WhyWe-ReasonCover
+              div.WhyWe-ReasonContent.
+                Мы занимаемся бытовой приточной вентиляцией уже более 8 лет. И поверьте, мы уже на этом собаку съели :).
+          div.swiper-slide.WhyWe-Reason
+            div.WhyWe-Header
+              div.WhyWe-HeaderIcon
+                img(src="/local/assets/img/index/clear.png", alt="Чистота")
+              h3 Чистый монтаж
+            div.WhyWe-ReasonCover
+              div.WhyWe-ReasonContent.
+                При бурении мы работаем с водосборным кольцом и пылесосом. Таким образом, монтаж получается чистый,
+                без пыли и грязи.
+          div.swiper-slide.WhyWe-Reason
+            div.WhyWe-Header
+              div.WhyWe-HeaderIcon
+                img(src="/local/assets/img/index/complex.png", alt="Пазл")
+              h3 Чистый монтаж
+            div.WhyWe-ReasonCover
+              div.WhyWe-ReasonContent.
+                Помимо монтажа проветривателей мы оказываем ряд услуг  в сфере кондиционирования и вентиляции. Подберем
+                любое климатическое оборудование. От проекта до монтажа - все под ключ.
+          div.swiper-slide.WhyWe-Reason
+            div.WhyWe-Header
+              div.WhyWe-HeaderIcon
+                img(src="/local/assets/img/index/warranty.png", alt="Отлично")
+              h3 Гарантия
+            div.WhyWe-ReasonCover
+              div.WhyWe-ReasonContent.
+                Мы даем гарантию как на оборудование, так и на монтажные работы.
+          div.swiper-slide.WhyWe-Reason
+            div.WhyWe-Header
+              div.WhyWe-HeaderIcon
+                img(src="/local/assets/img/index/service.png", alt="Сервис")
+              h3 Обслуживание и сервис
+            div.WhyWe-ReasonCover
+              div.WhyWe-ReasonContent.
+                При возникновении проблем с оборудованием - просто позвоните нам. Мы решим Ваши проблемы в кратчайшие
+                сроки.  Взамен временно неисправного оборудования мы предоставляем подмену. Так же мы предлагаем услуги
+                по обслуживанию проветривателей: чистка, замена фильтров, ремонт.
+          div.swiper-slide.WhyWe-Reason
+            div.WhyWe-Header
+              div.WhyWe-HeaderIcon
+                img(src="/local/assets/img/index/recommend.png", alt="Сарафан")
+              h3 Обслуживание и сервис
+            div.WhyWe-ReasonCover
+              div.WhyWe-ReasonContent.
+                Сарафанное радио - это, пожалуй, самая эффективная реклама для нас :) Нас рекомендуют друзьям и
+                коллегам! Позвоните нам и и мы предложим оптимальное техническое решение!
+        div.swiper-pagination

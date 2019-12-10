@@ -68,7 +68,7 @@ const paths = {
   },
   styles: {
     src: ["./src/pages/**/*.scss", "./src/common/img/*.scss"],
-    dist: "./dist/assets/",
+    dist: "./dist/www/local/assets/css/",
     watch: ["./src/pages/**/*.scss", "./src/common/img/*.scss"]
   },
   templStyles: {
@@ -133,7 +133,7 @@ gulp.task('styles', () => {
     .pipe(autoprefixer())
     .pipe(gulpIf(!isDevelopment, cssmin()))
     .pipe(rename({
-      basename: 'style'
+      dirname: ''
     }))
     .pipe(gulp.dest(paths.styles.dist))
     .pipe(browserSync.stream());

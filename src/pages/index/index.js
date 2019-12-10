@@ -73,5 +73,24 @@ export function index() {
         },
       }
     });
+
+    let WhyWeSlider = swiperInit({
+      mediaQ: '(min-width: 992px)',
+      swiperContainer: '.WhyWe-Reasons',
+      swiperOptions: {
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        spaceBetween: 0,
+        slidesPerView: 1,
+        breakpointsInverse: true,
+        breakpoints: {
+          576: {
+            slidesPerView: 2,
+          }
+        },
+      }
+    });
   });
 }

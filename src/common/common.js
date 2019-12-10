@@ -20,13 +20,15 @@ $(document).ready(() => {
 });
 
 import { installation } from 'pages/installation/installation.js';
-
 if (window.location.pathname === '/installation/') {
   installation();
 }
 
 import { index } from 'pages/index/index.js';
-index();
+if (window.location.pathname === '/') {
+  index();
+}
+
 
 
 
