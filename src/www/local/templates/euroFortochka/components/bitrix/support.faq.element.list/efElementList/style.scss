@@ -1,0 +1,63 @@
+@import "./src/common/colors";
+
+.Faq-AnswerWrapper {
+  height: 0;
+  transition: height .3s;
+  overflow: hidden;
+}
+
+.Faq-Question {
+  position: relative;
+  padding: {
+    top: 5px;
+    bottom: 5px;
+    left: 5px;
+    right: 3.75rem;
+  }
+  border: {
+    color: transparent;
+    width: 1px;
+    style: solid;
+    radius: 5px;
+  }
+  .Faq-QuestionExpand {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    transition: transform .3s;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 50%;
+    background-color: $primary;
+    > div {
+      position: absolute;
+      top: 50%;
+      width: 70%;
+      margin: {
+        left: 15%;
+        right: 15%;
+      };
+      height: 2px;
+      background-color: #000;
+    }
+    > div:nth-child(1) {
+      transform: translateY(-50%) rotate(90deg);
+    }
+    > div:nth-child(2) {
+      transform: translateY(-50%);
+    }
+  }
+}
+
+.Faq-Question_isActive {
+  border-color: $primary;
+  .Faq-QuestionExpand {
+    transform: translateY(-50%) rotate(135deg);
+  }
+}
+
+.Faq-Question:hover {
+  cursor: pointer;
+  border-color: $primary;
+}

@@ -82,9 +82,9 @@ const paths = {
     watch: ["./src/common/icons/*.svg", "./src/common/scssSpriteTemplate.mustache"]
   },
   btxTemplate: {
-    src: ["./src/www/**", "!./src/www/**/*.pug", "!./src/www/**/*.scss"],
+    src: ["./src/www/**", "!./src/www/**/*.pug"],
     dist: "./dist/www/",
-    watch: ["./src/www/**", "!./src/www/**/*.pug", "!./src/www/**/*.scss"],
+    watch: ["./src/www/**", "!./src/www/**/*.pug"],
   }
 };
 
@@ -156,10 +156,7 @@ gulp.task('btxTemplate', () => {
   return gulp.src(paths.btxTemplate.src, {
     dot: true
   })
-    /*.pipe(rename((path) => {
-      console.log(path);
-    }))*/
-    .pipe(gulpIf(/.*\.scss/, sass({
+    .pipe(gulpIf(/.*\.scss$/, sass({
       includePaths: [
         process.cwd()
       ]
