@@ -4,18 +4,26 @@
 
 <div class="" id="<?=$itemIds['ID']?>" itemscope itemtype="http://schema.org/Product">
   <div class="row">
-    <div class="col-md-12">
-      <div class="Product-Image">
-        <?
-          foreach($arResult['PROPERTIES']['pictures']['VALUE'] as $pictureId):
-        ?>
-          <img src="<?=CFile::GetFileArray($pictureId)['SRC'];?>">
-        <?
-          endforeach;
-        ?>
+    <div class="col-md-4">
+      <div class="Product-Images">
+        <div class="swiper-container Product-MainImages">
+          <div class="swiper-wrapper">
+            <?
+              foreach($arResult['PROPERTIES']['pictures']['VALUE'] as $pictureId):
+            ?>
+              <div class="swiper-slide">
+                <img src="<?=CFile::GetFileArray($pictureId)['SRC'];?>">
+              </div>              
+            <?
+              endforeach;
+            ?>
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
       </div>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-8">
 
     </div>
   </div>
