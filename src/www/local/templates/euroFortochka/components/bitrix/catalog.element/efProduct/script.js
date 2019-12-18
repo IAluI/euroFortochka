@@ -5,5 +5,7 @@ $(document).ready(() => {
       prevEl: '.swiper-button-prev',
     },
     slidesPerView: 1,
+    spaceBetween: 50,
+    touchEventsTarget: 'wrapper'
   });
 });
