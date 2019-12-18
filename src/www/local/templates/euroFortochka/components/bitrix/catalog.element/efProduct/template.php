@@ -13,17 +13,15 @@
             ?>
               <div class="swiper-slide">
                 <div>
-                  <div>
-                    <img src="<?=CFile::GetFileArray($pictureId)['SRC'];?>">
-                  </div>
+                  <div style="background-image: url(<?=CFile::GetFileArray($pictureId)['SRC'];?>);"></div>
                 </div>
               </div>
             <?
               endforeach;
             ?>
           </div>
-          <a href="#" class="swiper-button-prev"></a>
-          <a href="#" class="swiper-button-next"></a>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
         </div>
       </div>
     </div>
