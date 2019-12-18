@@ -26,7 +26,7 @@
       </div>
     </div>
     <div class="col-md-6">
-
+      <?=$arResult['PROPERTIES']['short_characteristics']['~VALUE']['TEXT']?>
     </div>
   </div>
   <pre>
