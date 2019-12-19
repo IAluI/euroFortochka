@@ -70,3 +70,23 @@
     }
   }
 }
+
+.Product-ShortChar {
+  li {
+    position: relative;
+    min-height: 38px;
+    padding-left: 38px + 10px;
+    margin-bottom: 5px;
+    > i {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    > div {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}

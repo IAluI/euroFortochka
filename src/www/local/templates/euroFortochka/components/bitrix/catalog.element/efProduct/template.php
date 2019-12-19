@@ -25,7 +25,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 Product-ShortChar">
       <?=$arResult['PROPERTIES']['short_characteristics']['~VALUE']['TEXT']?>
     </div>
   </div>

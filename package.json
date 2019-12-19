@@ -41,11 +41,14 @@
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-svg-sprite": "^1.5.0",
+    "gulp.spritesmith": "^6.11.0",
     "gulplog": "^1.0.0",
     "imagemin-jpeg-recompress": "^6.0.0",
     "imagemin-pngquant": "^7.0.0",
+    "merge-stream": "^2.0.0",
     "node-notifier": "^5.4.3",
     "prettier": "^1.18.2",
+    "vinyl-buffer": "^1.0.1",
     "webpack": "^4.40.2"
   },
   "dependencies": {

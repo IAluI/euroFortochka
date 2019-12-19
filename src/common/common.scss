@@ -35,7 +35,13 @@ html {
   @include responsive-font-size(14, 18, 320, 1200);
 }
 
-@import "../../tmp/icons";
+@import "./tmp/icons";
+@import "./tmp/sprite";
+.icon-r {
+  display: inline-block;
+  vertical-align: middle;
+}
+@include sprites($spritesheet-sprites);
 
 footer a {
   color: inherit;

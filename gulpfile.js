@@ -5,7 +5,11 @@ const gulplog = require('gulplog');
 const webpack = require('webpack');
 const notifier = require('node-notifier');
 const path = require('path');
+const buffer = require('vinyl-buffer');
+const merge = require('merge-stream');
 
+// модуль для создания растровых спрайтов
+const spritesmith = require('gulp.spritesmith');
 // модуль для форматирования
 const prettier = require('@bdchauvette/gulp-prettier');
 // модуль для форматирования html
@@ -61,11 +65,6 @@ const paths = {
     dist: "./dist/fonts/",
     watch: "./src/fonts/**/*.{ttf,otf,woff,woff2}"
   },
-  images: {
-    src: "./src/{common/img,pages/*/img}/*.{jpg,jpeg,png,gif,svg}",
-    dist: "./dist/img/",
-    watch: "./src/{common/img,pages/*/img}/*.{jpg,jpeg,png,gif,svg}"
-  },
   styles: {
     src: ["./src/pages/**/*.scss", "./src/common/img/*.scss"],
     dist: "./dist/www/local/assets/css/",
@@ -76,9 +75,19 @@ const paths = {
     dist: "./dist/www/local/templates/euroFortochka/",
     watch: "./src/common/common.scss"
   },
+  images: {
+    src: "./src/{common/img,pages/*/img}/*.{jpg,jpeg,png,gif,svg}",
+    dist: "./dist/www/local/assets/img/",
+    watch: "./src/{common/img,pages/*/img}/*.{jpg,jpeg,png,gif,svg}"
+  },
+  rastrSprite: {
+    src: "./src/common/icons/*.{png,jpg,jpeg}",
+    dist: "./dist/www/local/assets/img/common/",
+    watch: "./src/common/icons/*.{png,jpg,jpeg}"
+  },
   svgSprite: {
     src: "./src/common/icons/*.svg",
-    dist: "./dist/img/common/",
+    dist: "./dist/www/local/assets/img/common/",
     watch: ["./src/common/icons/*.svg", "./src/common/scssSpriteTemplate.mustache"]
   },
   btxTemplate: {
@@ -198,8 +207,44 @@ gulp.task('images', () => {
       path.dirname = path.dirname.replace(/pages\\|img/g, '');
     }))
     .pipe(gulp.dest(paths.images.dist))
-    .pipe(gulp.dest("./dist/www/local/assets/img/"))
+    //.pipe(gulp.dest("./dist/www/local/assets/img/"))
     .pipe(browserSync.stream());
+});
+
+gulp.task('rastrSprite', () => {
+  let spriteData = gulp.src(paths.rastrSprite.src)
+    .pipe(spritesmith({
+      imgName: 'sprite.png',
+      imgPath: paths.rastrSprite.dist.replace('./dist/www', '') + 'sprite.png',
+      cssName: '_sprite.scss',
+      padding: 5,
+      cssVarMap: (sprite) => {
+        sprite.name = 'icon-r-' + sprite.name;
+      }
+    }));
+
+  let imgStream = spriteData.img
+    .pipe(buffer())
+    .pipe(imagemin([
+      imagemin.jpegtran({progressive: true}),
+      jpegrecompress({
+        loops: 5,
+        min: 70,
+        max: 75,
+        quality: 'medium'
+      }),
+      imagemin.optipng({optimizationLevel: 3}),
+      pngquant({
+        quality: [0.7, 0.8],
+        speed: 5
+      })
+    ]))
+    .pipe(gulp.dest(paths.rastrSprite.dist));
+
+  let cssStream = spriteData.css
+    .pipe(gulp.dest('./tmp/'));
+
+  return merge(imgStream, cssStream);
 });
 
 gulp.task('svgSprite', () => {
@@ -222,7 +267,7 @@ gulp.task('svgSprite', () => {
     .pipe(gulp.dest((file) => {
       return file.extname == '.svg' ?  paths.svgSprite.dist : './tmp/';
     }))
-    .pipe(gulp.dest("./dist/www/local/assets/img/common/"))
+    //.pipe(gulp.dest("./dist/www/local/assets/img/common/"))
     .pipe(browserSync.stream());
 });
 
@@ -310,14 +355,18 @@ gulp.task('webserver', () => {
   gulp.watch(paths.templStyles.watch, gulp.series('templStyles'));
   gulp.watch(paths.styles.watch, gulp.series('styles'));
   gulp.watch(paths.images.watch, gulp.series('images'));
-  gulp.watch(paths.svgSprite.watch, gulp.series('svgSprite'));
+  gulp.watch(paths.rastrSprite.watch, gulp.series('rastrSprite', 'templStyles'));
+  gulp.watch(paths.svgSprite.watch, gulp.series('svgSprite', 'templStyles'));
   gulp.watch(paths.fonts.watch, gulp.series('fonts'));
   gulp.watch(paths.btxTemplate.watch, gulp.series('btxTemplate'));
 });
 
 gulp.task('build',
   gulp.series('clean',
-    'svgSprite',
+    gulp.parallel(
+      'svgSprite',
+      'rastrSprite',
+    ),    
     gulp.parallel(
       'fonts',
       'images',
