@@ -66,8 +66,41 @@ footer a {
   visibility: hidden;
 }
 
-.MainHeader {
+.Important {
+  position: relative;
+  padding-left: 53px;
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    //width: 36px;
+    //height: 36px;
+    @include sprite($icon-r-attention);
+    /*background: {
+      //image: url("/local/assets/img/index/attention.png");
+      size: cover;
+    }*/
+  }
+}
 
+.BulletList {
+  list-style: none;
+  padding-left: 1.5rem;
+  > li {
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      left: -1.25rem;
+      top: 0.5rem;
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      background-color: $primary;
+    }
+  }
 }
 
 .MainHeader-Bar {

@@ -1,3 +1,6 @@
+import * as localLib from 'common/functions.js';
+export { localLib };
+
 $(document).ready(() => {
   let callbackModal = $('#callback').modal({
     show: false

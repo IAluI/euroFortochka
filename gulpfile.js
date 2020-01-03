@@ -76,9 +76,9 @@ const paths = {
     watch: "./src/common/common.scss"
   },
   images: {
-    src: "./src/{common/img,pages/*/img}/*.{jpg,jpeg,png,gif,svg}",
+    src: "./src/{common/img,pages/*/img}/**/*.{jpg,jpeg,png,gif,svg}",
     dist: "./dist/www/local/assets/img/",
-    watch: "./src/{common/img,pages/*/img}/*.{jpg,jpeg,png,gif,svg}"
+    watch: "./src/{common/img,pages/*/img}/**/*.{jpg,jpeg,png,gif,svg}"
   },
   rastrSprite: {
     src: "./src/common/icons/*.{png,jpg,jpeg}",
@@ -277,11 +277,11 @@ gulp.task('webpack', function(callback) {
     entry: {
       main: path.resolve(__dirname, 'src/common/common.js')
     },
-    output:  {
+    output: {
       path: path.resolve(__dirname, 'dist/www/local/assets/js'),
-      //publicPath: '/js/'
+      library: 'ef',
     },
-    watch:   isDevelopment,
+    watch: isDevelopment,
     watchOptions: {
       aggregateTimeout: 500,
       ignored: /node_modules/
@@ -290,7 +290,7 @@ gulp.task('webpack', function(callback) {
     resolve: {
       modules: [path.resolve(__dirname, 'src')]
     },
-    module:  {
+    module: {
       rules: [
         {
           test: /\.js$/,
