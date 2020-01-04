@@ -105,10 +105,13 @@ footer a {
 
 .MainHeader-Bar {
   position: relative;
+  z-index: 1;
+  padding: 0.5rem 0;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
-.MainHeader-Bar > * {
-  padding: 0 0.75rem;
+.MainHeader-Bar .row > * {
+  padding: 0 15px;
 }
 
 .MainHeader-LogoDivider {

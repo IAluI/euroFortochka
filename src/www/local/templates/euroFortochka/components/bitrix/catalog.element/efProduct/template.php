@@ -80,6 +80,7 @@
   <input class="HiddenInput" type="radio" name="detail" id="detailDescription" value="detailDescription" checked="checked">
   <input class="HiddenInput" type="radio" name="detail" id="detailStructure" value="detailStructure">
   <input class="HiddenInput" type="radio" name="detail" id="detailCharacteristics" value="detailCharacteristics">
+  <input class="HiddenInput" type="radio" name="detail" id="detailNone" value="detailNone">
   <div class="mb-3 Product-DetailsMenu">
     <div class="container">
       <ul class="list-unstyled m-0">
@@ -102,19 +103,22 @@
     </div>
   </div>
   <div class="container Product-Details">
-    <label for="detailDescription" class="d-block d-md-none w-100">
+    <label for="detailDescription">
+      <label for="detailNone"></label>
       Описание
     </label>
     <div id="descriptionBlock">
       <?= $arResult['PROPERTIES']['description']['~VALUE']['TEXT']; ?>
     </div>
-    <label for="detailStructure" class="d-block d-md-none w-100">
+    <label for="detailStructure">
+      <label for="detailNone"></label>
       Устройство
     </label>
     <div id="structureBlock">
       <?= $arResult['PROPERTIES']['structure']['~VALUE']['TEXT']; ?>
     </div>
-    <label for="detailCharacteristics" class="d-block d-md-none w-100">
+    <label for="detailCharacteristics">
+      <label for="detailNone"></label>
       Характеристики
     </label>
     <div id="characteristicsBlock">
@@ -126,7 +130,6 @@
   <h2 class="text-center">
     С этим товаром покупают
   </h2>
-
   <div class="row">
     <? foreach($arResult['PROPERTIES']['related_prod'] as $relProd): ?>
       <div class="col-md-6 col-lg-4 col-xl-3 ProductCard">

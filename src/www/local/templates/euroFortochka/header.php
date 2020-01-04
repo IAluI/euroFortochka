@@ -105,54 +105,58 @@
       </div>
       <header class="MainHeader">
         <input class="HiddenInput" type="checkbox" id="mainNavMenu" />
-        <div class="d-flex justify-content-between py-2 shadow MainHeader-Bar">
-          <div class="d-md-none d-flex align-items-center">
-            <label
-                class="m-0 d-flex align-items-center btn btn-primary p-2 MainHeader-MenuBtn"
-                for="mainNavMenu"
-            >
-              <div class="MainHeader-Burger"><div></div></div>
-            </label>
-          </div>
-          <div
-              class="d-none d-sm-flex align-items-center flex-shrink-0 MainHeader-Logo"
-          >
-            <a class="MainHeader-LogoImg" href="/" title="На главную страницу">
-              <img
-                  class="h-100"
-                  src="/local/assets/img/common/main-logo.png"
-                  alt="Еврофорточка"
-              />
-            </a>
-            <div class="h-100 mx-2 bg-primary MainHeader-LogoDivider"></div>
-            <p class="m-0 text-primary MainHeader-LogoText">
-              от духоты
-              <br />
-              от влажности
-              <br />
-              от плесени
-              <br />
-            </p>
-          </div>
-          <div class="d-none d-xl-flex align-items-center flex-shrink-1">
-            <div class="h4 m-0 w-100">Децентрализованные системы вентиляции</div>
-          </div>
-          <div class="d-none d-md-block flex-shrink-0">
-            <?
-              $APPLICATION->IncludeFile(
-                SITE_DIR."local/include/company_contacts.php",
-                Array(),
-                Array("MODE"=>"html")
-              );
-            ?>
-          </div>
-          <div class="d-flex align-items-center flex-shrink-0">
-            <button class="btn btn-primary Callback" type="button">
-              Оставить заявку
-            </button>
+        <div class="MainHeader-Bar">
+          <div class="container">
+            <div class="row flex-nowrap justify-content-between">
+              <div class="d-md-none d-flex align-items-center">
+                <label
+                    class="m-0 d-flex align-items-center btn btn-primary p-2 MainHeader-MenuBtn"
+                    for="mainNavMenu"
+                >
+                  <div class="MainHeader-Burger"><div></div></div>
+                </label>
+              </div>
+              <div
+                  class="d-none d-sm-flex align-items-center flex-shrink-0 MainHeader-Logo"
+              >
+                <a class="MainHeader-LogoImg" href="/" title="На главную страницу">
+                  <img
+                      class="h-100"
+                      src="/local/assets/img/common/main-logo.png"
+                      alt="Еврофорточка"
+                  />
+                </a>
+                <div class="h-100 mx-2 bg-primary MainHeader-LogoDivider"></div>
+                <p class="m-0 text-primary MainHeader-LogoText">
+                  от духоты
+                  <br />
+                  от влажности
+                  <br />
+                  от плесени
+                  <br />
+                </p>
+              </div>
+              <div class="d-none d-xl-flex align-items-center flex-shrink-1">
+                <div class="h4 m-0 w-100">Децентрализованные системы вентиляции</div>
+              </div>
+              <div class="d-none d-md-block flex-shrink-0">
+                <?
+                  $APPLICATION->IncludeFile(
+                    SITE_DIR."local/include/company_contacts.php",
+                    Array(),
+                    Array("MODE"=>"html")
+                  );
+                ?>
+              </div>
+              <div class="d-flex align-items-center flex-shrink-0">
+                <button class="btn btn-primary Callback" type="button">
+                  Оставить заявку
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-        <nav class="MainHeader-Nav">
+        <nav class="container MainHeader-Nav">
           <div class="p-3 p-md-0 MainHeader-NavListWrapper">
             <?
               $APPLICATION->IncludeComponent("bitrix:menu", "main_menu", array(
