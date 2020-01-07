@@ -2,7 +2,7 @@
       </main>
       <footer class="bg-primary">
         <div class="container">
-          <div class="d-flex flex-column-reverse flex-sm-row justify-content-between align-items-sm-center w-100 py-3 text-white Footer">
+          <div class="d-flex flex-column-reverse flex-sm-row justify-content-between align-items-sm-center w-100 py-2 text-white Footer">
             <?
               $APPLICATION->IncludeFile(
                 SITE_DIR."local/include/copyright.php",
