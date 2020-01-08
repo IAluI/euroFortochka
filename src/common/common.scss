@@ -103,6 +103,22 @@ footer a {
   }
 }
 
+.OrderedList {
+  list-style: none;
+  padding-left: 1.5rem;
+  counter-reset: orderedList;
+  > li {
+    position: relative;
+    &:before {
+      counter-increment: orderedList;
+      content: counter(orderedList)") ";
+      position: absolute;
+      /*left: -1.25rem;
+      top: 0.5rem;*/
+    }
+  }
+}
+
 .DashedList {
   list-style: none;
   padding: {
