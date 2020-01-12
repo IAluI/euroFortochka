@@ -75,13 +75,18 @@ footer a {
     left: 0;
     top: 50%;
     transform: translateY(-50%);
-    //width: 36px;
-    //height: 36px;
     @include sprite($icon-r-attention);
-    /*background: {
-      //image: url("/local/assets/img/index/attention.png");
-      size: cover;
-    }*/
+  }
+}
+
+.Remark {
+  position: relative;
+  padding-left: 53px;
+  > i:first-child {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
 

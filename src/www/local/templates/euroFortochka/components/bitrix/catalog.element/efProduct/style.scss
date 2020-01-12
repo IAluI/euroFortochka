@@ -47,6 +47,7 @@ $nav-btn-width: 25px;
     .swiper-slide {
       width: 100%;
       > div {
+        position: relative;
         width: 100%;
         padding-bottom: 80%;
         > div {
@@ -130,6 +131,9 @@ $nav-btn-width: 25px;
       flex: 0 0 2.5rem;
     }
   }*/
+  .swiper-wrapper {
+    height: auto;
+  }
   @media (min-width: map-get($grid-breakpoints, md)) {
     .swiper-wrapper {
       flex-wrap: wrap;
