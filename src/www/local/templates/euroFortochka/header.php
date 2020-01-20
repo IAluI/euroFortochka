@@ -103,6 +103,28 @@
           </div>
         </div>
       </div>
+      <div class="modal fade" id="cart" tabindex="-1">
+        <form class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Корзина</h5>
+            <button class="close" type="button" id="cartClose">
+              <span>&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div id="goodsList">
+
+            </div>
+            <div class="float-right">
+              <input type="text" name="name">
+              <input type="text" name="phone">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <input class="btn btn-primary" type="submit" id="cartSubmit" value="Оформить заказ">
+          </div>
+        </form>
+      </div>
       <header class="MainHeader">
         <input class="HiddenInput" type="checkbox" id="mainNavMenu" />
         <div class="MainHeader-Bar">

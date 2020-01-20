@@ -20,6 +20,8 @@ $(document).ready(() => {
       scrollTop: top
     }, 350);
   });
+
+  new localLib.Cart;
 });
 
 import { installation } from 'pages/installation/installation.js';
