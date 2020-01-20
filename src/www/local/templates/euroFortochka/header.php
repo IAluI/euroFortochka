@@ -86,7 +86,7 @@
               />
               <input
                   class="mb-3 form-control"
-                  type="text"
+                  type="tel"
                   placeholder="Введите номер телефона"
               />
                 <textarea
@@ -104,26 +104,38 @@
         </div>
       </div>
       <div class="modal fade" id="cart" tabindex="-1">
-        <form class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Корзина</h5>
-            <button class="close" type="button" id="cartClose">
-              <span>&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div id="goodsList">
-
+        <div class="modal-dialog">
+          <form class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Корзина</h5>
+              <button class="close" type="button" id="cartClose">
+                <span>&times;</span>
+              </button>
             </div>
-            <div class="float-right">
-              <input type="text" name="name">
-              <input type="text" name="phone">
+            <div class="modal-body">
+              <div id="goodsList">
+  
+              </div>
+              <div class="float-right">
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Введите номер телефона"
+                  class="mb-3 form-control"
+                >
+                <input
+                  type="text"
+                  name="mail"
+                  placeholder="Email"
+                  class="form-control"
+                >
+              </div>
             </div>
-          </div>
-          <div class="modal-footer">
-            <input class="btn btn-primary" type="submit" id="cartSubmit" value="Оформить заказ">
-          </div>
-        </form>
+            <div class="modal-footer">
+              <input class="btn btn-primary" type="submit" id="cartSubmit" value="Оформить заказ">
+            </div>
+          </form>
+        </div>
       </div>
       <header class="MainHeader">
         <input class="HiddenInput" type="checkbox" id="mainNavMenu" />

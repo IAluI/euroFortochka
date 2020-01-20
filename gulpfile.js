@@ -288,7 +288,10 @@ gulp.task('webpack', function(callback) {
     },
     devtool: isDevelopment ? 'cheap-module-inline-source-map' : false,
     resolve: {
-      modules: [path.resolve(__dirname, 'src')]
+      modules: [
+        'node_modules',
+        path.resolve(__dirname, 'src')
+      ]
     },
     module: {
       rules: [

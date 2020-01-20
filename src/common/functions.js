@@ -58,7 +58,6 @@ export class Cart {
           type: requestData[0],
           name: requestData[1]
         },
-        //success: data => data
       })
         .done((data) => {
           this.products[product] = data;

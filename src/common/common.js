@@ -1,7 +1,16 @@
 import * as localLib from 'common/functions.js';
 export { localLib };
 
+import Inputmask from "inputmask";
+
 $(document).ready(() => {
+  /*$('input[type=tel]').inputmask({
+    mask: "+7-(999)-999-9999"
+  });*/
+  Inputmask({
+    mask: "+7-(999)-999-9999"
+  }).mask($('input[type=tel]')[0]);
+
   let callbackModal = $('#callback').modal({
     show: false
   });
