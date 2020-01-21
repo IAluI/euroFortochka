@@ -338,7 +338,7 @@ gulp.task('webpack', function(callback) {
 });
 
 gulp.task('webserver', () => {
-  browserSync.init({
+  /*browserSync.init({
     server: "./dist/",
     port: 4000,
     middleware: [
@@ -351,7 +351,7 @@ gulp.task('webserver', () => {
         next();
       }
     ]
-  });
+  });*/
 
   gulp.watch(paths.pug.watch, gulp.series('pug'));
   gulp.watch(paths.btxPug.watch, gulp.series('btxPug'));

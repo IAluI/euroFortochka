@@ -4,12 +4,38 @@ export { localLib };
 import Inputmask from "inputmask";
 
 $(document).ready(() => {
-  /*$('input[type=tel]').inputmask({
-    mask: "+7-(999)-999-9999"
+  /*$('input[type=tel]').each((index, elem) => {
+    Inputmask({
+      mask: "([ps]|e)-(999)-999-9999",
+      definitions: {
+        's': {
+          validator: '[7]'
+        },
+        'e': {
+          validator: '[8]'
+        },
+        'p': {
+          validator: '\\+'
+        }
+      },
+      jitMasking: true,
+    }).mask('input[type=tel]');
   });*/
   Inputmask({
-    mask: "+7-(999)-999-9999"
-  }).mask($('input[type=tel]')[0]);
+    mask: "([ps]|e)-(999)-999-9999",
+    definitions: {
+      's': {
+        validator: '[7]'
+      },
+      'e': {
+        validator: '[8]'
+      },
+      'p': {
+        validator: '\\+'
+      }
+    },
+    jitMasking: true,
+  }).mask('input[type=tel]');
 
   let callbackModal = $('#callback').modal({
     show: false
