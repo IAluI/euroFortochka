@@ -215,6 +215,42 @@ footer a {
   }
 }
 
+@mixin towColumn {
+  column-count: 2;
+  > * {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+.tc {
+  @include towColumn;
+}
+
+.tc-sm {
+  @media (min-width: map-get($grid-breakpoints, sm)) {
+    @include towColumn;
+  }
+}
+
+.tc-md {
+  @media (min-width: map-get($grid-breakpoints, md)) {
+    @include towColumn;
+  }
+}
+
+.tc-lg {
+  @media (min-width: map-get($grid-breakpoints, lg)) {
+    @include towColumn;
+  }
+}
+
+.tc-xl {
+  @media (min-width: map-get($grid-breakpoints, xl)) {
+    @include towColumn;
+  }
+}
+
 .MainHeader-Bar {
   position: relative;
   z-index: 1;
