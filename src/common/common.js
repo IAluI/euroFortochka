@@ -4,25 +4,17 @@ export { localLib };
 import Inputmask from "inputmask";
 
 $(document).ready(() => {
-  /*$('input[type=tel]').each((index, elem) => {
-    Inputmask({
-      mask: "([ps]|e)-(999)-999-9999",
-      definitions: {
-        's': {
-          validator: '[7]'
-        },
-        'e': {
-          validator: '[8]'
-        },
-        'p': {
-          validator: '\\+'
-        }
-      },
-      jitMasking: true,
-    }).mask('input[type=tel]');
-  });*/
+  $('.needs-validation').submit(function (e) {
+    if (e.target.checkValidity() === false) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    $(e.target).addClass('was-validated');
+  });
+  let telInputs = $('input[type=tel]');
+  telInputs.val('+7');
   Inputmask({
-    mask: "([ps]|e)-(999)-999-9999",
+    mask: "(ps|e|)-(999)-999-9999",
     definitions: {
       's': {
         validator: '[7]'
@@ -35,7 +27,7 @@ $(document).ready(() => {
       }
     },
     jitMasking: true,
-  }).mask('input[type=tel]');
+  }).mask(telInputs);
 
   let callbackModal = $('#callback').modal({
     show: false
@@ -43,7 +35,7 @@ $(document).ready(() => {
   $('.Callback').click(() => {
     callbackModal.modal('show');
   });
-  $('#callbackClose, #callbackSubmit').click(() => {
+  $('#callbackClose').click(() => {
     callbackModal.modal('hide');
   });
 

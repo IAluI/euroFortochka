@@ -40,7 +40,7 @@ export class Cart {
       this.cartModal.modal('show');
     });
 
-    $('#cartClose, #cartSubmit').click(() => {
+    $('#cartClose').click(() => {
       this.cartModal.modal('hide');
     });
   }

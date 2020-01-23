@@ -66,69 +66,138 @@
       </div>
       <div class="modal fade" id="callback" tabindex="-1">
         <div class="modal-dialog">
-          <div class="modal-content">
+          <form class="modal-content needs-validation" novalidate>
             <div class="modal-header">
               <h5 class="modal-title">Оставьте Ваши контактные данные:</h5>
               <button class="close" type="button" id="callbackClose">
-                <span>&times;</span>
+                &times;
               </button>
             </div>
             <div class="modal-body">
-              <input
-                  class="mb-3 form-control"
+              <div class="form-group">
+                <label for="callBack_name">Ваше имя *</label>
+                <input
+                  id="callBack_name"
+                  class="form-control"
                   type="text"
-                  placeholder="Введите имя"
-              />
-              <input
-                  class="mb-3 form-control"
-                  type="text"
-                  placeholder="Введите город"
-              />
-              <input
-                  class="mb-3 form-control"
+                  name="name"
+                  autocomplete="off"
+                  required
+                />
+                <div class="invalid-feedback">
+                  Пожалуйста введите ваше имя.
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="callBack_sity">Ваш город *</label>
+                <select
+                  id="callBack_sity"
+                  class="custom-select"
+                  name="sity"
+                  required
+                >
+                  <option value="" selected></option>
+                  <option value="Барнаул">Барнаул</option>
+                  <option value="Красноярск">Красноярск</option>
+                  <option value="Новосибирск">Новосибирск</option>
+                </select>
+                <div class="invalid-feedback">
+                  Пожалуйста выберите город.
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="callBack_tel">Ваш телефон *</label>
+                <input
+                  id="callBack_tel"
+                  class="form-control"
                   type="tel"
-                  placeholder="Введите номер телефона"
-              />
+                  name="tel"
+                  pattern="(\+7|8)-\(\d{3}\)-\d{3}-\d{4}"
+                  autocomplete="off"
+                  required
+                />
+                <div class="invalid-feedback">
+                  Пожалуйста введите корректный номер телефона номер телефона.
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="callBack_message">Введите сообщение</label>
                 <textarea
-                    class="form-control"
-                    rows="4"
-                    placeholder="Введите сообщение"
+                  id="callBack_message"
+                  name="message"
+                  class="form-control"
+                  rows="3"
                 ></textarea>
+              </div>
             </div>
             <div class="modal-footer">
-              <button class="btn btn-primary" type="button" id="callbackSubmit">
+              <button class="btn btn-primary" type="submit" id="callbackSubmit">
                 Оставить заявку
               </button>
             </div>
-          </div>
+          </form>
         </div>
       </div>
       <div class="modal fade" id="cart" tabindex="-1">
-        <div class="modal-dialog">
-          <form class="modal-content">
+        <div class="modal-dialog modal-xl">
+          <form class="modal-content needs-validation" novalidate>
             <div class="modal-header">
               <h5 class="modal-title">Корзина</h5>
               <button class="close" type="button" id="cartClose">
-                <span>&times;</span>
+                &times;
               </button>
             </div>
             <div class="modal-body">
               <div id="goodsList">
   
               </div>
-              <div class="float-right">
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="Введите номер телефона"
-                  class="mb-3 form-control"
-                >
-                <input
-                  type="text"
-                  name="mail"
-                  placeholder="Email"
-                  class="form-control"
-                >
+              <div class="float-right Cart-Inputs">
+                <div class="form-group">
+                  <label for="cart_name">Ваше имя *</label>
+                  <input
+                    id="cart_name"
+                    class="form-control"
+                    type="text"
+                    name="name"
+                    autocomplete="off"
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    Пожалуйста введите ваше имя.
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="cart_sity">Ваш город *</label>
+                  <select
+                    id="cart_sity"
+                    class="custom-select"
+                    name="sity"
+                    required
+                  >
+                    <option value="" selected></option>
+                    <option value="Барнаул">Барнаул</option>
+                    <option value="Красноярск">Красноярск</option>
+                    <option value="Новосибирск">Новосибирск</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Пожалуйста выберите город.
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="cart_tel">Ваш телефон *</label>
+                  <input
+                    id="cart_tel"
+                    class="form-control"
+                    type="tel"
+                    name="tel"
+                    pattern="(\+7|8)-\(\d{3}\)-\d{3}-\d{4}"
+                    autocomplete="off"
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    Пожалуйста введите корректный номер телефона номер телефона.
+                  </div>
+                </div>
               </div>
             </div>
             <div class="modal-footer">
