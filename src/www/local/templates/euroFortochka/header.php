@@ -89,11 +89,11 @@
                 </div>
               </div>
               <div class="form-group">
-                <label for="callBack_sity">Ваш город *</label>
+                <label for="callBack_city">Ваш город *</label>
                 <select
-                  id="callBack_sity"
+                  id="callBack_city"
                   class="custom-select"
-                  name="sity"
+                  name="city"
                   required
                 >
                   <option value="" selected></option>
@@ -167,11 +167,11 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="cart_sity">Ваш город *</label>
+                  <label for="cart_city">Ваш город *</label>
                   <select
-                    id="cart_sity"
+                    id="cart_city"
                     class="custom-select"
-                    name="sity"
+                    name="city"
                     required
                   >
                     <option value="" selected></option>

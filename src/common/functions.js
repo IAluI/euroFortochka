@@ -65,7 +65,7 @@ export class Cart {
         })
         .fail(() => {
           console.log('Ошибка при получении данных с сервера');
-        })
+        });
     }
     console.log(this.products);
   }

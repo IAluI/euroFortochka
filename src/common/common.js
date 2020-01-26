@@ -38,6 +38,28 @@ $(document).ready(() => {
   $('#callbackClose').click(() => {
     callbackModal.modal('hide');
   });
+  $('#callback form').submit(function (e) {
+    e.preventDefault();
+    $.ajax({
+      url: '/ajax/callBack.php',
+      method: 'POST',
+      dataType: 'json',
+      data: {
+        name: e.target.querySelector('[name=name]').value,
+        city: e.target.querySelector('[name=city]').value,
+        tel: e.target.querySelector('[name=tel]').value,
+        message: e.target.querySelector('[name=message]').value,
+      },
+    })
+      .done((data) => {
+        console.log(data);
+        callbackModal.modal('hide');
+      })
+      .fail(() => {
+        console.log('Ошибка при получении данных с сервера');
+      });
+  });
+
 
   $('a[href^="#"]').click(function (e) {
     e.preventDefault();
