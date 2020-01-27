@@ -4,6 +4,20 @@ export { localLib };
 import Inputmask from "inputmask";
 
 $(document).ready(() => {
+  /*
+   Анимирование переходов между якорями внутри страницы
+   */
+  $('a[href^="#"]').click(function (e) {
+    e.preventDefault();
+    var id = $(this).attr('href');
+    var top = $(id).offset().top;
+    $('html, body').animate({
+      scrollTop: top
+    }, 350);
+  });
+  /*
+  Добавление маски на инпуты номера телефона
+   */
   $('.needs-validation').submit(function (e) {
     if (e.target.checkValidity() === false) {
       e.preventDefault();
@@ -28,17 +42,11 @@ $(document).ready(() => {
     },
     jitMasking: true,
   }).mask(telInputs);
-
-  let callbackModal = $('#callback').modal({
-    show: false
-  });
-  $('.Callback').click(() => {
-    callbackModal.modal('show');
-  });
-  $('#callbackClose').click(() => {
-    callbackModal.modal('hide');
-  });
-  $('#callback form').submit(function (e) {
+  /*
+  Инициализация модального окна формы обратной связи
+   */
+  let callbackModal = new localLib.Modal('#callback', '.Callback');
+  callbackModal.node.submit(function (e) {
     e.preventDefault();
     $.ajax({
       url: '/ajax/callBack.php',
@@ -53,24 +61,18 @@ $(document).ready(() => {
     })
       .done((data) => {
         console.log(data);
-        callbackModal.modal('hide');
       })
       .fail(() => {
         console.log('Ошибка при получении данных с сервера');
+      })
+      .always(() => {
+        callbackModal.node.modal('hide');
       });
   });
-
-
-  $('a[href^="#"]').click(function (e) {
-    e.preventDefault();
-    var id = $(this).attr('href');
-    var top = $(id).offset().top;
-    $('html, body').animate({
-      scrollTop: top
-    }, 350);
-  });
-
-  new localLib.Cart;
+  /*
+   Инициализация модального окна корзины
+   */
+  new localLib.Cart('#cart', '[data-cart]');
 });
 
 import { installation } from 'pages/installation/installation.js';

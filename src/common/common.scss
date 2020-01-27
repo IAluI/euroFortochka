@@ -290,7 +290,7 @@ footer a {
   left: 0;
   right: 0;
   z-index: $zindex-modal-backdrop;
-  overflow: hidden;
+  //overflow: hidden;
   transition: background-color 0.3s;
   pointer-events: none;
 

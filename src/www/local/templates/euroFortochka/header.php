@@ -69,7 +69,7 @@
           <form class="modal-content needs-validation" novalidate>
             <div class="modal-header">
               <h5 class="modal-title">Оставьте Ваши контактные данные:</h5>
-              <button class="close" type="button" id="callbackClose">
+              <button class="close" type="button">
                 &times;
               </button>
             </div>
@@ -143,14 +143,23 @@
           <form class="modal-content needs-validation" novalidate>
             <div class="modal-header">
               <h5 class="modal-title">Корзина</h5>
-              <button class="close" type="button" id="cartClose">
+              <button class="close" type="button">
                 &times;
               </button>
             </div>
             <div class="modal-body">
-              <div id="goodsList">
-  
+              <div class="Cart-GoodsListTmpl" style="display: none">
+                <img class="Cart-GoodsListTmplImg">
+                <div class="Cart-GoodsListTmplName"></div>
+                <div class="Cart-GoodsListTmplCount">
+                  <span class="Cart-GoodsListTmplCountPlus">+</span>
+                  <span class="Cart-GoodsListTmplCountN"></span>
+                  <span class="Cart-GoodsListTmplCountMinus">&minus;</span>
+                </div>
+                <div class="Cart-GoodsListTmplPrice"></div>
+                <div class="Cart-GoodsListTmplSum"></div>
               </div>
+              <div class="Cart-GoodsList"></div>
               <div class="float-right Cart-Inputs">
                 <div class="form-group">
                   <label for="cart_name">Ваше имя *</label>

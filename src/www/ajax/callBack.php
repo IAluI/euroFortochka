@@ -1,8 +1,8 @@
 <?
 require_once($_SERVER['DOCUMENT_ROOT'] . "/bitrix/modules/main/include/prolog_before.php");
 
-use \Bitrix\Main\Mail\Event;
-Event::Send(array(
+/*use \Bitrix\Main\Mail\Event;
+$event = Event::Send(array(
   "EVENT_NAME" => "FEEDBACK_FORM",
   "LID" => "s1",
   'MESSAGE_ID' => 7,
@@ -14,6 +14,18 @@ Event::Send(array(
   )
 ));
 
-echo json_encode(array('status' => true));
+echo json_encode(array(
+  'event' => $event -> getId(),
+));*/
+
+echo json_encode(array(
+  'event' => 'ok',
+  'data' => array(
+    'AUTHOR' => $_POST['name'],
+    'AUTHOR_CITY' => $_POST['city'],
+    'AUTHOR_TEL' => $_POST['tel'],
+    'TEXT' => $_POST['message'],
+  )
+));
 
 ?>
