@@ -35,7 +35,7 @@ $this->setFrameMode(true);
           <?= (number_format($arElement['PRICES']['price']['VALUE'], 0, '.', ' ') . ' Р'); ?>
         </p>
         <div class="ProductCard-Button">
-          <button data-cart="<?= $arElement['IBLOCK_CODE'] . ':' . $arElement['CODE'] ?>" type="button" class="btn btn-primary font-weight-bold">
+          <button data-cart="<?= $arElement['IBLOCK_CODE'] . '-' . $arElement['CODE'] ?>" type="button" class="btn btn-primary font-weight-bold">
             Купить
           </button>
         </div>

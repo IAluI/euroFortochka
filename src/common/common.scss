@@ -252,9 +252,93 @@ footer a {
   }
 }
 
+@mixin flexBreak {
+  flex-basis: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 0 !important;
+}
+
+.flex-break {
+  @include flexBreak;
+}
+
+.flex-break-sm {
+  @media (min-width: map-get($grid-breakpoints, sm)) {
+    @include flexBreak;
+  }
+}
+
+.flex-break-md {
+  @media (min-width: map-get($grid-breakpoints, md)) {
+    @include flexBreak;
+  }
+}
+
+.flex-break-lg {
+  @media (min-width: map-get($grid-breakpoints, lg)) {
+    @include flexBreak;
+  }
+}
+
+.flex-break-xl {
+  @media (min-width: map-get($grid-breakpoints, xl)) {
+    @include flexBreak;
+  }
+}
+
 .Cart-Inputs {
   width: 100%;
   max-width: 290px;
+}
+.Cart-GoodsListTmpl {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-bottom: 1px solid #dee2e6;
+  > * {
+    padding: 0 5px;
+    margin-bottom: 1.5rem;
+  }
+  @media (min-width: map-get($grid-breakpoints, xl)) {
+    flex-wrap: nowrap;
+  }
+}
+
+.Cart-GoodsListTmplImg {
+  flex: 0 0 3.5rem;
+  > img {
+    width: 100%;
+  }
+}
+
+.Cart-GoodsListTmplName {
+  flex: 1 1 10rem;
+}
+
+.Cart-GoodsListTmplCount {
+  flex: 0 0 6.5rem;
+  > * {
+    vertical-align: middle;
+  }
+}
+
+.Cart-GoodsListTmplCountPlus, .Cart-GoodsListTmplCountMinus {
+  cursor: pointer;
+}
+
+.Cart-GoodsListTmplPrice {
+  flex: 0 0 5rem;
+}
+
+.Cart-GoodsListTmplSum {
+  flex: 0 0 5rem;
+  font-weight: 700;
+}
+
+.Cart-DeleteGoods {
+  cursor: pointer;
 }
 
 .MainHeader-Bar {

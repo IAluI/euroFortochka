@@ -149,15 +149,32 @@
             </div>
             <div class="modal-body">
               <div class="Cart-GoodsListTmpl" style="display: none">
-                <img class="Cart-GoodsListTmplImg">
-                <div class="Cart-GoodsListTmplName"></div>
-                <div class="Cart-GoodsListTmplCount">
-                  <span class="Cart-GoodsListTmplCountPlus">+</span>
-                  <span class="Cart-GoodsListTmplCountN"></span>
-                  <span class="Cart-GoodsListTmplCountMinus">&minus;</span>
+                <div class="Cart-GoodsListTmplImg">
+                  <img>
                 </div>
-                <div class="Cart-GoodsListTmplPrice"></div>
-                <div class="Cart-GoodsListTmplSum"></div>
+                <div class="Cart-GoodsListTmplName"></div>
+                <div class="flex-break d-xl-none"></div>
+                <div class="Cart-GoodsListTmplCount">
+                  <svg class="icon icon-plus Cart-GoodsListTmplCountPlus">
+                    <use xlink:href="/local/assets/img/common/icons.svg#plus"></use>
+                  </svg>
+                  <span class="Cart-GoodsListTmplCountN"></span>
+                  <span>ШТ</span>
+                  <svg class="icon icon-minus Cart-GoodsListTmplCountMinus">
+                    <use xlink:href="/local/assets/img/common/icons.svg#minus"></use>
+                  </svg>
+                </div>
+                <div class="Cart-GoodsListTmplPrice">
+                  <span>Р</span>
+                </div>
+                <div class="Cart-GoodsListTmplSum">
+                  <span>Р</span>
+                </div>
+                <div class="Cart-DeleteGoods">
+                  <svg class="icon icon-close-circle-outline">
+                    <use xlink:href="/local/assets/img/common/icons.svg#close-circle-outline"></use>
+                  </svg>
+                </div>
               </div>
               <div class="Cart-GoodsList"></div>
               <div class="float-right Cart-Inputs">
