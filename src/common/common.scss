@@ -325,7 +325,11 @@ footer a {
 }
 
 .Cart-GoodsListTmplCountPlus, .Cart-GoodsListTmplCountMinus {
+  color: #000;
   cursor: pointer;
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .Cart-GoodsListTmplPrice {

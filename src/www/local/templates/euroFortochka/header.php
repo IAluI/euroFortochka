@@ -48,9 +48,13 @@
       Asset::getInstance()->addJs('https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js');
       Asset::getInstance()->addJs('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js');
       Asset::getInstance()->addJs('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js');
+      Asset::getInstance()->addJs('https://cdnjs.cloudflare.com/ajax/libs/svg4everybody/2.1.9/svg4everybody.min.js');
       Asset::getInstance()->addJs('/local/assets/js/main.js');
       $APPLICATION->ShowHead();
     ?>
+    <script>
+      svg4everybody();
+    </script>
     <title>
       <?
         $APPLICATION->ShowTitle();
@@ -155,14 +159,18 @@
                 <div class="Cart-GoodsListTmplName"></div>
                 <div class="flex-break d-xl-none"></div>
                 <div class="Cart-GoodsListTmplCount">
-                  <svg class="icon icon-plus Cart-GoodsListTmplCountPlus">
-                    <use xlink:href="/local/assets/img/common/icons.svg#plus"></use>
-                  </svg>
+                  <a href="#" class="Cart-GoodsListTmplCountPlus">
+                    <svg class="icon icon-plus">
+                      <use xlink:href="/local/assets/img/common/icons.svg#plus"></use>
+                    </svg>
+                  </a>
                   <span class="Cart-GoodsListTmplCountN"></span>
                   <span>ШТ</span>
-                  <svg class="icon icon-minus Cart-GoodsListTmplCountMinus">
-                    <use xlink:href="/local/assets/img/common/icons.svg#minus"></use>
-                  </svg>
+                  <a href="#" class="Cart-GoodsListTmplCountMinus">
+                    <svg class="icon icon-minus">
+                      <use xlink:href="/local/assets/img/common/icons.svg#minus"></use>
+                    </svg>
+                  </a>
                 </div>
                 <div class="Cart-GoodsListTmplPrice">
                   <span>Р</span>

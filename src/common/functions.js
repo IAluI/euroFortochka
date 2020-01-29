@@ -65,7 +65,7 @@ export class Cart extends Modal {
 
   add(product) {
     if (this.products[product]) {
-      this.products[product].quantity++;
+      this.changeQuantity(product, true);
     } else {
       let requestData = product.split('-', 2);
       $.ajax({
@@ -82,12 +82,26 @@ export class Cart extends Modal {
           this.products[product].quantity = 1;
 
           let newGoods = document.importNode(this.goodsTmpl[0], true);
-          newGoods.querySelector('.Cart-GoodsListTmplImg > img').src = this.products[product].picture;
-          newGoods.querySelector('.Cart-GoodsListTmplName').textContent = this.products[product].name;
-          newGoods.querySelector('.Cart-GoodsListTmplCountPlus').addEventListener('click', this.changeQuantity(product, true));
-          newGoods.querySelector('.Cart-GoodsListTmplCountN').textContent = this.products[product].quantity;
-          newGoods.querySelector('.Cart-GoodsListTmplPrice').textContent = '' + this.products[product].price + '\u00A0Р';
-          newGoods.querySelector('.Cart-GoodsListTmplSum').textContent = '' + +this.products[product].quantity * +this.products[product].price + '\u00A0Р';
+          newGoods.querySelector('.Cart-GoodsListTmplImg > img')
+            .src = this.products[product].picture;
+          newGoods.querySelector('.Cart-GoodsListTmplName')
+            .textContent = this.products[product].name;
+          newGoods.querySelector('.Cart-GoodsListTmplCountPlus')
+            .addEventListener('click', (e) => {
+              e.preventDefault();
+              this.changeQuantity(product, true);
+            });
+          newGoods.querySelector('.Cart-GoodsListTmplCountN')
+            .textContent = this.products[product].quantity;
+          newGoods.querySelector('.Cart-GoodsListTmplCountMinus')
+            .addEventListener('click',  (e) => {
+              e.preventDefault();
+              this.changeQuantity(product, false);
+            });
+          newGoods.querySelector('.Cart-GoodsListTmplPrice')
+            .textContent = '' + this.products[product].price + '\u00A0Р';
+          newGoods.querySelector('.Cart-GoodsListTmplSum')
+            .textContent = '' + +this.products[product].quantity * +this.products[product].price + '\u00A0Р';
           newGoods.style.display = "";
           newGoods.id = 'cart-' + product;
           this.goodsNode[0].appendChild(newGoods);
@@ -96,13 +110,18 @@ export class Cart extends Modal {
           console.log('Ошибка при получении данных с сервера');
         });
     }
+    console.log(this.products);
   }
+
   changeQuantity(product, mode) {
-    return () => {
-      console.log('#cart:' + product + ' .Cart-GoodsListTmplCountN');
+    let quantity = mode ? ++this.products[product].quantity : --this.products[product].quantity;
+    if (quantity > 0) {
       this.goodsNode
         .find('#cart-' + product + ' .Cart-GoodsListTmplCountN')
-        .text(mode ? ++this.products[product].quantity : --this.products[product].quantity);
+        .text(quantity);
+    } else {
+      delete this.products[product];
+      this.goodsNode.find('#cart-' + product).remove();
     }
   }
 

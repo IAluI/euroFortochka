@@ -28,7 +28,7 @@ $(document).ready(() => {
   let telInputs = $('input[type=tel]');
   telInputs.val('+7');
   Inputmask({
-    mask: "(ps|e|)-(999)-999-9999",
+    mask: "(ps|e|) (999) 999 9999",
     definitions: {
       's': {
         validator: '[7]'
