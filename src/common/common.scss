@@ -287,6 +287,10 @@ footer a {
   }
 }
 
+.clear-both {
+  clear: both;
+}
+
 .Cart-Inputs {
   width: 100%;
   max-width: 290px;
@@ -318,13 +322,13 @@ footer a {
 }
 
 .Cart-GoodsListTmplCount {
-  flex: 0 0 6.5rem;
+  flex: 0 0 7.2rem;
   > * {
     vertical-align: middle;
   }
 }
 
-.Cart-GoodsListTmplCountPlus, .Cart-GoodsListTmplCountMinus {
+.Cart-GoodsListTmplCountPlus, .Cart-GoodsListTmplCountMinus, .Cart-GoodsListDeleteProduct {
   color: #000;
   cursor: pointer;
   &:hover {
@@ -333,15 +337,33 @@ footer a {
 }
 
 .Cart-GoodsListTmplPrice {
-  flex: 0 0 5rem;
+  flex: 0 0 4.6rem;
 }
 
 .Cart-GoodsListTmplSum {
-  flex: 0 0 5rem;
+  flex: 0 0 4.6rem;
   font-weight: 700;
 }
 
-.Cart-DeleteGoods {
+.Cart-GoodsListDeleteProduct {
+  cursor: pointer;
+}
+
+.Cart-Call {
+  position: fixed;
+  right: 0;
+  top: 10rem;
+  z-index: $zindex-fixed;
+  padding: 0.25rem;
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+  border-color: $primary;
+  border: {
+    left: 1px solid;
+    top: 1px solid;
+    bottom: 1px solid;
+  };
+  background-color: #fff;
   cursor: pointer;
 }
 

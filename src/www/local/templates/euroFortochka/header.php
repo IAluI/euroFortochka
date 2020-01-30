@@ -172,19 +172,23 @@
                     </svg>
                   </a>
                 </div>
-                <div class="Cart-GoodsListTmplPrice">
-                  <span>Р</span>
-                </div>
-                <div class="Cart-GoodsListTmplSum">
-                  <span>Р</span>
-                </div>
-                <div class="Cart-DeleteGoods">
+                <div class="Cart-GoodsListTmplPrice"></div>
+                <div class="Cart-GoodsListTmplSum"></div>
+                <a href="#" class="Cart-GoodsListDeleteProduct">
                   <svg class="icon icon-close-circle-outline">
                     <use xlink:href="/local/assets/img/common/icons.svg#close-circle-outline"></use>
                   </svg>
-                </div>
+                </a>
               </div>
               <div class="Cart-GoodsList"></div>
+              <div class="float-right">
+                <span>
+                  Итого к оплате:
+                </span>
+                <span class="font-weight-bold Cart-Total"></span>
+                <span class="font-weight-bold">Р</span>
+              </div>
+              <div class="clear-both"></div>
               <div class="float-right Cart-Inputs">
                 <div class="form-group">
                   <label for="cart_name">Ваше имя *</label>
@@ -224,7 +228,7 @@
                     class="form-control"
                     type="tel"
                     name="tel"
-                    pattern="(\+7|8)-\(\d{3}\)-\d{3}-\d{4}"
+                    pattern="(\+7|8) \(\d{3}\) \d{3} \d{4}"
                     autocomplete="off"
                     required
                   />
@@ -235,10 +239,16 @@
               </div>
             </div>
             <div class="modal-footer">
-              <input class="btn btn-primary" type="submit" id="cartSubmit" value="Оформить заказ">
+              <input class="btn btn-primary" type="submit" value="Оформить заказ">
             </div>
           </form>
         </div>
+      </div>
+      <div class="Cart-Call" style="display: none">
+        <svg class="icon icon-cart">
+          <use xlink:href="/local/assets/img/common/icons.svg#cart"></use>
+        </svg>
+        <span class="Cart-CallCount"></span>
       </div>
       <header class="MainHeader">
         <input class="HiddenInput" type="checkbox" id="mainNavMenu" />

@@ -54,13 +54,81 @@ export class Modal {
  */
 export class Cart extends Modal {
   constructor(...args) {
+    args[1] = args[1].trim() + ', .Cart-Call';
     super(...args);
+
     this.products = {};
     this.goodsTmpl = this.node.find('.Cart-GoodsListTmpl');
     this.goodsNode = this.node.find('.Cart-GoodsList');
+    this.totalNode = this.node.find('.Cart-Total');
+    this.cartCallNode = $('.Cart-Call');
+    this.cartCountNode = $('.Cart-CallCount');
+
     $(args[1]).click((e) => {
       this.add(e.target.dataset.cart);
     });
+
+    this.node
+      .on('show.bs.modal', () => {
+        this.cartCallNode
+          .css('transition', '')
+          .css('opacity', 0);
+      })
+      .on('hide.bs.modal', () => {
+        this.cartCallNode
+          .css('transition', '1s .3s opacity')
+          .css('opacity', 1);
+      });
+
+    this.node.find('form').submit((e) => {
+      e.preventDefault();
+
+      let products = [];
+      let id;
+      for (let key in this.products) {
+        id = key.split('-', 2);
+        products.push({
+          type: id[0],
+          name: id[1],
+          quantity: this.products[key].quantity,
+        });
+      }
+      let data = {
+        name: e.target.querySelector('[name=name]').value,
+        city: e.target.querySelector('[name=city]').value,
+        tel: e.target.querySelector('[name=tel]').value,
+        products,
+      };
+      console.log(data);
+      /*$.ajax({
+        url: '/ajax/order.php',
+        method: 'POST',
+        dataType: 'json',
+        data: {
+          name: e.target.querySelector('[name=name]').value,
+          city: e.target.querySelector('[name=city]').value,
+          tel: e.target.querySelector('[name=tel]').value,
+          products,
+        },
+      })
+        .done((data) => {
+          console.log(data);
+        })
+        .fail(() => {
+          console.log('Ошибка при получении данных с сервера');
+        })
+        .always(() => {
+          callbackModal.node.modal('hide');
+        });*/
+    });
+  }
+
+  numberFormat(number) {
+    return Number.prototype.toFixed
+      .call(parseFloat(number) || 0, 2)
+      .replace('.', ',')
+      .replace(/(\d)(?=(\d{3})+(?=,))/g, "$1\u00A0")
+      .replace(',00', '');
   }
 
   add(product) {
@@ -99,12 +167,21 @@ export class Cart extends Modal {
               this.changeQuantity(product, false);
             });
           newGoods.querySelector('.Cart-GoodsListTmplPrice')
-            .textContent = '' + this.products[product].price + '\u00A0Р';
+            .textContent = this.numberFormat(this.products[product].price) + '\u00A0Р';
           newGoods.querySelector('.Cart-GoodsListTmplSum')
-            .textContent = '' + +this.products[product].quantity * +this.products[product].price + '\u00A0Р';
+            .textContent = this.numberFormat(+this.products[product].quantity * +this.products[product].price) + '\u00A0Р';
+          newGoods.querySelector('.Cart-GoodsListDeleteProduct')
+            .addEventListener('click',  (e) => {
+              e.preventDefault();
+              this.deleteProduct(product);
+            });
           newGoods.style.display = "";
           newGoods.id = 'cart-' + product;
           this.goodsNode[0].appendChild(newGoods);
+          this.calcTotal();
+          this.refreshCartCount();
+
+          console.log(Object.keys(this.products).length);
         })
         .fail(() => {
           console.log('Ошибка при получении данных с сервера');
@@ -114,14 +191,49 @@ export class Cart extends Modal {
   }
 
   changeQuantity(product, mode) {
-    let quantity = mode ? ++this.products[product].quantity : --this.products[product].quantity;
+    let quantity = this.products[product].quantity;
+    quantity = mode ? ++quantity: --quantity;
     if (quantity > 0) {
+      this.products[product].quantity = quantity;
       this.goodsNode
         .find('#cart-' + product + ' .Cart-GoodsListTmplCountN')
         .text(quantity);
-    } else {
+      this.goodsNode
+        .find('#cart-' + product + ' .Cart-GoodsListTmplSum')
+        .text(this.numberFormat(quantity * +this.products[product].price) + '\u00A0Р');
+      this.calcTotal();
+    } /*else {
       delete this.products[product];
       this.goodsNode.find('#cart-' + product).remove();
+    }*/
+  }
+  
+  deleteProduct(product) {
+    delete this.products[product];
+    this.goodsNode.find('#cart-' + product).remove();
+    this.calcTotal();
+    this.refreshCartCount();
+  }
+
+  calcTotal() {
+    let sum = 0;
+    for (let key in this.products) {
+      sum += this.products[key].quantity * +this.products[key].price;
+    }
+    this.totalNode.text(this.numberFormat(sum));
+  }
+
+  refreshCartCount() {
+    //console.log('ok');
+    let count = Object.keys(this.products).length;
+    //console.log(count);
+    if (count === 0) {
+      this.cartCallNode.css('display', 'none');
+      this.cartCountNode.text('');
+      this.node.modal('hide');
+    } else if (count > 0) {
+      this.cartCallNode.css('display', 'block');
+      this.cartCountNode.text(count);
     }
   }
 
