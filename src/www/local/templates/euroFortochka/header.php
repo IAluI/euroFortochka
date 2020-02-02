@@ -116,7 +116,7 @@
                   class="form-control"
                   type="tel"
                   name="tel"
-                  pattern="(\+7|8)-\(\d{3}\)-\d{3}-\d{4}"
+                  pattern="(\+7|8) \(\d{3}\) \d{3} \d{4}"
                   autocomplete="off"
                   required
                 />

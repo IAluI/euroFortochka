@@ -83,15 +83,14 @@ export class Cart extends Modal {
     this.node.find('form').submit((e) => {
       e.preventDefault();
 
-      let products = [];
+      let products = {};
       let id;
       for (let key in this.products) {
         id = key.split('-', 2);
-        products.push({
-          type: id[0],
-          name: id[1],
-          quantity: this.products[key].quantity,
-        });
+        if (!products.hasOwnProperty(id[0])) {
+          products[id[0]] = {};
+        }
+        products[id[0]][id[1]] = this.products[key].quantity;
       }
       let data = {
         name: e.target.querySelector('[name=name]').value,
@@ -100,7 +99,7 @@ export class Cart extends Modal {
         products,
       };
       console.log(data);
-      /*$.ajax({
+      $.ajax({
         url: '/ajax/order.php',
         method: 'POST',
         dataType: 'json',
@@ -114,12 +113,12 @@ export class Cart extends Modal {
         .done((data) => {
           console.log(data);
         })
-        .fail(() => {
-          console.log('Ошибка при получении данных с сервера');
+        .fail((data) => {
+          console.log('Ошибка при получении данных с сервера', data);
         })
-        .always(() => {
+        /*.always(() => {
           callbackModal.node.modal('hide');
-        });*/
+        })*/;
     });
   }
 
