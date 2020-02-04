@@ -39,9 +39,29 @@ export class Modal {
     this.node = $(selector).first().modal({
       show: false
     });
+
     $(callers).click(() => {
       this.node.modal('show');
     });
+
+    this.slide = 0;
+    this.slides = this.node.find('.modal-dialog').children();
+    for (let i = 1; i < this.slides.length; i++) {
+      //this.slides[i].style.display = 'none';
+      
+    }
+    this.node
+      .on('hidden.bs.modal', () => {
+        if (this.slide !== 0) {
+          this.goToSlide(0);
+        }
+      });
+  }
+
+  goToSlide(n) {
+    this.slides[this.slide].style.display = 'none';
+    this.slides[n].style.display = '';
+    this.slide = n;
   }
 }
 /**

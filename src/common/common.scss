@@ -368,6 +368,16 @@ footer a {
   cursor: pointer;
 }
 
+.Modal-Slide {
+  transform: translateY(-50px);
+  opacity: 0;
+  transition: transform .3s, opacity .3s;
+  &_active {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .MainHeader-Bar {
   position: relative;
   z-index: 1;

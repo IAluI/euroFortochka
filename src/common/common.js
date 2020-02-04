@@ -60,14 +60,14 @@ $(document).ready(() => {
       },
     })
       .done((data) => {
-
+        callbackModal.goToSlide(1);
       })
       .fail((data) => {
 
       })
       .always((data) => {
         console.log(data);
-        callbackModal.node.modal('hide');
+        //callbackModal.node.modal('hide');
       });
   });
   /*

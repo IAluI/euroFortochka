@@ -70,7 +70,7 @@
       </div>
       <div class="modal fade" id="callback" tabindex="-1">
         <div class="modal-dialog">
-          <form class="modal-content needs-validation" novalidate>
+          <form class="modal-content needs-validation Modal-Slide" novalidate>
             <div class="modal-header">
               <h5 class="modal-title">Оставьте Ваши контактные данные:</h5>
               <button class="close" type="button" data-dismiss="modal">
@@ -140,6 +140,22 @@
               </button>
             </div>
           </form>
+          <div class="modal-content Modal-Slide">
+            <div class="modal-header">
+              <button class="close" type="button" data-dismiss="modal">
+                &times;
+              </button>
+            </div>
+            <div class="modal-body">
+              <p class="text-center">
+                Спасибо за вашу заявку!<br>
+                В ближайшее время мы свяжемся с вами.
+              </p>
+              <button class="btn btn-primary d-block mx-auto" type="button" data-dismiss="modal">
+                Вернуться к магазину
+              </button>
+            </div>
+          </div>
         </div>
       </div>
       <div class="modal fade" id="cart" tabindex="-1">
