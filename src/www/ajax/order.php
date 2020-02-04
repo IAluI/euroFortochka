@@ -52,7 +52,7 @@ foreach ($prodFromUser as $type => $prodList) {
 
 $protToMail .= '</table></tbody>';
 
-use \Bitrix\Main\Mail\Event;
+/*use \Bitrix\Main\Mail\Event;
 $event = Event::Send(array(
   "EVENT_NAME" => "NEW_ORDER",
   "LID" => "s1",
@@ -69,10 +69,10 @@ $event = Event::Send(array(
 echo json_encode(array(
   'event' => $event -> getId(),
   'totalPrice' => $totalPrice
-));
-
-/*echo json_encode(array(
-  '$totalPrice' => $totalPrice
 ));*/
+
+echo json_encode(array(
+  '$totalPrice' => $totalPrice
+));
 
 ?>

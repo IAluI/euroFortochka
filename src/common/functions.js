@@ -42,9 +42,6 @@ export class Modal {
     $(callers).click(() => {
       this.node.modal('show');
     });
-    this.node.find('.close').click(() => {
-      this.node.modal('hide');
-    });
   }
 }
 /**
@@ -92,13 +89,13 @@ export class Cart extends Modal {
         }
         products[id[0]][id[1]] = this.products[key].quantity;
       }
-      let data = {
+      /*let data = {
         name: e.target.querySelector('[name=name]').value,
         city: e.target.querySelector('[name=city]').value,
         tel: e.target.querySelector('[name=tel]').value,
         products,
       };
-      console.log(data);
+      console.log(data);*/
       $.ajax({
         url: '/ajax/order.php',
         method: 'POST',
@@ -116,9 +113,9 @@ export class Cart extends Modal {
         .fail((data) => {
           console.log('Ошибка при получении данных с сервера', data);
         })
-        /*.always(() => {
-          callbackModal.node.modal('hide');
-        })*/;
+        .always(() => {
+          this.node.modal('hide');
+        });
     });
   }
 

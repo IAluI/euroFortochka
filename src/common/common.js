@@ -60,19 +60,20 @@ $(document).ready(() => {
       },
     })
       .done((data) => {
+
+      })
+      .fail((data) => {
+
+      })
+      .always((data) => {
         console.log(data);
-      })
-      .fail(() => {
-        console.log('Ошибка при получении данных с сервера');
-      })
-      .always(() => {
         callbackModal.node.modal('hide');
       });
   });
   /*
    Инициализация модального окна корзины
    */
-  new localLib.Cart('#cart', '[data-cart]');
+  let cartModal = new localLib.Cart('#cart', '[data-cart]');
 });
 
 import { installation } from 'pages/installation/installation.js';

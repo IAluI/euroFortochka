@@ -73,7 +73,7 @@
           <form class="modal-content needs-validation" novalidate>
             <div class="modal-header">
               <h5 class="modal-title">Оставьте Ваши контактные данные:</h5>
-              <button class="close" type="button">
+              <button class="close" type="button" data-dismiss="modal">
                 &times;
               </button>
             </div>
@@ -135,7 +135,7 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button class="btn btn-primary" type="submit" id="callbackSubmit">
+              <button class="btn btn-primary" type="submit">
                 Оставить заявку
               </button>
             </div>
@@ -147,7 +147,7 @@
           <form class="modal-content needs-validation" novalidate>
             <div class="modal-header">
               <h5 class="modal-title">Корзина</h5>
-              <button class="close" type="button">
+              <button class="close" type="button" data-dismiss="modal">
                 &times;
               </button>
             </div>
@@ -238,8 +238,13 @@
                 </div>
               </div>
             </div>
-            <div class="modal-footer">
-              <input class="btn btn-primary" type="submit" value="Оформить заказ">
+            <div class="modal-footer justify-content-between">
+              <button class="btn btn-light" type="button" data-dismiss="modal">
+                Продолжить покупки
+              </button>
+              <button class="btn btn-primary" type="submit">
+                Оставить заявку
+              </button>
             </div>
           </form>
         </div>
