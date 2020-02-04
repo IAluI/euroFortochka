@@ -369,7 +369,8 @@ footer a {
 }
 
 .Modal-Slide {
-  transform: translateY(-50px);
+  position: absolute;
+  transform: translateY(100%);
   opacity: 0;
   transition: transform .3s, opacity .3s;
   &_active {

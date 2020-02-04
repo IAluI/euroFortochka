@@ -70,7 +70,7 @@
       </div>
       <div class="modal fade" id="callback" tabindex="-1">
         <div class="modal-dialog">
-          <form class="modal-content needs-validation Modal-Slide" novalidate>
+          <form class="modal-content needs-validation" novalidate>
             <div class="modal-header">
               <h5 class="modal-title">Оставьте Ваши контактные данные:</h5>
               <button class="close" type="button" data-dismiss="modal">
@@ -140,7 +140,7 @@
               </button>
             </div>
           </form>
-          <div class="modal-content Modal-Slide">
+          <div class="modal-content">
             <div class="modal-header">
               <button class="close" type="button" data-dismiss="modal">
                 &times;

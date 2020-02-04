@@ -46,10 +46,13 @@ export class Modal {
 
     this.slide = 0;
     this.slides = this.node.find('.modal-dialog').children();
-    for (let i = 1; i < this.slides.length; i++) {
-      //this.slides[i].style.display = 'none';
-      
-    }
+
+    this.slides.addClass('Modal-Slide').hide();
+    $(this.slides[this.slide]).addClass('Modal-Slide_active').show();
+
+    /*for (let i = 1; i < this.slides.length; i++) {
+      this.slides[i].style.display = 'none';
+    }*/
     this.node
       .on('hidden.bs.modal', () => {
         if (this.slide !== 0) {
@@ -59,8 +62,11 @@ export class Modal {
   }
 
   goToSlide(n) {
-    this.slides[this.slide].style.display = 'none';
-    this.slides[n].style.display = '';
+    $(this.slides[this.slide]).removeClass('Modal-Slide_active').hide();
+    $(this.slides[n]).show().addClass('Modal-Slide_active');
+
+    /*this.slides[this.slide].style.display = 'none';
+    this.slides[n].style.display = '';*/
     this.slide = n;
   }
 }
