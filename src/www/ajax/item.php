@@ -26,7 +26,8 @@ $product = $ob->GetFields();
 foreach($ob->GetProperties() as $prop => $value) {
   $product[$prop] = $value['VALUE'];
 }
-$response = Array(
+count($product);
+$response = array(
   "name" => $product["NAME"],
   "picture" => CFile::GetPath($product["DETAIL_PICTURE"]),
   "price" => $product["price"]

@@ -1,11 +1,13 @@
+import throttle from 'lodash/throttle';
+
+/**
+ * Инициализирует слайдер.
+ * @prop {object} options - Параметры.
+ * @prop {string} mediaQ - Медиа запрос по которому будет производиться инициализация и удаление слайдера.
+ * @prop {(object|string)} swiperContainer - Элемент или селектор родительского элемента слайдера.
+ * @prop {object} swiperOptions - Параметры слайдера.
+ */
 export function swiperInit(options) {
-  /*
-   options = {
-   mediaQ: 'string',
-   swiperContainer: 'element or selector',
-   swiperOptions: 'object'
-   };
-   */
   let breakpoint = window.matchMedia(options.mediaQ);
   let mySwiper;
 
@@ -26,15 +28,17 @@ export function swiperInit(options) {
   return mySwiper;
 }
 /**
- * Создает модельное окно
- * @prop {object} node Узел модального окна
+ * Создает модельное окно.
+ * @prop {object} node - Узел модального окна.
+ * @prop {number} slide - Текущий номер страницы.
+ * @prop {object} slides - JQuery-объект содерщащий все страницы модального окна.
  */
 export class Modal {
   /**
-   * Инициализирует модельное окно
-   * @param {string} selector Селектор контейнера модельного окна
-   * @param {string} callers Селектор элементов вызывающих моальное окно
-   * */
+   * Инициализирует модельное окно.
+   * @param {string} selector - Селектор контейнера модельного окна.
+   * @param {string} callers - Селектор элементов вызывающих моальное окно.
+   */
   constructor(selector, callers) {
     this.node = $(selector).first().modal({
       show: false
@@ -46,13 +50,9 @@ export class Modal {
 
     this.slide = 0;
     this.slides = this.node.find('.modal-dialog').children();
-
     this.slides.addClass('Modal-Slide').hide();
-    $(this.slides[this.slide]).addClass('Modal-Slide_active').show();
-
-    /*for (let i = 1; i < this.slides.length; i++) {
-      this.slides[i].style.display = 'none';
-    }*/
+    //$(this.slides[this.slide]).addClass('Modal-Slide_active').show();
+    this.slides.eq(this.slide).addClass('Modal-Slide_active').show();
     this.node
       .on('hidden.bs.modal', () => {
         if (this.slide !== 0) {
@@ -60,51 +60,65 @@ export class Modal {
         }
       });
   }
-
+  /**
+   * Совершает переход на заданную страницу модального окна.
+   * @param {number} n - Номер страницы.
+   */
   goToSlide(n) {
-    $(this.slides[this.slide]).removeClass('Modal-Slide_active').hide();
-    $(this.slides[n]).show().addClass('Modal-Slide_active');
-
-    /*this.slides[this.slide].style.display = 'none';
-    this.slides[n].style.display = '';*/
+    //let prevSlide = $(this.slides[this.slide]);
+    let prevSlide = this.slides.eq(this.slide);
+    prevSlide.removeClass('Modal-Slide_active');
+    setTimeout(() => {
+      prevSlide.hide();
+    }, 300);
+    //$(this.slides[n]).show().addClass('Modal-Slide_active');
+    this.slides.eq(n).show().addClass('Modal-Slide_active');
     this.slide = n;
   }
 }
 /**
- * Создает модельное окно корзины
- * @prop {object} goodsTmpl Шаблон товара
- * @prop {object} goodsTmpl Узел списка товаров
+ * Создает модельное окно корзины.
+ * @extends Modal
+ * @prop {object} goodsTmpl - JQuery-объект содерщащий шаблон товара.
+ * @prop {object} goodsNode - JQuery-объект содерщащий узел для размещения товаров.
+ * @prop {object} totalNode - JQuery-объект содерщащий элемент используемый для вывода общей стоимости корзины.
+ * @prop {object} cartCallNode - JQuery-объект содерщащий узел используемый для открытия модального окна корзины.
+ * @prop {object} cartCountNode - JQuery-объект содерщащий элемент используемый для вывода количества типов товаров добавленных в корзину.
+ * @prop {object} products - Объект описывающий добавленные в корзину товары.
+ * @prop {string} products.name - Наименование товара.
+ * @prop {string} products.picture - URL картинки товара.
+ * @prop {string} products.price - Цена товара.
+ * @prop {number} products.quantity - Количество товара.
  */
 export class Cart extends Modal {
+  /**
+   * Инициализирует модельное окно
+   * @param {string} selector - Селектор контейнера модельного окна.
+   * @param {string} callers - Селектор элементов вызывающих моальное окно.
+   */
   constructor(...args) {
+    $(args[1]).click((e) => {
+      this.add(e.target.dataset.cart);
+    });
     args[1] = args[1].trim() + ', .Cart-Call';
     super(...args);
 
-    this.products = {};
     this.goodsTmpl = this.node.find('.Cart-GoodsListTmpl');
     this.goodsNode = this.node.find('.Cart-GoodsList');
     this.totalNode = this.node.find('.Cart-Total');
     this.cartCallNode = $('.Cart-Call');
     this.cartCountNode = $('.Cart-CallCount');
 
-    $(args[1]).click((e) => {
-      this.add(e.target.dataset.cart);
-    });
-
-    this.node
-      .on('show.bs.modal', () => {
-        this.cartCallNode
-          .css('transition', '')
-          .css('opacity', 0);
-      })
-      .on('hide.bs.modal', () => {
-        this.cartCallNode
-          .css('transition', '1s .3s opacity')
-          .css('opacity', 1);
-      });
-
-    this.node.find('form').submit((e) => {
-      e.preventDefault();
+    this.products = JSON.parse(localStorage.getItem('cart'));
+    if (!this.products) {
+      this.products = {};
+    } else {
+      this.createGoods(this.products);
+    }
+    this.slides.eq(0).submit(throttle((e) => {
+      if (e.target.checkValidity() === false) {
+        return;
+      }
 
       let products = {};
       let id;
@@ -115,13 +129,6 @@ export class Cart extends Modal {
         }
         products[id[0]][id[1]] = this.products[key].quantity;
       }
-      /*let data = {
-        name: e.target.querySelector('[name=name]').value,
-        city: e.target.querySelector('[name=city]').value,
-        tel: e.target.querySelector('[name=tel]').value,
-        products,
-      };
-      console.log(data);*/
       $.ajax({
         url: '/ajax/order.php',
         method: 'POST',
@@ -134,17 +141,32 @@ export class Cart extends Modal {
         },
       })
         .done((data) => {
-          console.log(data);
+          this.goToSlide(1);
+          localStorage.removeItem('cart');
+          this.products = {};
+          this.refreshCartCount(false);
+          this.goodsNode.children().remove();
+          e.target.reset();
+          $(e.target).removeClass('was-validated').find('[type="tel"]').val('+7 ');
         })
         .fail((data) => {
-          console.log('Ошибка при получении данных с сервера', data);
+          this.goToSlide(2);
         })
-        .always(() => {
-          this.node.modal('hide');
+        .always((data) => {
+          console.log(data);
         });
-    });
+    },
+    1000,
+    {
+      leading: true,
+      trailing: false
+    }
+    ));
   }
-
+  /**
+   * Форматирует цену
+   * @param {string} number - Цена.
+   */
   numberFormat(number) {
     return Number.prototype.toFixed
       .call(parseFloat(number) || 0, 2)
@@ -152,7 +174,10 @@ export class Cart extends Modal {
       .replace(/(\d)(?=(\d{3})+(?=,))/g, "$1\u00A0")
       .replace(',00', '');
   }
-
+  /**
+   * Добавляет новый товар в корзину.
+   * @param {string} product - Идентификатор товара.
+   */
   add(product) {
     if (this.products[product]) {
       this.changeQuantity(product, true);
@@ -168,55 +193,30 @@ export class Cart extends Modal {
         },
       })
         .done((data) => {
+          data.quantity = 1;
           this.products[product] = data;
-          this.products[product].quantity = 1;
-
-          let newGoods = document.importNode(this.goodsTmpl[0], true);
-          newGoods.querySelector('.Cart-GoodsListTmplImg > img')
-            .src = this.products[product].picture;
-          newGoods.querySelector('.Cart-GoodsListTmplName')
-            .textContent = this.products[product].name;
-          newGoods.querySelector('.Cart-GoodsListTmplCountPlus')
-            .addEventListener('click', (e) => {
-              e.preventDefault();
-              this.changeQuantity(product, true);
-            });
-          newGoods.querySelector('.Cart-GoodsListTmplCountN')
-            .textContent = this.products[product].quantity;
-          newGoods.querySelector('.Cart-GoodsListTmplCountMinus')
-            .addEventListener('click',  (e) => {
-              e.preventDefault();
-              this.changeQuantity(product, false);
-            });
-          newGoods.querySelector('.Cart-GoodsListTmplPrice')
-            .textContent = this.numberFormat(this.products[product].price) + '\u00A0Р';
-          newGoods.querySelector('.Cart-GoodsListTmplSum')
-            .textContent = this.numberFormat(+this.products[product].quantity * +this.products[product].price) + '\u00A0Р';
-          newGoods.querySelector('.Cart-GoodsListDeleteProduct')
-            .addEventListener('click',  (e) => {
-              e.preventDefault();
-              this.deleteProduct(product);
-            });
-          newGoods.style.display = "";
-          newGoods.id = 'cart-' + product;
-          this.goodsNode[0].appendChild(newGoods);
-          this.calcTotal();
-          this.refreshCartCount();
-
-          console.log(Object.keys(this.products).length);
+          localStorage.setItem('cart', JSON.stringify(this.products));
+          this.createGoods({
+            [product]: data
+          });
         })
-        .fail(() => {
-          console.log('Ошибка при получении данных с сервера');
+        .fail((data) => {
+          this.goToSlide(2);
+          console.log(data);
         });
     }
-    console.log(this.products);
   }
-
+  /**
+   * Изменяет количество товаров в корзине.
+   * @param {string} product - Идентификатор товара.
+   * @param {boolean} mode - Режим работы. Если true увеличевает, иначе уменьшает.
+   */
   changeQuantity(product, mode) {
     let quantity = this.products[product].quantity;
     quantity = mode ? ++quantity: --quantity;
     if (quantity > 0) {
       this.products[product].quantity = quantity;
+      localStorage.setItem('cart', JSON.stringify(this.products));
       this.goodsNode
         .find('#cart-' + product + ' .Cart-GoodsListTmplCountN')
         .text(quantity);
@@ -224,19 +224,22 @@ export class Cart extends Modal {
         .find('#cart-' + product + ' .Cart-GoodsListTmplSum')
         .text(this.numberFormat(quantity * +this.products[product].price) + '\u00A0Р');
       this.calcTotal();
-    } /*else {
-      delete this.products[product];
-      this.goodsNode.find('#cart-' + product).remove();
-    }*/
+    }
   }
-  
+  /**
+   * Удаляет товар из корзины.
+   * @param {string} product - Идентификатор товара.
+   */
   deleteProduct(product) {
     delete this.products[product];
+    localStorage.setItem('cart', JSON.stringify(this.products));
     this.goodsNode.find('#cart-' + product).remove();
     this.calcTotal();
     this.refreshCartCount();
   }
-
+  /**
+   * Подсчитывает общую стоимость товров в корзине.
+   */
   calcTotal() {
     let sum = 0;
     for (let key in this.products) {
@@ -244,19 +247,60 @@ export class Cart extends Modal {
     }
     this.totalNode.text(this.numberFormat(sum));
   }
-
-  refreshCartCount() {
-    //console.log('ok');
+  /**
+   * Обновляет количество типов товаров в корзине.
+   * @param {boolean} shouldClose - Следует ли закрывать модальное окно если в корзине отсутсвующт товары.
+   */
+  refreshCartCount(shouldClose = true) {
     let count = Object.keys(this.products).length;
-    //console.log(count);
     if (count === 0) {
       this.cartCallNode.css('display', 'none');
       this.cartCountNode.text('');
-      this.node.modal('hide');
+      if (shouldClose) {
+        this.node.modal('hide');
+      }
     } else if (count > 0) {
       this.cartCallNode.css('display', 'block');
       this.cartCountNode.text(count);
     }
   }
-
+  /**
+   * Создает элементы товаров.
+   * @param {object} products - Объект описывающий добавленные в корзину товары..
+   */
+  createGoods(products) {
+    for (let id in products) {
+      let newGoods = document.importNode(this.goodsTmpl[0], true);
+      newGoods.querySelector('.Cart-GoodsListTmplImg > img')
+        .src = products[id].picture;
+      newGoods.querySelector('.Cart-GoodsListTmplName')
+        .textContent = products[id].name;
+      newGoods.querySelector('.Cart-GoodsListTmplCountPlus')
+        .addEventListener('click', (e) => {
+          e.preventDefault();
+          this.changeQuantity(id, true);
+        });
+      newGoods.querySelector('.Cart-GoodsListTmplCountN')
+        .textContent = products[id].quantity;
+      newGoods.querySelector('.Cart-GoodsListTmplCountMinus')
+        .addEventListener('click',  (e) => {
+          e.preventDefault();
+          this.changeQuantity(id, false);
+        });
+      newGoods.querySelector('.Cart-GoodsListTmplPrice')
+        .textContent = this.numberFormat(products[id].price) + '\u00A0Р';
+      newGoods.querySelector('.Cart-GoodsListTmplSum')
+        .textContent = this.numberFormat(+products[id].quantity * +products[id].price) + '\u00A0Р';
+      newGoods.querySelector('.Cart-GoodsListDeleteProduct')
+        .addEventListener('click',  (e) => {
+          e.preventDefault();
+          this.deleteProduct(id);
+        });
+      newGoods.style.display = "";
+      newGoods.id = 'cart-' + id;
+      this.goodsNode[0].appendChild(newGoods);
+    }
+    this.calcTotal();
+    this.refreshCartCount();
+  }
 }

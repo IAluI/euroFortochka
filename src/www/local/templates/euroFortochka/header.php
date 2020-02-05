@@ -156,6 +156,21 @@
               </button>
             </div>
           </div>
+          <div class="modal-content">
+            <div class="modal-header">
+              <button class="close" type="button" data-dismiss="modal">
+                &times;
+              </button>
+            </div>
+            <div class="modal-body text-center">
+              <p class="alert alert-danger">
+                Произошла ошибка.<br> Свяжитесь можалуйста с нами.
+              </p>
+              <a href="/contacts/" class="btn btn-primary">
+                Наши контакты
+              </a>
+            </div>
+          </div>
         </div>
       </div>
       <div class="modal fade" id="cart" tabindex="-1">
@@ -263,6 +278,37 @@
               </button>
             </div>
           </form>
+          <div class="modal-content">
+            <div class="modal-header">
+              <button class="close" type="button" data-dismiss="modal">
+                &times;
+              </button>
+            </div>
+            <div class="modal-body">
+              <p class="text-center">
+                Ваш заказ поступил в обработку.<br>
+                В ближайшее время мы свяжемся с вами.
+              </p>
+              <button class="btn btn-primary d-block mx-auto" type="button" data-dismiss="modal">
+                Вернуться к магазину
+              </button>
+            </div>
+          </div>
+          <div class="modal-content">
+            <div class="modal-header">
+              <button class="close" type="button" data-dismiss="modal">
+                &times;
+              </button>
+            </div>
+            <div class="modal-body text-center">
+              <p class="alert alert-danger">
+                Произошла ошибка.<br> Свяжитесь можалуйста с нами.
+              </p>
+              <a href="/contacts/" class="btn btn-primary">
+                Наши контакты
+              </a>
+            </div>
+          </div>
         </div>
       </div>
       <div class="Cart-Call" style="display: none">

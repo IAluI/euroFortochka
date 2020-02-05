@@ -366,15 +366,32 @@ footer a {
   };
   background-color: #fff;
   cursor: pointer;
+  transition: 1s .3s opacity;
+  opacity: 1;
+}
+
+.modal-open .Cart-Call {
+  transition: none;
+  opacity: 0;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 
 .Modal-Slide {
   position: absolute;
-  transform: translateY(100%);
+  transform: translateY(-100%);
   opacity: 0;
   transition: transform .3s, opacity .3s;
   &_active {
     transform: translateY(0);
+    animation: slideUp .3s;
     opacity: 1;
   }
 }

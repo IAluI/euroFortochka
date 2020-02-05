@@ -1,3 +1,5 @@
+import throttle from 'lodash/throttle';
+
 import * as localLib from 'common/functions.js';
 export { localLib };
 
@@ -19,8 +21,8 @@ $(document).ready(() => {
   Добавление маски на инпуты номера телефона
    */
   $('.needs-validation').submit(function (e) {
+    e.preventDefault();
     if (e.target.checkValidity() === false) {
-      e.preventDefault();
       e.stopPropagation();
     }
     $(e.target).addClass('was-validated');
@@ -46,8 +48,11 @@ $(document).ready(() => {
   Инициализация модального окна формы обратной связи
    */
   let callbackModal = new localLib.Modal('#callback', '.Callback');
-  callbackModal.node.submit(function (e) {
-    e.preventDefault();
+  callbackModal.slides.eq(0).submit(throttle(function (e) {
+    if (e.target.checkValidity() === false) {
+      return;
+    }
+    
     $.ajax({
       url: '/ajax/callBack.php',
       method: 'POST',
@@ -61,15 +66,22 @@ $(document).ready(() => {
     })
       .done((data) => {
         callbackModal.goToSlide(1);
+        e.target.reset();
+        $(e.target).removeClass('was-validated').find('[type="tel"]').val('+7 ');
       })
       .fail((data) => {
-
+        callbackModal.goToSlide(2);
       })
       .always((data) => {
         console.log(data);
-        //callbackModal.node.modal('hide');
       });
-  });
+  },
+  1000,
+  {
+    leading: true,
+    trailing: false
+  }
+  ));
   /*
    Инициализация модального окна корзины
    */
