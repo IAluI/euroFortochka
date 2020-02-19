@@ -1,5 +1,5 @@
 <?
-  if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+  if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 ?>
 
 <!DOCTYPE html>
@@ -11,49 +11,19 @@
       initial-scale="1"
       shrink-to-fit="no"
     />
+    <link rel="icon" type="image/x-icon" href="<?= SITE_TEMPLATE_PATH ?>/favicon.ico" />
     <?
       use Bitrix\Main\Page\Asset;
-      //use Bitrix\Main\Page\AssetLocation;
-      /*Asset::getInstance()->addString(
-        '<script' .
-        'type="text/javascript"' .
-        'src="https://code.jquery.com/jquery-3.4.1.min.js"' .
-        'integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="' .
-        'crossorigin="anonymous"' .
-        '></script>',
-        true,
-        AssetLocation::AFTER_JS_KERNEL
-      );
-      Asset::getInstance()->addString(
-        '<script' .
-        'type="text/javascript"' .
-        'src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"' .
-        'integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"' .
-        'crossorigin="anonymous"' .
-        '></script>',
-        true,
-        AssetLocation::AFTER_JS_KERNEL
-      );
-      Asset::getInstance()->addString(
-        '<script' .
-        'type="text/javascript"' .
-        'src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"' .
-        'integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"' .
-        'crossorigin="anonymous"' .
-        '></script>',
-        true,
-        AssetLocation::AFTER_JS_KERNEL
-      );*/
       Asset::getInstance()->addJs('https://code.jquery.com/jquery-3.4.1.min.js');
       Asset::getInstance()->addJs('https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js');
       Asset::getInstance()->addJs('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js');
       Asset::getInstance()->addJs('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js');
-      Asset::getInstance()->addJs('https://cdnjs.cloudflare.com/ajax/libs/svg4everybody/2.1.9/svg4everybody.min.js');
+      //Asset::getInstance()->addJs('https://cdnjs.cloudflare.com/ajax/libs/svg4everybody/2.1.9/svg4everybody.min.js');
       Asset::getInstance()->addJs('/local/assets/js/main.js');
       $APPLICATION->ShowHead();
     ?>
     <script>
-      svg4everybody();
+      //svg4everybody();
     </script>
     <title>
       <?
@@ -62,7 +32,7 @@
     </title>
   </head>
   <body>
-    <div class="PageWrapper">
+    <div itemscope itemtype="http://schema.org/WebPage" class="PageWrapper">
       <div id="panel">
         <?
           $APPLICATION->ShowPanel();

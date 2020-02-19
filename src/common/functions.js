@@ -98,7 +98,7 @@ export class Cart extends Modal {
    */
   constructor(...args) {
     $(args[1]).click((e) => {
-      this.add(e.target.dataset.cart);
+      this.add(e.target.getAttribute('data-cart'));
     });
     args[1] = args[1].trim() + ', .Cart-Call';
     super(...args);
@@ -113,7 +113,10 @@ export class Cart extends Modal {
     if (!this.products) {
       this.products = {};
     } else {
-      this.createGoods(this.products);
+      //
+      setTimeout(() => {
+        this.createGoods(this.products);
+      }, 2000);
     }
     this.slides.eq(0).submit(throttle((e) => {
       if (e.target.checkValidity() === false) {
@@ -182,17 +185,20 @@ export class Cart extends Modal {
     if (this.products[product]) {
       this.changeQuantity(product, true);
     } else {
-      let requestData = product.split('-', 2);
+      let [type, name, mod] = product.split('-', 3);
+      console.log(type, name, mod);
       $.ajax({
         url: '/ajax/item.php',
         method: 'GET',
         dataType: 'json',
         data: {
-          type: requestData[0],
-          name: requestData[1]
+          type,
+          name,
+          mod,
         },
       })
         .done((data) => {
+          console.log(data);
           data.quantity = 1;
           this.products[product] = data;
           localStorage.setItem('cart', JSON.stringify(this.products));

@@ -1,4 +1,5 @@
 import throttle from 'lodash/throttle';
+import svg4everybody from 'svg4everybody';
 
 import * as localLib from 'common/functions.js';
 export { localLib };
@@ -6,6 +7,7 @@ export { localLib };
 import Inputmask from "inputmask";
 
 $(document).ready(() => {
+  svg4everybody();
   /*
    Анимирование переходов между якорями внутри страницы
    */
