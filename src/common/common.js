@@ -1,8 +1,10 @@
+import "core-js/stable/promise";
+
 import throttle from 'lodash/throttle';
 import svg4everybody from 'svg4everybody';
 
 import * as localLib from 'common/functions.js';
-export { localLib };
+export { bcEfProduct, bcEfElementList };
 
 import Inputmask from "inputmask";
 
@@ -90,15 +92,40 @@ $(document).ready(() => {
   let cartModal = new localLib.Cart('#cart', '[data-cart]');
 });
 
-import { installation } from 'pages/installation/installation.js';
-if (window.location.pathname === '/installation/') {
-  installation();
+switch (window.location.pathname) {
+  case '/':
+  import(/* webpackChunkName: "index" */ 'pages/index/index.js').then(module => {
+    module.index();
+  }).catch(error => {
+    console.log(error);
+  });
+  break;
+  case '/installation/':
+  import(/* webpackChunkName: "installation" */ 'pages/installation/installation.js').then(module => {
+    module.installation();
+  }).catch(error => {
+    console.log(error);
+  });
+  break;
 }
 
-import { index } from 'pages/index/index.js';
-if (window.location.pathname === '/') {
-  index();
+function bcEfProduct() {
+  import(/* webpackChunkName: "bcEfProduct" */ 'components/bcEfProduct.js').then(module => {
+    module.bcEfProduct();
+  }).catch(error => {
+    console.log(error);
+  });
 }
+
+function bcEfElementList() {
+  import(/* webpackChunkName: "bcEfElementList" */ 'components/bcEfElementList.js').then(module => {
+    module.bcEfElementList();
+  }).catch(error => {
+    console.log(error);
+  });
+}
+
+
 
 
 

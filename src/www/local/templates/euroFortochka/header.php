@@ -152,7 +152,7 @@
                 &times;
               </button>
             </div>
-            <div class="modal-body">
+            <div class="h-100 modal-body">
               <div class="Cart-GoodsListTmpl" style="display: none">
                 <div class="Cart-GoodsListTmplImg">
                   <img>
@@ -340,7 +340,7 @@
             </div>
           </div>
         </div>
-        <nav class="container MainHeader-Nav">
+        <nav class="container-md MainHeader-Nav">
           <div class="p-3 p-md-0 MainHeader-NavListWrapper">
             <?
               $APPLICATION->IncludeComponent("bitrix:menu", "main_menu", array(

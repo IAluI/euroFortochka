@@ -279,6 +279,8 @@ gulp.task('webpack', function(callback) {
     },
     output: {
       path: path.resolve(__dirname, 'dist/www/local/assets/js'),
+      publicPath: '/local/assets/js/',
+      chunkFilename: '[name]_chunk.js',
       library: 'ef',
     },
     watch: isDevelopment,
