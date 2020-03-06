@@ -2,9 +2,7 @@ import { swiperInit } from 'common/functions.js';
 
 export function index() {
   $(document).ready(() => {
-    let sliderNav = $('.WhyBreezer-Nav').children();
-    //console.log(sliderNav);
-    //console.log(sliderNav[0]);
+    let sliderNav = $('.why-breezer__nav').children();
 
     let whyBreezerSliderParam = {
       speed: 600,
@@ -20,10 +18,8 @@ export function index() {
       autoHeight: true,
       on: {
         slideChange: function () {
-          $(sliderNav[this.activeIndex]).addClass('isActive');
-          $(sliderNav[this.previousIndex]).removeClass('isActive');
-          //console.log(this.activeIndex);
-          //previousIndex
+          $(sliderNav[this.activeIndex]).addClass('why-breezer__nav-item--active');
+          $(sliderNav[this.previousIndex]).removeClass('why-breezer__nav-item--active');
         }
       }
     };
@@ -32,23 +28,26 @@ export function index() {
 
     whyBreezerSliderParam.autoHeight = !breakpoint.matches;
     let whyBreezerSlider = new Swiper(
-      '.WhyBreezer-Compare',
+      '.why-breezer__compare',
       whyBreezerSliderParam
     );
     sliderNav.each((i, el) => {
-      $(el).click(() => {
-        whyBreezerSlider.slideTo(i);
-        $('html, body').animate({
-          scrollTop: $('.WhyBreezer-Compare:first').offset().top
-        }, 350);
+      $(el).hover(() => {
+        if (whyBreezerSlider.activeIndex !== i) {
+          whyBreezerSlider.slideTo(i);
+          $('html, body').animate({
+            scrollTop: $(whyBreezerSlider.el).offset().top
+          }, 350);
+        }
       });
     });
+    console.log(whyBreezerSlider.$el)
 
     let sliderReInit = function () {
       whyBreezerSliderParam.autoHeight = !breakpoint.matches;
       whyBreezerSlider.destroy(false, true);
       whyBreezerSlider = new Swiper(
-        '.WhyBreezer-Compare',
+        '.why-breezer__compare',
         whyBreezerSliderParam
       );
     };

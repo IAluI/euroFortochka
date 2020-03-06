@@ -33,31 +33,38 @@
     </div>
   </div>
 </section>
-<nav class="container">
-  <h2 class="text-center">Навигация по странице</h2>
+<nav class="container page__section">
   <ul
-      class="list-unstyled d-flex justify-content-araund flex-wrap pt-3 m-0 IndexPageNav"
+      class="row page__nav"
   >
-    <li>
+    <li class="col-6 col-md-3 page__nav-item">
       <div>
         <img
             src="/local/assets/img/index/znak.png"
             alt="Восклицательный знак"
         />
       </div>
-      <a href="#why">Что такое проветриватель и зачем он нужен?</a>
+      <a href="#why">
+        Что такое проветриватель
+        <br>
+        и зачем он нужен?
+      </a>
     </li>
-    <li>
+    <li class="col-6 col-md-3 page__nav-item">
       <div>
-                <span
-                    style="font-size: 48px; font-weight: 700; line-height: 2rem"
-                >
-                  ...
-                </span>
+        <span
+            style="font-size: 48px; font-weight: 700; line-height: 2rem"
+        >
+          ...
+        </span>
       </div>
-      <a href="#type">Виды проветривателей</a>
+      <a href="#type">
+        Виды
+        <br>
+        проветривателей
+      </a>
     </li>
-    <li>
+    <li class="col-6 col-md-3 page__nav-item">
       <div>
         <img
             src="/local/assets/img/index/koleso.png"
@@ -65,26 +72,25 @@
         />
       </div>
       <a href="#difference">
-        Отличия проветривателя от других устройств
+        Отличия проветривателя
+        <br>
+        от других устройств
       </a>
     </li>
-    <li>
+    <li class="col-6 col-md-3 page__nav-item">
       <div>
         <img src="/local/assets/img/index/vybor.png" alt="Выбрать" />
       </div>
-      <a href="#compare">Как выбрать проветриватель?</a>
+      <a href="#compare">
+        Как выбрать
+        <br>
+        проветриватель?
+      </a>
     </li>
   </ul>
 </nav>
-<section>
-  <div class="container">
-    <h2 class="text-center">
-      <a class="text-reset" href="#why" id="why" name="why">
-        Зачем нужен проветриватель?
-      </a>
-    </h2>
-  </div>
-  <div class="border-bottom border-top pt-3 mb-3">
+<section class="page__section">
+  <div class="border-bottom border-top pt-3 mb-4">
     <div class="container">
       <p class="Important">
         <i>Проветриватель</i>
@@ -101,20 +107,24 @@
     </div>
   </div>
   <div class="container">
-    <div class="swiper-container WhyBreezer-Compare">
+    <h2 class="page__section-header">
+      <a class="text-reset" href="#why" id="why" name="why">
+        Зачем нужен проветриватель?
+      </a>
+    </h2>
+    <div class="swiper-container why-breezer__compare">
       <div class="swiper-wrapper">
-        <!--.h-auto-->
         <div class="swiper-slide">
           <div class="row h-100">
-            <div class="col-12 col-lg-6 WhyBreezer-CompareColumn">
+            <div class="col-12 col-lg-6">
               <img
-                  class="WhyBreezer-CompareImg"
+                  class="why-breezer__compare-img"
                   src="/local/assets/img/index/with-breezer.svg"
                   alt="Потоки воздуха в квартире с проветривателем"
               />
             </div>
-            <div class="col-12 col-lg-6 WhyBreezer-CompareColumn">
-              <ul class="list-unstyled WhyBreezer-CompareProps">
+            <div class="col-12 col-lg-6">
+              <ul class="why-breezer__compare-props">
                 <li class="mb-3">
                   <img
                       src="/local/assets/img/index/oxygen.png"
@@ -172,15 +182,15 @@
         </div>
         <div class="swiper-slide">
           <div class="row h-100">
-            <div class="col-12 col-lg-6 WhyBreezer-CompareColumn">
+            <div class="col-12 col-lg-6">
               <img
-                  class="WhyBreezer-CompareImg"
+                  class="why-breezer__compare-img"
                   src="/local/assets/img/index/open-window.svg"
                   alt="Потоки воздуха в квартире с открытыми окнами"
               />
             </div>
-            <div class="col-12 col-lg-6 WhyBreezer-CompareColumn">
-              <ul class="list-unstyled WhyBreezer-CompareProps">
+            <div class="col-12 col-lg-6">
+              <ul class="why-breezer__compare-props">
                 <li class="mb-3">
                   <img
                       src="/local/assets/img/index/wind.png"
@@ -217,15 +227,15 @@
         </div>
         <div class="swiper-slide">
           <div class="row h-100">
-            <div class="col-12 col-lg-6 WhyBreezer-CompareColumn">
+            <div class="col-12 col-lg-6">
               <img
-                  class="WhyBreezer-CompareImg"
+                  class="why-breezer__compare-img"
                   src="/local/assets/img/index/close-window.svg"
                   alt="Потоки воздуха в квартире с закрытыми окнами"
               />
             </div>
-            <div class="col-12 col-lg-6 WhyBreezer-CompareColumn">
-              <ul class="list-unstyled WhyBreezer-CompareProps">
+            <div class="col-12 col-lg-6">
+              <ul class="why-breezer__compare-props">
                 <li class="mb-3">
                   <img
                       src="/local/assets/img/index/co2.png"
@@ -282,23 +292,23 @@
       <div class="swiper-pagination"></div>
     </div>
     <div
-        class="d-flex justify-content-around text-center WhyBreezer-Nav"
+        class="why-breezer__nav"
     >
-      <div class="isActive">
+      <div class="why-breezer__nav-item why-breezer__nav-item--active">
         <img
             src="/local/assets/img/index/with-breezer-icon.svg"
             alt="Проветриватель"
         />
         <p>С проветривателем</p>
       </div>
-      <div>
+      <div class="why-breezer__nav-item">
         <img
             src="/local/assets/img/index/open-window-icon.svg"
             alt="Окна открыты"
         />
         <p>Окна открыты</p>
       </div>
-      <div>
+      <div class="why-breezer__nav-item">
         <img
             src="/local/assets/img/index/close-window-icon.svg"
             alt="Окна закрыты"
@@ -308,16 +318,16 @@
     </div>
   </div>
 </section>
-<section>
+<section class="page__section">
   <div class="container">
-    <h2 class="text-center">
+    <h2 class="page__section-header">
       <a class="text-reset" href="#type" id="type" name="type">
         Виды проветривателей
       </a>
     </h2>
     <div class="overflow-auto d-flex TypeBreezer">
       <div>
-        <table class="rounded shadow">
+        <table class="">
           <tbody>
           <tr>
             <th></th>
@@ -458,9 +468,9 @@
     </div>
   </div>
 </section>
-<section>
+<section class="page__section">
   <div class="container">
-    <h2 class="text-center">
+    <h2 class="page__section-header">
       <a
           class="text-reset"
           href="#difference"
@@ -554,9 +564,9 @@
     </div>
   </div>
 </section>
-<section>
+<section class="page__section">
   <div class="container">
-    <h2 class="text-center">
+    <h2 class="page__section-header">
       <a class="text-reset" href="#compare" id="compare" name="compare">
         Сравнение проветривателей
       </a>
@@ -790,9 +800,9 @@
     </div>
   </div>
 </section>
-<section class="WhyWe">
+<section class="page__section WhyWe">
   <div class="container">
-    <h2 class="text-center">
+    <h2 class="page__section-header">
       <a class="text-reset" href="#whyWe" id="whyWe" name="whyWe">
         7 причин выбрать нас
       </a>

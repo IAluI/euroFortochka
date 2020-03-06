@@ -12,28 +12,9 @@
   --swiper-pagination-color: #000;
 }
 
-@function calc-font-size($f-min, $f-max, $v-min, $v-max) {
-  $k: ($f-max - $f-min)/($v-max - $v-min);
-  $b: $f-min - $k * $v-min;
-
-  $b: $b * 1px;
-
-  @return calc( #{$k} * 100vw + #{$b} );
-}
-
-@mixin responsive-font-size($f-min, $f-max, $v-min, $v-max) {
-  font-size: $f-min * 1px;
-  @media (min-width: $v-min * 1px) {
-    font-size: calc-font-size($f-min, $f-max, $v-min, $v-max);
-  }
-  @media (min-width: $v-max * 1px) {
-    font-size: $f-max * 1px;
-  }
-}
-
 html {
   min-width: 320px;
-  @include responsive-font-size(14, 18, 320, 1200);
+  font-size: 14px;
 }
 
 @import "./tmp/icons";
@@ -48,12 +29,51 @@ footer a {
   color: inherit;
 }
 
-.PageWrapper {
+.page {
   height: 100vh;
   display: flex;
   flex-direction: column;
   main {
     flex: 1 0 auto;
+  }
+  &__section {
+    /*padding: {
+      top: 1.5rem;
+      bottom: 1.5rem;
+    };*/
+  }
+  &__section-header {
+    @extend .h2;
+    @extend .text-center;
+    margin: {
+      bottom: 1.5rem;
+    };
+  }
+  &__nav {
+    margin: {
+      top: 1.5rem;
+      bottom: 0;
+    }
+    padding: 0;
+    list-style: none;
+    text-align: center;
+  }
+  &__nav-item {
+    margin-bottom: 1.5rem;
+    > div {
+      height: 2.5rem;
+      margin-bottom: 0.5rem;
+      img {
+        height: 100%;
+      }
+      span {
+        position: relative;
+        bottom: 20%;
+      }
+    }
+    > a {
+      display: block;
+    }
   }
 }
 

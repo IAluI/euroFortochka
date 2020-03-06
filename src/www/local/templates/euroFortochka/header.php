@@ -32,7 +32,7 @@
     </title>
   </head>
   <body>
-    <div itemscope itemtype="http://schema.org/WebPage" class="PageWrapper">
+    <div itemscope itemtype="http://schema.org/WebPage" class="page">
       <div id="panel">
         <?
           $APPLICATION->ShowPanel();
